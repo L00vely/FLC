@@ -4,9 +4,9 @@ export const Navbar = () => {
    
     return (
         <nav>
-            <NavLink to="/">Inicio</NavLink>
-            <NavLink to="/">Servicios</NavLink>
-            <NavLink to="/">Circulares</NavLink>
+            <NavLink exact to="/" className={ ({ isActive }) => `nav-link ${ isActive ? 'active' : '' }`}>Inicio</NavLink>
+            <NavLink to="/services" activeClassName="active-link">Servicios</NavLink>
+            <NavLink to="/circulares" activeClassName="active-link">Circulares</NavLink>
         </nav>
     )
 }
