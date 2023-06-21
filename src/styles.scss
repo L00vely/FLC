@@ -8,9 +8,15 @@ $tertiary-color: #414042;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: $secondary-color;
     font-family: 'Libre Baskerville', serif;
   }
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
   
 /* NAV */
 nav {
@@ -48,12 +54,56 @@ header {
     width: 30%;
 }
 
-.sections-container {
+.info-area{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 90%;
 }
 
-.info-button {
-    height: 20rem;
+
+.sections-container {
+    width: 80%;
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    
+
+}
+
+.section-name{
+    color: $secondary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 5rem;
+  
+
+    h2 {
+        user-select: none;
+        pointer-events: none
+    }
+    
+}
+
+.info-container{
+    width: 100%;
+    height: 50rem;
+    
+}
+
+
+
+.red {
     background-color: $primary-color;
+}
+
+.gray {
+    background-color: $tertiary-color;
 }

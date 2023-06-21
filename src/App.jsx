@@ -1,21 +1,18 @@
-import { BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
-import { Header } from "./components/Header/Header";
-import { Info } from "./components/Info/Info";
+import { Routes, Route, Navigate} from "react-router-dom";
+import { Header } from "./components/Header";
+import { InfoArea } from "./components/InfoSection/InfoArea";
 
 import './styles.scss';
 
 export const App = () => {
   return (
-
-    <Router>
-      <body>
+      <main>
         <Header />
         <Routes>
-          <Route path="/" element={<Info />} />
+          <Route path="/" element={<InfoArea />} />
           
         </Routes>
-
-      </body>
-    </Router> 
+      </main>
+  
   )
 }
