@@ -14,14 +14,16 @@ export const InfoArea = () => {
 
   const changeSection = (position) => {
     setSelectedSection(position);
+    
   }
-  
+
   return (
     <div className="info-area">
       {
         isPantallaGrande ? (
           <InfoWeb 
             changeSection={changeSection}
+            selectedSection={selectedSection}
             imgSrc={imgSrc}
             title={title} 
             description={description}

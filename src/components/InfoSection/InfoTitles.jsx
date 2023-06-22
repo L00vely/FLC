@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 
 
-export const InfoTitles = ({ title, idx, changeSection, isActive }) => {
-    const [ active, setActive ] = useState(isActive);
+export const InfoTitles = ({ title, idx, changeSection, selectedSection = 0 }) => {
+    
     const [ isAnimating, setIsAnimating ] = useState(false);
     const [ timeoutId, setTimeoutId ] = useState(null);
 
@@ -18,7 +18,6 @@ export const InfoTitles = ({ title, idx, changeSection, isActive }) => {
     }, [isAnimating]);
 
     const handleDelayedFunction = () => {
-        setActive(true);
         changeSection(idx);
         setIsAnimating(true);
     };
@@ -36,14 +35,13 @@ export const InfoTitles = ({ title, idx, changeSection, isActive }) => {
     const handleMouseOut = () => {
         clearTimeout(timeoutId); 
         setTimeoutId(null); 
-        setActive(false);
         setIsAnimating(false);
     };
 
 
     return (
         <div
-            className={`section-name ${active ? 'red' : 'gray'}`}            
+            className={`section-name ${selectedSection === idx ? 'red' : 'gray'}`}            
             onMouseOver={handleMouseOver}
             onMouseOut={handleMouseOut}
 
@@ -57,5 +55,5 @@ InfoTitles.propTypes = {
     title: PropTypes.string.isRequired,
     idx: PropTypes.number.isRequired,
     changeSection: PropTypes.func.isRequired,
-    isActive: PropTypes.bool.isRequired
+    selectedSection: PropTypes.number.isRequired
 }

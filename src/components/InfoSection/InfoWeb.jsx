@@ -3,7 +3,7 @@ import { Info } from "./Info";
 import { InfoTitles} from "./InfoTitles";
 
 
-export const InfoWeb = ({ changeSection, imgSrc, title, description }) => {
+export const InfoWeb = ({ changeSection, selectedSection = 0, imgSrc, title, description }) => {
     return (
         <>
             <div className="sections-container">
@@ -12,21 +12,21 @@ export const InfoWeb = ({ changeSection, imgSrc, title, description }) => {
                         title="QUIÉNES SOMOS" 
                         changeSection={changeSection} 
                         idx={0}
-                        isActive={true}
+                        selectedSection={selectedSection}
                 />
 
                 <InfoTitles  
                         title="MISIÓN" 
                         changeSection={changeSection} 
                         idx={1}
-                        isActive={false}
+                        selectedSection={selectedSection}
                 />
 
                 <InfoTitles  
                         title="VISIÓN" 
                         changeSection={changeSection} 
                         idx={2}
-                        isActive={false}
+                        selectedSection={selectedSection}
                 />
                 
             </div>
@@ -40,6 +40,7 @@ export const InfoWeb = ({ changeSection, imgSrc, title, description }) => {
 
 InfoWeb.propTypes = {
     changeSection: PropTypes.func.isRequired,
+    selectedSection: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     imgSrc: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired
