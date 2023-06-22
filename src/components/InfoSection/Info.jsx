@@ -2,17 +2,13 @@ import PropTypes from 'prop-types';
 
 
 export const Info = ({ imgSrc, description, title }) => {
-
-    
-
-
     return (
         <div id='image' className="info-container">
             <div  className="info-image-container">
                 <img  src={imgSrc} alt="" />
             </div>
             <div className="info-text-container">
-                <h1>{title}</h1>
+                <h2>{title}</h2>
                 <p>{description}</p>
             </div>
         </div>

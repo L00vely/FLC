@@ -3,7 +3,24 @@ $primary-color: #A80000;
 $secondary-color: #F3F3F3;
 $tertiary-color: #414042;
 
+/*MIXINS*/
+@mixin flex-center($direction){
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+}
 
+@mixin waveAnimation {
+    @keyframes wave {
+        0% {
+        transform: scale(0);
+        }
+        100% {
+        transform: scale(2);
+        opacity: 0;
+        }
+    }
+}
 
 /*GLOBAL*/
 * {
@@ -13,99 +30,127 @@ $tertiary-color: #414042;
     font-family: 'Libre Baskerville', serif;
   }
 
+body {
+    background-color: $secondary-color;
+}
+
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex-center(column);
     justify-content: center;
-    gap: 2rem;
+    
 }
   
 /* NAV */
 nav {
-    display: flex;
-    flex-direction: row;   
+    @include flex-center(row); 
     gap: 2rem;
-  
+    width: auto;
     a {
         text-decoration: none;
         color: $tertiary-color;
-        
+
         &:active, &:hover{
             color: $primary-color;
-            font-weight: bold;
-            
         }
-       
     }
-
 }
 
 
 /* HEADER */
 header {
+    @include flex-center(row);
+    
     justify-content: space-between;
-    align-items: center;
     width: 100%;
-    padding: 4rem 10rem;
-    height: 5rem;
+    padding: 2rem 4rem;
+    height: auto;
     z-index: 2;
-    display: flex;
-    flex-direction: row;
 }
 
-.header-logo {
-    width: 30%;
+/* BUTTON */
+button {
+    background-color: $primary-color;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: none;
+    color: $secondary-color;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s;
+
+    &:hover{
+        background-color: $secondary-color;
+        color: $primary-color;
+        border: $primary-color solid .1rem;
+
+        &:after {
+            @include waveAnimation;
+            animation: wave 1s ease-out;
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
 }
 
+
+// ÁREA DONDE VA LA INFORMACIÓN
 .info-area{
     display: flex;
     flex-direction: column;
     gap: 1rem;
     width: 80%;
+    padding: 2rem;
 }
 
-
+// AREA DONDE VAN LOS NOMBRES DE QUIENES SOMOS, VISIÓN Y MISIÓN
 .sections-container {
     display: flex;
     gap: 1rem;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     
 }
 
+// Nombre de la informacion (QUIENES SOMOS, VISIÓN, MISIÓN)
 .section-name{
-    
     color: $secondary-color;
-    display: flex;
-    align-items: center;
+    @include flex-center(row);
     justify-content: center;
     width: 33%;
     height: 4rem;
     cursor: pointer;
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 1rem;
+    transition: background-color 0.3s;
 
     h2 {
         user-select: none;
         pointer-events: none;
-        font-size: 2rem;
+        font-size: 1.25em;
+        text-align: center;
     }
-    
 }
 
+// AREA DONDE ESTÁ LA IMAGEN Y EL TEXTO
 .info-container{
     display: grid;
     grid-template-columns: 1.5fr 1fr;
-    
-    height: 30rem;
+    height: auto;
     border-radius: 1rem;
-  
 }
 
+// IMAGEN DE LA INFORMACIÓN
 .info-image-container{
     background-color: #414042;
+    height: 100%;
     overflow: hidden;
 
 
@@ -118,14 +163,16 @@ header {
     }
 }
 
+// CONTENEDOR DEL TEXTO DE LA INFORMACIÓN
 .info-text-container{
     padding: 2rem;
-    display: flex;
+    @include flex-center(row);
     justify-content: center;
-    align-items: center;
+    background-color: $primary-color;
 
-    h1{
+    h2{
         align-self: flex-start;
+        color: $secondary-color;
     }
 }
 
@@ -134,22 +181,27 @@ header {
 
 .active {
     color: $primary-color;
+    font-weight: bold;
 }
 
 .animacion {
-    animation: moveInBottom .0s ease-out .05s;
-    animation-duration: .5s;
+    animation: moveInBottom .0s ease-out .0s;
+    animation-duration: .1s;
 }
 
 .red {
     background-color: $primary-color;
+    transition: background-color 0.3s;
 }
 
 .gray {
     background-color: $tertiary-color;
+    transition: background-color 0.3s;
 }
 
 
+
+/* KEYFRAMES */
 @keyframes moveInBottom {
     0% {
       opacity: 0;
@@ -159,3 +211,37 @@ header {
       transform: translateY(0); 
     } 
 }
+
+/* MEDIA QUERIES */
+
+// Pantallas grandes
+@media screen and (min-width: 768px) {
+    .header-logo {
+        width: 25rem;
+    }
+
+    .sections-container {
+        
+        flex-direction: row;
+    }
+  }
+  
+
+@media screen and (max-width: 768px) {
+    .info-area {
+        background-color: $secondary-color;
+    }
+
+    .header-logo {
+        width: 20rem;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .sections-container{
+        flex-direction: column;
+    }
+}
+

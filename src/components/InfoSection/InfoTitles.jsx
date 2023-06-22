@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 
 
-export const InfoTitles = ({ title, idx, changeSection }) => {
-    const [ active, setActive ] = useState(false);
+export const InfoTitles = ({ title, idx, changeSection, isActive }) => {
+    const [ active, setActive ] = useState(isActive);
     const [ isAnimating, setIsAnimating ] = useState(false);
-    const [timeoutId, setTimeoutId] = useState(null);
+    const [ timeoutId, setTimeoutId ] = useState(null);
 
     useEffect(() => {
         const element = document.getElementById('image');
@@ -24,11 +24,12 @@ export const InfoTitles = ({ title, idx, changeSection }) => {
     };
 
     const handleMouseOver = () => {
+      
         if (timeoutId) {
             clearTimeout(timeoutId); 
         }
 
-        const newTimeoutId = setTimeout(handleDelayedFunction, 10); 
+        const newTimeoutId = setTimeout(handleDelayedFunction, 20); 
         setTimeoutId(newTimeoutId); 
     };
 
@@ -55,5 +56,6 @@ export const InfoTitles = ({ title, idx, changeSection }) => {
 InfoTitles.propTypes = {
     title: PropTypes.string.isRequired,
     idx: PropTypes.number.isRequired,
-    changeSection: PropTypes.func.isRequired
+    changeSection: PropTypes.func.isRequired,
+    isActive: PropTypes.bool.isRequired
 }

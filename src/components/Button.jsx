@@ -1,8 +1,6 @@
 
 import PropTypes from 'prop-types'; 
-export const Button = (props) => {
-
-    const { text } = props;
+export const Button = ({ text }) => {
 
     return (
         <button>{text}</button>
