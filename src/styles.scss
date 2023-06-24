@@ -32,12 +32,15 @@ $tertiary-color: #414042;
 
 body {
     background-color: $secondary-color;
+    padding: 0rem 8rem;
+    @include flex-center(column);
+    gap: 2rem;
 }
 
 main {
     @include flex-center(column);
     justify-content: center;
-    
+    gap: 2rem;
 }
   
 /* NAV */
@@ -106,8 +109,8 @@ button {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: 80%;
-    padding: 2rem;
+    width: 100%;
+ 
 }
 
 // AREA DONDE VAN LOS NOMBRES DE QUIENES SOMOS, VISIÓN Y MISIÓN
@@ -175,6 +178,77 @@ button {
         color: $secondary-color;
     }
 }
+
+
+/* CONTACT */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    height: auto;
+    width: 100%;
+}
+
+
+.map {
+    width: 100%;
+}
+
+
+/* FORM */
+.form-container{
+    padding: 4rem 2rem;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    
+    background-color: $primary-color;
+    
+
+    h2 {
+        color: $secondary-color;
+
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    width: 20rem;
+
+    input::placeholder {
+        color: $secondary-color;
+        opacity: 0.75;
+        font-size: .75rem;
+    }
+
+    input[type="text"], [type="email"]{
+        background-color: #A80000;
+        padding: .5rem;
+        border: $secondary-color .2em solid;
+    }
+
+    input[type="submit"] {
+        background-color: $secondary-color;
+        font-weight: bold;
+        color: $primary-color;
+        padding: .625rem 1.25rem;
+        border: none;
+        cursor: pointer;
+
+        
+      }
+}
+
+
+
+
+
+
+
 
 
 /* AUXILIARES */
