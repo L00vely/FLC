@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
 import { useForm } from '../../hooks/useForm';
 import axios from 'axios';
+import { ContactNav } from './ContactNav';
 
 export const Form= () => {
 
@@ -23,29 +23,43 @@ export const Form= () => {
 
     return (
         <div className='form-container'>
-            <h2>CONTÁCTANOS</h2> 
+            <h2>Contáctanos</h2> 
 
-            {/* BUTTONS MENU */}
+            <ContactNav />
 
             <form onSubmit={handleSubmit}>
-                <input 
-                    type="text" 
-                    placeholder="Nombre"
-                    name="name"
-                    value={ name }
-                    onChange={ onInputChange }
-                    required
-                />
+                
+                <div className='input-container'>
+                    <div className='icon-container'>
+                        <img src={'/public/icons/icons8-usuario-50.png'} alt="Icono de usuario" />
+                    </div>
+                    
+                    <input 
+                        type="text" 
+                        placeholder="Nombre"
+                        name="name"
+                        value={ name }
+                        onChange={ onInputChange }
+                        required
+                    />
+                </div>
+                    
+                <div className='input-container'>
+                    <div className='icon-container'>
+                        <img src={'/public/icons/icons8-nuevo-post-50.png'} alt="Icono de email" />
+                    </div>
 
-                <input 
-                    type="email" 
-                    placeholder="Correo"
-                    name="email"
-                    value={ email }
-                    onChange={ onInputChange }
-                    required
-                />
+                    <input 
+                        type="email" 
+                        placeholder="Correo"
+                        name="email"
+                        value={ email }
+                        onChange={ onInputChange }
+                        required
+                    />
+                </div>
 
+              
                 <input 
                     type="text" 
                     placeholder="Mensaje"
@@ -54,6 +68,10 @@ export const Form= () => {
                     onChange={ onInputChange }
                     required
                 />
+           
+                
+
+                
 
                 <input type="submit" value="Enviar" />
 

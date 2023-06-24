@@ -30,12 +30,6 @@ $tertiary-color: #414042;
     font-family: 'Libre Baskerville', serif;
   }
 
-body {
-    background-color: $secondary-color;
-    padding: 0rem 8rem;
-    @include flex-center(column);
-    gap: 2rem;
-}
 
 main {
     @include flex-center(column);
@@ -109,7 +103,8 @@ button {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: 100%;
+    width: 70%;
+
  
 }
 
@@ -119,7 +114,6 @@ button {
     gap: 1rem;
     align-items: center;
     justify-content: center;
-    
 }
 
 // Nombre de la informacion (QUIENES SOMOS, VISIÓN, MISIÓN)
@@ -185,30 +179,25 @@ button {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     height: auto;
-    width: 100%;
+    width: 70%;
 }
 
 
 .map {
     width: 100%;
+    border: none
 }
 
 
 /* FORM */
 .form-container{
+    @include flex-center(column);
+    justify-items: center;
     padding: 4rem 2rem;
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 2rem;
-    
     background-color: $primary-color;
-    
-
     h2 {
         color: $secondary-color;
-
     }
 }
 
@@ -218,7 +207,7 @@ form {
     gap: 1rem;
     height: 100%;
     width: 20rem;
-
+    
     input::placeholder {
         color: $secondary-color;
         opacity: 0.75;
@@ -226,32 +215,74 @@ form {
     }
 
     input[type="text"], [type="email"]{
-        background-color: #A80000;
+        background-color: $primary-color;
         padding: .5rem;
-        border: $secondary-color .2em solid;
-    }
+        border: $secondary-color .15em solid;
+        
+        &:focus {
+            outline: none;
+            color: $secondary-color;
+        }
+    }   
 
     input[type="submit"] {
         background-color: $secondary-color;
-        font-weight: bold;
-        color: $primary-color;
         padding: .625rem 1.25rem;
         border: none;
         cursor: pointer;
+    }
+    
+   
+}
 
-        
-      }
+.input-container{
+    display: grid;
+    grid-template-columns: 15% 85%;
+    padding: 0;
+
+    .icon-container {
+        border-top: $secondary-color .15em solid;
+        border-left: $secondary-color .15em solid;
+        border-bottom: $secondary-color .15em solid;
+
+        img {
+            width: 35px;
+            height: 35px;
+        }
+    }
+}
+
+.contact-buttons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding: .75rem 2rem ;
+
+    border-radius: 1rem;
+    background-color: $secondary-color;
+
+    .icon-container img {
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+    }
 }
 
 
 
 
 
-
-
-
-
 /* AUXILIARES */
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    padding: .2rem .1rem;
+}
+
+
 
 .active {
     color: $primary-color;
