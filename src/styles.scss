@@ -30,6 +30,9 @@ $tertiary-color: #414042;
     font-family: 'Libre Baskerville', serif;
   }
 
+body{
+    background-color: $secondary-color;
+}
 
 main {
     @include flex-center(column);
@@ -173,6 +176,40 @@ button {
     }
 }
 
+/* SERVICIOS */
+.services-container{
+    @include flex-center(column);
+    gap: 2rem;
+    width: 70%;
+
+    h2 {
+        color: $primary-color;
+    }
+}
+
+.services-grid-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+
+.service-card-container{
+    background-color: white;
+    padding: 2rem;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+    p {
+        font-size: 1em;
+        text-align: justify;
+    }
+}
+
+
 
 /* CONTACT */
 .contact-container {
@@ -185,6 +222,7 @@ button {
 
 .map {
     width: 100%;
+    height: 100%;
     border: none
 }
 
@@ -241,6 +279,9 @@ form {
     padding: 0;
 
     .icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         border-top: $secondary-color .15em solid;
         border-left: $secondary-color .15em solid;
         border-bottom: $secondary-color .15em solid;
@@ -275,14 +316,8 @@ form {
 /* AUXILIARES */
 
 .icon-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   
     padding: .2rem .1rem;
 }
-
-
 
 .active {
     color: $primary-color;
@@ -304,7 +339,10 @@ form {
     transition: background-color 0.3s;
 }
 
-
+.link {
+    text-decoration: none;
+    color: $primary-color;
+}
 
 /* KEYFRAMES */
 @keyframes moveInBottom {
