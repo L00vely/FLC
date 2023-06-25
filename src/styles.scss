@@ -344,6 +344,23 @@ form {
     color: $primary-color;
 }
 
+.view-more-container{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: .5rem;
+    text-decoration: none;
+
+
+    .icon-container img {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+}
+
 /* KEYFRAMES */
 @keyframes moveInBottom {
     0% {

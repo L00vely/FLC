@@ -1,43 +1,43 @@
 export const services = [
     {
-        iconUrl: '',
+        imgSrc: 'estimar',
         title: "Contabilidad",
-        description: ""  
+        description: "Brindamos servicios de información contable, fiscal y financiera para la toma de decisiones. Esto incluye el procesamiento de información, el cumplimiento fiscal y la supervisión contable."  
     },
     {
-        iconUrl: '',
+        imgSrc: 'recibo',
         title: "Asesoria y consultoria fiscal",
-        description: ""  
+        description: "Brindamos servicios de asesoría fiscal y consultoría especializada para ayudar a individuos y empresas a cumplir con sus obligaciones fiscales y optimizar su situación fiscal."  
     },
     {
-        iconUrl: '',
+        imgSrc: 'documento-de-política',
         title: "Asesoria legal",
-        description: ""  
+        description: "Proporcionamos asesoría legal especializada y efectiva en diversas áreas para proteger los intereses de nuestros clientes de manera integral."  
     },
     {
-        iconUrl: '',
+        imgSrc: 'legal',
         title: "Litigio fiscal",
-        description: ""  
+        description: "Ofrecemos servicios de litigio fiscal especializado para proteger los intereses de nuestros clientes en disputas tributarias y lograr resultados favorables."  
     },
     {
-        iconUrl: '',
+        imgSrc: 'conseguir-dinero-en-efectivo',
         title: "Esquemas de remuneración para ejecutivos",
-        description: ""  
+        description: "Brindamos esquemas de remuneración para personal y ejecutivos, poniendo especial atención en el debido cumplimiento de las disposiciones fiscales y legales. Estamos ofreciendo el servicio de REPSE."  
     },
     {
-        iconUrl: '',
+        imgSrc: 'corporativo',
         title: "Asesoria corporativa",
-        description: ""  
+        description: "Elaboramos y supervisamos actas de asamblea de accionistas ordinarios y extraordinarios. Brindamos apoyo para elaboración de estatutos, auditoria legal, así como elaboración de demandas civiles y mercantiles, contrato civiles, mercantiles y laborales."  
     },
     {
-        iconUrl: '',
+        imgSrc: 'apretón-de-manos',
         title: "Relaciones institucionales",
-        description: ""  
+        description: "Atendemos las necesidades de la empresa cuando requieren apoyo de las autoridades estatales o municipales, así como de la Ciudad de México y otras entidades de la república."  
     },
     {
-        iconUrl: '',
+        imgSrc: 'reembolso',
         title: "Devolución de contribuciones o saldo a favor ante autoridades fiscales",
-        description: ""  
+        description: "Apoyamos a las empresas en la obtención de devoluciones de contribuciones, compensaciones, o cualquier trámite que necesite realizar la empresa con motivo de sus operaciones."  
     },
   
   ]
