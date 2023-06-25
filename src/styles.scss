@@ -107,8 +107,6 @@ button {
     flex-direction: column;
     gap: 1rem;
     width: 70%;
-
- 
 }
 
 // AREA DONDE VAN LOS NOMBRES DE QUIENES SOMOS, VISIÓN Y MISIÓN
@@ -206,6 +204,7 @@ button {
     p {
         font-size: 1em;
         text-align: justify;
+        color: $tertiary-color;
     }
 }
 
@@ -309,8 +308,48 @@ form {
     }
 }
 
+/* FOOTER */
+.footer-container{
+    @include flex-center(column);
+    gap: 1rem;
+    width: 100%;
+    
+}
 
+.footer-top-container{
+    @include flex-center(row);
+    justify-content: space-between;
+    padding: 2rem 10rem;
+    width: 100%;
+}
 
+.footer-bottom-container{
+    border-top: $primary-color .2rem solid;
+    padding: 2rem;
+    width: 100%;
+    text-align: center;
+    color: $primary-color;
+    font-weight: bold;
+}
+
+.footer-info-container{
+    h3 {
+        text-align: center;
+    }
+}
+
+.footer-item-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+
+    .icon-container img {
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+    }
+}
 
 
 /* AUXILIARES */

@@ -9,7 +9,6 @@ export const HomePage = () => {
             <InfoArea />
             <Services />
             <Contact />
-        
         </>
 
         

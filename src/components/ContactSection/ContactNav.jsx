@@ -1,22 +1,32 @@
+import { Link } from "react-router-dom"
 
 export const ContactNav = () => {
     return (
         <div className="contact-buttons-container">
-            <div className='icon-container'>
-                <img src={'/public/icons/icons8-whatsapp-50.png'} alt="Icono de Whatsapp" />
-            </div>
+            <Link to="https://wa.me/1234567890">  
+                <div className='icon-container'>
+                    <img src={'/public/icons/icons8-whatsapp-50.png'} alt="Icono de Whatsapp" />
+                </div>
+            </Link>
             
-            <div className='icon-container'>
-                <img src={'/public/icons/icons8-linkedin-50.png'} alt="Icono de LinkedIn" />
-            </div>
+            <Link to="https://www.linkedin.com/">
+                <div className='icon-container'>
+                    <img src={'/public/icons/icons8-linkedin-50.png'} alt="Icono de LinkedIn" />
+                </div>
+            </Link>
+            
+            <Link to="https://www.messenger.com/">
+                <div className='icon-container'>
+                    <img src={'/public/icons/icons8-facebook-messenger-50.png'} alt="Icono de Messenger" />
+                </div>
+            </Link>
         
-            <div className='icon-container'>
-                <img src={'/public/icons/icons8-facebook-messenger-50.png'} alt="Icono de Messenger" />
-            </div>
-
-            <div className='icon-container'>
-                <img src={'/public/icons/icons8-gmail-50.png'} alt="Icono de Gmail" />
-            </div>
+            <Link to="mailto:fiscallegumcorporatum@gmail.com">
+                <div className='icon-container'>
+                    <img src={'/public/icons/icons8-gmail-50.png'} alt="Icono de Gmail" />
+                </div>
+            </Link>
+            
         </div>
     )
 }
