@@ -31,7 +31,7 @@ export const Form= () => {
                 
                 <div className='input-container'>
                     <div className='icon-container'>
-                        <img src={'/public/icons/icons8-usuario-50.png'} alt="Icono de usuario" />
+                        <img src={'/icons/icons8-usuario-50.png'} alt="Icono de usuario" />
                     </div>
                     
                     <input 
@@ -46,7 +46,7 @@ export const Form= () => {
                     
                 <div className='input-container'>
                     <div className='icon-container'>
-                        <img src={'/public/icons/icons8-nuevo-post-50.png'} alt="Icono de email" />
+                        <img src={'/icons/icons8-nuevo-post-50.png'} alt="Icono de email" />
                     </div>
 
                     <input 
