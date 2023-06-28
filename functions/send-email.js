@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(cors()); // Aplica el middleware cors a todas las rutas
 
 // Ruta para enviar el correo electrónico
-app.post('/api/contacto', async (req, res) => {
+app.post('/.netlify/functions/send-email', async (req, res) => {
   try {
     const { name, email, message } = req.body;
     // Configuración del transporte de Nodemailer
