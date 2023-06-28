@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 export const ContactNav = () => {
     return (
         <div className="contact-buttons-container">
-            <Link to="https://wa.me/1234567890">  
+            <Link to="https://wa.me/525514178078">  
                 <div className='icon-container'>
                     <img src={'/icons/icons8-whatsapp-50.png'} alt="Icono de Whatsapp" />
                 </div>

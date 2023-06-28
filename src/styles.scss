@@ -164,13 +164,21 @@ button {
 // CONTENEDOR DEL TEXTO DE LA INFORMACIÓN
 .info-text-container{
     padding: 2rem;
-    @include flex-center(row);
+    @include flex-center(column);
     justify-content: center;
-    background-color: $primary-color;
+    align-items: center;
+    background-color: $secondary-color;
+    gap: 1rem;
 
     h2{
-        align-self: flex-start;
-        color: $secondary-color;
+        border-bottom: $primary-color .1rem solid;
+        color: $primary-color;
+    }
+
+    p {
+        color: $primary-color;
+        font-size: .75em;
+        text-align: justify;
     }
 }
 
@@ -209,6 +217,13 @@ button {
 }
 
 
+/* SERVICE */
+.service-container {
+    h2 {
+        color: $primary-color;
+    }
+}
+
 
 /* CONTACT */
 .contact-container {
@@ -245,20 +260,31 @@ form {
     height: 100%;
     width: 20rem;
     
+    
     input::placeholder {
-        color: $secondary-color;
+        color: $primary-color;
         opacity: 0.75;
         font-size: .75rem;
     }
 
     input[type="text"], [type="email"]{
-        background-color: $primary-color;
+        
         padding: .5rem;
         border: $secondary-color .15em solid;
-        
+        background-color: $secondary-color;
+        transition: background-color 0.5s ease;
+
         &:focus {
             outline: none;
             color: $secondary-color;
+            background-color: $primary-color;
+            transition: background-color 0.5s ease;
+
+            &::placeholder {
+                color: $secondary-color;
+                
+            }
+        
         }
     }   
 
@@ -267,6 +293,13 @@ form {
         padding: .625rem 1.25rem;
         border: none;
         cursor: pointer;
+        transition: background-color 0.5s ease;
+
+        &:hover {
+            background-color: #A80000;
+            border: $secondary-color .15rem solid;
+            color: $secondary-color;
+        }
     }
     
    
@@ -275,10 +308,10 @@ form {
 .input-container{
     display: grid;
     grid-template-columns: 15% 85%;
-    padding: 0;
-
+    
     .icon-container {
         display: flex;
+
         align-items: center;
         justify-content: center;
         border-top: $secondary-color .15em solid;
@@ -288,6 +321,7 @@ form {
         img {
             width: 35px;
             height: 35px;
+            padding: .2rem;
         }
     }
 }
@@ -343,6 +377,8 @@ form {
     flex-direction: row;
     align-items: center;
     gap: .5rem;
+    text-decoration: none;
+    color: $tertiary-color;
 
     .icon-container img {
         width: 25px;
