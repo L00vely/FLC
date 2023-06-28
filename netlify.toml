@@ -1,6 +1,8 @@
 [build]
-  functions = "functions"
+  command = "npm run build"
+  functions = "functions"  
 
 [[functions]]
   path = "send-email"
   command = "node functions/send-email.js"
+
