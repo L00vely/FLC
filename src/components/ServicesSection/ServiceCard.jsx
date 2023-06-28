@@ -25,8 +25,8 @@ export const ServiceCard = ( { title, imgSrc, description}) => {
 }
 
 ServiceCard.propTypes = {
-    title: PropTypes.array.isRequired,
-    imgSrc: PropTypes.array.isRequired,
-    description: PropTypes.array.isRequired,
+    title: PropTypes.string.isRequired,
+    imgSrc: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
 }
 

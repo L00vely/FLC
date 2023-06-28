@@ -1,23 +1,29 @@
+import { useRef } from 'react';
 import { useForm } from '../../hooks/useForm';
-import axios from 'axios';
 import { ContactNav } from './ContactNav';
+import emailjs from '@emailjs/browser';
 
 export const Form= () => {
 
-    const { onInputChange, name, email, message } = useForm({
-        name: '',
-        email: '',
+    const { onInputChange, user_name, user_email, message } = useForm({
+        user_name: '',
+        user_email: '',
         message: ''
     });
+
+    const form = useRef();
     
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        try {
-          await axios.post('http://localhost:3001/api/contacto', { name, email, message });
-          alert('El correo ha sido enviado correctamente.');
-        } catch (error) {
-            alert('No se pudo enviar el correo.');
-        }
+
+        emailjs.sendForm('service_h8ch5l3', 'template_ou3y0c9', form.current, 'erUHIAK9bggdXcghE')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+
+        alert('Correo enviado');
       };
 
 
@@ -27,7 +33,7 @@ export const Form= () => {
 
             <ContactNav />
 
-            <form onSubmit={handleSubmit} name="contact" method="POST" netlify>
+            <form onSubmit={handleSubmit} name="contact" ref={form}>
                 
                 <div className='input-container'>
                     <div className='icon-container'>
@@ -37,8 +43,8 @@ export const Form= () => {
                     <input 
                         type="text" 
                         placeholder="Nombre"
-                        name="name"
-                        value={ name }
+                        name="user_name"
+                        value={ user_name }
                         onChange={ onInputChange }
                         required
                     />
@@ -52,8 +58,8 @@ export const Form= () => {
                     <input 
                         type="email" 
                         placeholder="Correo"
-                        name="email"
-                        value={ email }
+                        name="user_email"
+                        value={ user_email }
                         onChange={ onInputChange }
                         required
                     />
@@ -68,18 +74,8 @@ export const Form= () => {
                     onChange={ onInputChange }
                     required
                 />
-           
-                
-
-                
-
                 <input type="submit" value="Enviar" />
-
-
             </form>
-
-           
-
         </div>
     )
 }
