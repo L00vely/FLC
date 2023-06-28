@@ -1,1 +1,1 @@
-/.netlify/functions/send-email    200
+/api/*    http://localhost:3001/:splat    200
