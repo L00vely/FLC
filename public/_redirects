@@ -1,2 +1,1 @@
-/api/*  http://localhost:3001/:splat  200
-/api/*    /.netlify/functions/sendEmail    200
+/api/contacto    http://localhost:3001/api/contacto    200

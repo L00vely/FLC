@@ -27,7 +27,7 @@ export const Form= () => {
 
             <ContactNav />
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} name="contact" method="POST" netlify>
                 
                 <div className='input-container'>
                     <div className='icon-container'>
