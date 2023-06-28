@@ -5,12 +5,13 @@ export const Navbar = () => {
    
     return (
         <nav>
-            <NavLink to="/" className={ ({ isActive }) => `nav-link ${ isActive ? 'active' : '' }`}>Inicio</NavLink>
-            <NavLink to="/servicios" className={ ({ isActive }) => `nav-link ${ isActive ? 'active' : '' }`}>Servicios</NavLink>
-            <NavLink to="/circulares" className={ ({ isActive }) => `nav-link ${ isActive ? 'active' : '' }`}>Circulares</NavLink>
-            <Link to="/contacto">
-                <Button text="Contáctanos"/>
+            <NavLink exact to="/" activeClassName="active" title="Inicio">Inicio</NavLink>
+            <NavLink to="/servicios" activeClassName="active" title="Nuestros Servicios">Servicios</NavLink>
+            <NavLink to="/circulares" activeClassName="active" title="Circulares">Circulares</NavLink>
+            <Link to="/contacto" title="Contáctanos">
+                <Button text="Contáctanos" title="Ir a la página de contacto" ariaLabel="Ir a la página de contacto"/>
             </Link>
         </nav>
+      
     )
 }

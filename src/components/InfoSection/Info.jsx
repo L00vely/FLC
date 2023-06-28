@@ -8,7 +8,7 @@ export const Info = ({ imgSrc, description, title }) => {
                 <img  src={imgSrc} alt="" />
             </div>
             <div className="info-text-container">
-                <h2>{title}</h2>
+                <h1>{title}</h1>
                 <p>{description}</p>
             </div>
         </div>

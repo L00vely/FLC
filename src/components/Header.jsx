@@ -5,11 +5,11 @@ import { Navbar } from "./Navbar";
 
 export const Header =  () => {
     return(
-        <header>
-          <Link to="/">
-            <img className="header-logo" src={'/logos/logo_letras.png'} alt="Fiscal Legum Corporatum Logo"/>
-          </Link>
-          <Navbar />
-        </header>
+      <header>
+        <Link to="/" title="Fiscal Legum Corporatum">
+          <img className="header-logo" src="/logos/logo_letras.png" alt="Logo de Fiscal Legum Corporatum" />
+        </Link>
+        <Navbar />
+      </header>
     );
 }

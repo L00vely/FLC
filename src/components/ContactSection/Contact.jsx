@@ -4,10 +4,10 @@ import { Map } from "./Map"
 
 export const Contact = () => {
     return (
-        <div className="contact-container">
+        <section className="contact-container">
             <Map />
             
             <Form />
-        </div>
+        </section>
     )
 }

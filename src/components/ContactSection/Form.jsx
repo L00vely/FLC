@@ -24,58 +24,59 @@ export const Form= () => {
         });
 
         alert('Correo enviado');
+        
       };
 
 
     return (
-        <div className='form-container'>
-            <h2>Contáctanos</h2> 
-
-            <ContactNav />
-
-            <form onSubmit={handleSubmit} name="contact" ref={form}>
-                
-                <div className='input-container'>
-                    <div className='icon-container'>
-                        <img src={'/icons/icons8-usuario-50.png'} alt="Icono de usuario" />
-                    </div>
-                    
-                    <input 
-                        type="text" 
-                        placeholder="Nombre"
-                        name="user_name"
-                        value={ user_name }
-                        onChange={ onInputChange }
-                        required
-                    />
-                </div>
-                    
-                <div className='input-container'>
-                    <div className='icon-container'>
-                        <img src={'/icons/icons8-nuevo-post-50.png'} alt="Icono de email" />
-                    </div>
-
-                    <input 
-                        type="email" 
-                        placeholder="Correo"
-                        name="user_email"
-                        value={ user_email }
-                        onChange={ onInputChange }
-                        required
-                    />
-                </div>
-
-              
-                <input 
-                    type="text" 
-                    placeholder="Mensaje"
-                    name="message"
-                    value={ message }
-                    onChange={ onInputChange }
-                    required
-                />
-                <input type="submit" value="Enviar" />
-            </form>
-        </div>
+      <div className="form-container">
+        <h2>CONTÁCTANOS</h2>
+      
+        <ContactNav />
+      
+        <form onSubmit={handleSubmit} name="contact" ref={form}>
+          <div className="input-container">
+            <div className="icon-container">
+              <img src="/icons/icono-usuario.png" alt="Icono de usuario" />
+            </div>
+      
+            <input
+              type="text"
+              placeholder="Nombre"
+              name="user_name"
+              value={user_name}
+              onChange={onInputChange}
+              required
+            />
+          </div>
+      
+          <div className="input-container">
+            <div className="icon-container">
+              <img src="/icons/icono-correo.png" alt="Icono de correo" />
+            </div>
+      
+            <input
+              type="email"
+              placeholder="Correo"
+              name="user_email"
+              value={user_email}
+              onChange={onInputChange}
+              required
+            />
+          </div>
+      
+          <input
+            type="text"
+            placeholder="Mensaje"
+            name="message"
+            value={message}
+            onChange={onInputChange}
+            required
+          />
+      
+          <input type="submit" value="Enviar" />
+        </form>
+      </div>
+      
     )
 }

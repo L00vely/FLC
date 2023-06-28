@@ -8,8 +8,8 @@ export const ServicePage = ( ) => {
     serviceTitle = serviceTitle.replace(/_/g, " ");
 
     return (
-        <div className="service-container">
-            <h2>{ serviceTitle }</h2>
-        </div>
+        <main>
+            <h1>{ serviceTitle }</h1>
+        </main>
     )
 }

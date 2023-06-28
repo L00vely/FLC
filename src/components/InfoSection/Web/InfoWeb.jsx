@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'; 
-import { Info } from "./Info";
-import { InfoTitles} from "./InfoTitles";
+import { Info } from "../Info";
+import { InfoTitles} from "../InfoTitles";
 
 
 export const InfoWeb = ({ changeSection, selectedSection = 0, imgSrc, title, description }) => {

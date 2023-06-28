@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import { useMediaQuery } from 'react-responsive';
-import { InfoWeb } from "./InfoWeb";
-import { InfoMovil } from "./InfoMovil";
+import { InfoWeb } from "./Web/InfoWeb";
+import { InfoMovil } from "./Mobile/InfoMovil";
 import { sections } from "../../util/sections";
 
 
@@ -18,7 +18,7 @@ export const InfoArea = () => {
   }
 
   return (
-    <div className="info-area">
+    <section className="info-area">
       {
         isPantallaGrande ? (
           <InfoWeb 
@@ -32,7 +32,7 @@ export const InfoArea = () => {
           <InfoMovil sections={sections}/>
         )
       }
-    </div>
+    </section>
    
   )
 }

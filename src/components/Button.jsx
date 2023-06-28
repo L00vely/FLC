@@ -1,12 +1,14 @@
 
 import PropTypes from 'prop-types'; 
-export const Button = ({ text }) => {
+export const Button = ({ text, title, ariaLabel }) => {
 
     return (
-        <button>{text}</button>
+        <button  title={title} aria-label={ariaLabel}>{text}</button>
     )
 }
 
 Button.propTypes = {
-    text: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    ariaLabel: PropTypes.string.isRequired
 }

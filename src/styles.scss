@@ -34,10 +34,11 @@ body{
     background-color: $secondary-color;
 }
 
-main {
+main, section {
     @include flex-center(column);
     justify-content: center;
-    gap: 2rem;
+    gap: 4rem 0rem;
+    
 }
   
 /* NAV */
@@ -101,12 +102,13 @@ button {
 }
 
 
+
 // ÁREA DONDE VA LA INFORMACIÓN
 .info-area{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: 70%;
+    width: 100%;
 }
 
 // AREA DONDE VAN LOS NOMBRES DE QUIENES SOMOS, VISIÓN Y MISIÓN
@@ -122,7 +124,7 @@ button {
     color: $secondary-color;
     @include flex-center(row);
     justify-content: center;
-    width: 33%;
+  
     height: 4rem;
     cursor: pointer;
     border-radius: 1rem;
@@ -170,15 +172,21 @@ button {
     background-color: $secondary-color;
     gap: 1rem;
 
-    h2{
-        border-bottom: $primary-color .1rem solid;
+    h1{
+  
+        font-size: 3em;
+        border-bottom: $primary-color .2rem solid;
         color: $primary-color;
+        text-align: center;
+ 
     }
 
     p {
-        color: $primary-color;
-        font-size: 1em;
+        color: $tertiary-color;
+        font-size: 1.25em;
         text-align: justify;
+        padding: 2rem;
+ 
     }
 }
 
@@ -186,10 +194,15 @@ button {
 .services-container{
     @include flex-center(column);
     gap: 2rem;
-    width: 70%;
+    width: 100%;
+    padding: 0 8rem;
 
     h2 {
         color: $primary-color;
+    }
+
+    p {
+        font-size: 1.25em;
     }
 }
 
@@ -230,7 +243,7 @@ button {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     height: auto;
-    width: 70%;
+    width: 100%;
 }
 
 
@@ -326,6 +339,8 @@ form {
     }
 }
 
+
+
 .contact-buttons-container {
     display: flex;
     flex-direction: row;
@@ -340,6 +355,15 @@ form {
         height: 35px;
         cursor: pointer;
     }
+
+    .contact-nav-link-container{
+        @include flex-center(column);
+
+        justify-content: center;
+        text-decoration: none;
+        color: $primary-color;
+        gap: .2rem;
+    }
 }
 
 /* FOOTER */
@@ -347,7 +371,7 @@ form {
     @include flex-center(column);
     gap: 1rem;
     width: 100%;
-    
+    background-color: $secondary-color;
 }
 
 .footer-top-container{

@@ -5,11 +5,14 @@ import { Services } from '../ServicesSection/Services';
 export const HomePage = () => {
 
     return (
-        <>
+        <main>
             <InfoArea />
+
+
             <Services />
+        
             <Contact />
-        </>
+        </main>
 
         
     )

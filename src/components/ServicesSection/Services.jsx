@@ -6,9 +6,10 @@ export const Services = () => {
     
     
     return (
-        <div className="services-container">
+        <section className="services-container">
+            
             <h2>SERVICIOS</h2>
-            <h3>Nuestras áreas son las siguientes</h3>
+            <p>Nuestras áreas son las siguientes</p>
             <div className="services-grid-container">
                 {
                     services.map( service => (
@@ -18,6 +19,6 @@ export const Services = () => {
             </div>
             
 
-        </div>
+        </section>
     )
 }

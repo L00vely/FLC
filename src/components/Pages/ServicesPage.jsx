@@ -2,6 +2,9 @@ import { Services } from "../ServicesSection/Services"
 
 export const ServicesPage = () => {
     return (
-       <Services />
+        <main>
+            <h1>SERVICIOS</h1>
+            <Services />
+        </main>
     )
 }
