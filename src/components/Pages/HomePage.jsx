@@ -5,10 +5,10 @@ import { Services } from '../ServicesSection/Services';
 export const HomePage = () => {
 
     return (
-        <main>
+        <main className="animate__animated animate__fadeIn">
             <InfoArea />
 
-
+            <h2>SERVICIOS</h2>
             <Services />
         
             <Contact />

@@ -1,4 +1,5 @@
-import { Routes, Route, Navigate} from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route, Navigate, useLocation} from "react-router-dom";
 import { Header } from "./components/Header";
 import { HomePage } from "./components/Pages/HomePage";
 import { ServicesPage } from "./components/Pages/ServicesPage";
@@ -8,7 +9,15 @@ import { Footer } from "./components/Footer";
 import './styles.scss';
 import { CircularesPage } from "./components/Pages/CircularesPage";
 
+
 export const App = () => {
+  const location = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  
+  
   return (
       <>
         <Header />
@@ -18,6 +27,8 @@ export const App = () => {
           <Route path="/servicios/:servicio" element={<ServicePage />} />
           <Route path="/circulares" element={<CircularesPage />} />
           <Route path="/contacto" element={<ContactPage />} />
+          <Route path="/*" element={<Navigate to="/" />}/>
+          <Route path="/servicios/*" element={<Navigate to="/servicios" />}/>
         </Routes>
         <Footer />
       </>

@@ -6,9 +6,9 @@ export const Services = () => {
     
     
     return (
-        <section className="services-container">
+        <section className="services-container animate__animated animate__fadeIn">
             
-            <h2>SERVICIOS</h2>
+         
             <p>Nuestras áreas son las siguientes</p>
             <div className="services-grid-container">
                 {

@@ -2,6 +2,8 @@ import { useRef } from 'react';
 import { useForm } from '../../hooks/useForm';
 import { ContactNav } from './ContactNav';
 import emailjs from '@emailjs/browser';
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 export const Form= () => {
 
@@ -23,14 +25,14 @@ export const Form= () => {
             console.log(error.text);
         });
 
-        alert('Correo enviado');
+        Swal.fire('Formulario enviado', 'Gracias por comunicarte con nosotros.');
         
       };
 
 
     return (
       <div className="form-container">
-        <h2>CONTÁCTANOS</h2>
+        <h2>Contáctanos</h2>
       
         <ContactNav />
       

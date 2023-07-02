@@ -9,8 +9,7 @@ export const Footer = () => {
           </Link>
       
           <div className="footer-info-container">
-            <h3>Contacto</h3>
-      
+   
             <a href="https://goo.gl/maps/XZurWR7Yz2sjzdGa8" className="footer-item-container" target="_blank">
               <div className="icon-container">
                 <img src="/icons/icono-mapa.png" alt="Icono de Google Maps" />

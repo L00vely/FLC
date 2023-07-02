@@ -1,17 +1,35 @@
 import { NavLink,Link } from "react-router-dom";
 import { Button } from "./Button";
+import { useState, useEffect } from "react";
 
 export const Navbar = () => {
-   
+  
+    const [isSticky, setIsSticky] = useState(false);
+    
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsSticky(true);
+            } else {
+                setIsSticky(false);
+            }
+        };
+        
+            window.addEventListener('scroll', handleScroll);
+    
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+    
     return (
-        <nav>
-            <NavLink exact to="/" activeClassName="active" title="Inicio">Inicio</NavLink>
-            <NavLink to="/servicios" activeClassName="active" title="Nuestros Servicios">Servicios</NavLink>
-            <NavLink to="/circulares" activeClassName="active" title="Circulares">Circulares</NavLink>
-            <Link to="/contacto" title="Contáctanos">
-                <Button text="Contáctanos" title="Ir a la página de contacto" ariaLabel="Ir a la página de contacto"/>
-            </Link>
-        </nav>
-      
+        <nav className={`navbar ${isSticky ? 'sticky' : ''}`}>
+        <NavLink to="/" title="Inicio">Inicio</NavLink>
+        <NavLink to="/servicios" title="Nuestros Servicios">Servicios</NavLink>
+        <NavLink to="/circulares" title="Ir a la página de circulares">Circulares</NavLink>
+        <NavLink to="/contacto" title="Ir a la página de contacto">Contáctanos</NavLink>
+       
+    </nav>
+    
     )
 }
