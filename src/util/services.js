@@ -2,7 +2,7 @@ export const services = [
     {
         imgSrc: 'estimar',
         title: "Contabilidad",
-        description: "Brindamos servicios de información contable, fiscal y financiera para la toma de decisiones. Esto incluye el procesamiento de información, el cumplimiento fiscal y la supervisión contable."  
+        description: "Brindamos servicios de información contable, fiscal y financiera para la toma de decisiones. Esto incluye el procesamiento de información, el cumplimiento fiscal y la supervisión contable.",  
     },
     {
         imgSrc: 'recibo',

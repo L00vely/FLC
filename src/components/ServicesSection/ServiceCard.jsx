@@ -8,7 +8,7 @@ export const ServiceCard = ( { title, imgSrc, description}) => {
     return (
         <div className='service-card-container'>
             <div className='icon-container'>
-                <img src={ imgUrl } alt="Icono de Whatsapp" />
+                <img src={ imgUrl } alt={`Icono del servicio de ${title}`} />
             </div>
 
             <h3> { title }</h3>

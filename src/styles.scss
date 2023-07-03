@@ -256,10 +256,45 @@ bbutton {
 
 
 /* SERVICE */
-.service-container {
-    h2 {
+.service-top-container{
+    @include flex-center(column);
+    gap: 2rem;
+    
+    h1 {
         color: $primary-color;
     }
+
+    .icon-container {
+        background-color: $primary-color;
+        @include flex-center(column);
+        padding: 3rem;
+        border-radius: 20rem;
+        width:  fit-content;
+
+        img {
+            width: 100px;
+            height: 100px;
+           
+        }
+    }
+}
+
+.service-body-container {
+    @include flex-center(column);
+    justify-content: center;
+    gap: 2rem;
+    background-color: $secondary-color;
+    padding: 0 6rem;
+    
+    font-size: 1em;
+    line-height: 2em;
+    
+
+    strong {
+        color: $primary-color;
+    }
+
+
 }
 
 
@@ -488,6 +523,18 @@ form {
         display: flex;
         align-items: center;
     }
+}
+
+.two-columns{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.column {
+    @include flex-center(column);
+    gap: 2rem;
+    text-align: justify;
 }
 
 /* KEYFRAMES */
