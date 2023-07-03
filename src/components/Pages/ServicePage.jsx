@@ -3,6 +3,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getService } from "../../helpers/getService";
 import { Contabilidad } from "./services/Contabilidad";
 import { ConsultoriaFiscal } from "./services/ConsultoriaFiscal";
+import { AsesoriaLegal } from "./services/AsesoriaLegal";
+import { Contact } from "../ContactSection/Contact";
+import { LitigioFiscal } from "./services/LitigioFiscal";
+import { Remuneracion } from "./services/Remuneracion";
+import { AsesoriaCorporativa } from "./services/AsesoriaCorporativa";
+import { RelacionesInstitucionales } from "./services/RelacionesInstitucionales";
+import { Devolucion } from "./services/Devolucion";
 
 
 export const ServicePage = ( ) => {
@@ -38,12 +45,34 @@ export const ServicePage = ( ) => {
             {   serviceTitle === "CONTABILIDAD" ? (
                 <Contabilidad />
             ) : (
-                serviceTitle === "ASESORIA Y CONSULTORIA FISCAL" ? (
-                    <ConsultoriaFiscal />
-                ) : ( <h2>hola</h2>)
+                    serviceTitle === "ASESORIA Y CONSULTORIA FISCAL" ? (
+                        <ConsultoriaFiscal />
+                    ) : (
+                        serviceTitle === "ASESORIA LEGAL" ? (
+                            <AsesoriaLegal />
+                        ) : (
+                            serviceTitle === "ASESORIA LEGAL" ? (
+                                <LitigioFiscal />
+                            ) : (
+                                serviceTitle === "ESQUEMAS DE REMUNERACIÓN PARA EJECUTIVOS" ? (
+                                    <Remuneracion />
+                                ) :  (
+                                    serviceTitle === "ASESORIA CORPORATIVA" ? (
+                                        <AsesoriaCorporativa />
+                                    ) :  (
+                                        serviceTitle === "RELACIONES INSTITUCIONALES" ? (
+                                            <RelacionesInstitucionales />
+                                        ) :  (
+                                            <Devolucion />
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
             )}
 
-            
+            <Contact />
         </main>
     )
 }
