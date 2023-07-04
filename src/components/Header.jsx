@@ -1,15 +1,19 @@
+import { useMediaQuery } from 'react-responsive';
 import { Link } from "react-router-dom";
-// import logo from '../assets/logos/logo_letras.png';
 
 import { Navbar } from "./Navbar";
+import { MovilButton } from './MovilButton';
 
 export const Header =  () => {
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  console.log(isMobile)
     return(
       <header>
         <Link to="/" title="Fiscal Legum Corporatum">
           <img className="header-logo" src="/logos/logo_letras.png" alt="Logo de Fiscal Legum Corporatum" />
         </Link>
-        <Navbar />
+        { isMobile ?  (<MovilButton />) : (<Navbar />)}
+        
       </header>
     );
 }

@@ -4,23 +4,14 @@ $secondary-color: #F3F3F3;
 $tertiary-color: #414042;
 
 /*MIXINS*/
-@mixin flex-center($direction){
+@mixin flex-center($direction, $justify){
     display: flex;
     flex-direction: $direction;
     align-items: center;
+    justify-content: $justify;
 }
 
-@mixin waveAnimation {
-    @keyframes wave {
-        0% {
-        transform: scale(0);
-        }
-        100% {
-        transform: scale(2);
-        opacity: 0;
-        }
-    }
-}
+
 
 /*GLOBAL*/
 * {
@@ -32,120 +23,83 @@ $tertiary-color: #414042;
 
 body{
     background-color: $secondary-color;
-  
+}
+
+header {
+    @include flex-center(row,space-between);
+    position: fixed;
+    background-color: $secondary-color;
+    z-index: 1;
+    height: auto;
+    width: 100%;
+    padding: 2rem;
 }
 
 main {
     position: relative;
-    top: 6rem;
+    top: 10rem;
 }
 
 main, section {
-    @include flex-center(column);
-    justify-content: center;
+    @include flex-center(column,center);
     gap: 3rem 0rem;
    
     
-    h2 {
+    h1, h2 {
         color: $primary-color;
     }
 }
 
-h1{
-    color: $primary-color;
-}
-  
-/* NAV */
-nav {
-    @include flex-center(row); 
-    gap: 2rem;
-    width: auto;
-    a {
-        text-decoration: none;
-        color: $tertiary-color;
 
+nav {
+   
+    a {
+        font-size: 1em;
+        color: $tertiary-color;
         &:active, &:hover{
             color: $primary-color;
         }
     }
 }
 
-
-/* HEADER */
-header {
-    @include flex-center(row);
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 2rem 4rem;
-    height: 5rem;
-    z-index: 2;
-    position: fixed;
-    background-color: $secondary-color;
-    
+p {
+    line-height: 2em;
 }
-
 
 
 /* BUTTON */
-bbutton {
-    background-color: $primary-color;
+button {
+    background-color: $secondary-color;
     padding: 1rem;
     border-radius: 1rem;
     border: none;
-    color: $secondary-color;
-    cursor: pointer;
-    position: relative;
     overflow: hidden;
-    transition: background-color 0.3s;
-
+  
     &:hover{
         background-color: $secondary-color;
         color: $primary-color;
-        border: $primary-color solid .1rem;
-
-        &:after {
-            @include waveAnimation;
-            animation: wave 1s ease-out;
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-        }
     }
 }
 
-
-
-// ÁREA DONDE VA LA INFORMACIÓN
-.info-area{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    position: relative;
-}
-
-// AREA DONDE VAN LOS NOMBRES DE QUIENES SOMOS, VISIÓN Y MISIÓN
-.sections-container {
-    display: flex;
+/* INFO */
+.info-container, .info-area, .form-container {
+    @include flex-center(column, center);
     gap: 2rem;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+}   
+
+
+    
+.sections-container{
+    @include flex-center(row, center);
+    gap: 2rem;
 }
 
 // Nombre de la informacion (QUIENES SOMOS, VISIÓN, MISIÓN)
 .section-name{
     color: $secondary-color;
-    @include flex-center(row);
-    justify-content: center;
-    width: 25%;
+    @include flex-center(row, center);
+
+    width: 100%;
     height: 4rem;
     cursor: pointer;
     border-radius: 1rem;
@@ -161,60 +115,87 @@ bbutton {
     }
 }
 
+
+// CONTENEDOR DEL TEXTO DE LA INFORMACIÓN
+.info-text-container{
+    padding: 2rem;
+    @include flex-center(column, center);
+
+    background-color: $secondary-color;
+    gap: 1rem;
+
+    h1{
+
+        font-size: 3em;
+        border-bottom: $primary-color .2rem solid;
+        color: $primary-color;
+        text-align: center;
+
+    }
+
+    p {
+        color: $tertiary-color;
+        font-size: 1em;
+        text-align: justify;
+        padding: 2rem;
+        line-height: 2.5rem;
+        
+    }
+}
+
 // AREA DONDE ESTÁ LA IMAGEN Y EL TEXTO
 .info-container{
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     height: auto;
     border-radius: 1rem;
-}
 
-// IMAGEN DE LA INFORMACIÓN
-.info-image-container{
-    background-color: #414042;
-    height: 100%;
-    overflow: hidden;
+    .info-image-container{
+        background-color: #414042;
+        height:  fit-content;
+        overflow: hidden;
+        width: fit-content;
 
-
-    img {
-        width: 100%;
-        height: 100%;
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.123) 0%, rgba(0,0,0,1) 10%);
-        -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.459) 0%,rgba(0,0,0,0.65) 100%);
-        
+        img {
+            width: 100%;
+            height: auto;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.123) 0%, rgba(0,0,0,1) 10%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.459) 0%,rgba(0,0,0,0.65) 100%);
+            
+        }
     }
+
 }
 
-// CONTENEDOR DEL TEXTO DE LA INFORMACIÓN
-.info-text-container{
-    padding: 2rem;
-    @include flex-center(column);
-    justify-content: center;
-    align-items: center;
-    background-color: $secondary-color;
-    gap: 1rem;
 
-    h1{
-  
-        font-size: 3em;
-        border-bottom: $primary-color .2rem solid;
+
+/* SERVICE */
+.service-top-container{
+    @include flex-center(column, center);
+    gap: 2rem;
+    
+    h1 {
         color: $primary-color;
-        text-align: center;
- 
     }
 
-    p {
-        color: $tertiary-color;
-        font-size: 1.25em;
-        text-align: justify;
-        padding: 2rem;
-        line-height: 2.5rem;
+    .icon-container {
+        background-color: $primary-color;
+        @include flex-center(column,center);
+        padding: 3rem;
+        border-radius: 20rem;
+        width:  fit-content;
+
+        img {
+            width: 100px;
+            height: 100px;
+           
+        }
     }
 }
 
 /* SERVICIOS */
 .services-container{
-    @include flex-center(column);
+    @include flex-center(column, center);
     gap: 2rem;
     width: 100%;
     padding: 0 8rem;
@@ -254,34 +235,9 @@ bbutton {
     }
 }
 
-
-/* SERVICE */
-.service-top-container{
-    @include flex-center(column);
-    gap: 2rem;
-    
-    h1 {
-        color: $primary-color;
-    }
-
-    .icon-container {
-        background-color: $primary-color;
-        @include flex-center(column);
-        padding: 3rem;
-        border-radius: 20rem;
-        width:  fit-content;
-
-        img {
-            width: 100px;
-            height: 100px;
-           
-        }
-    }
-}
-
 .service-body-container {
-    @include flex-center(column);
-    justify-content: center;
+    @include flex-center(column, center);
+    
     gap: 2rem;
     background-color: $secondary-color;
     padding: 0 6rem;
@@ -297,27 +253,10 @@ bbutton {
 
 }
 
-
-/* CONTACT */
-.contact-container {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    height: auto;
-    width: 100%;
-}
-
-
-.map {
-    width: 100%;
-    height: 100%;
-    border: none
-}
-
-
 /* FORM */
 .form-container{
-    @include flex-center(column);
-    justify-items: center;
+    @include flex-center(column,center);
+
     padding: 4rem 2rem;
     gap: 2rem;
     background-color: $primary-color;
@@ -332,7 +271,7 @@ form {
     gap: 1rem;
     height: 100%;
     width: 20rem;
-    
+    padding: 4rem 0;
     
     input::placeholder {
         color: $primary-color;
@@ -400,7 +339,6 @@ form {
 }
 
 
-
 .contact-buttons-container {
     display: flex;
     flex-direction: row;
@@ -417,64 +355,72 @@ form {
     }
 
     .contact-nav-link-container{
-        @include flex-center(column);
+        @include flex-center(column, center);
 
-        justify-content: center;
+  
         text-decoration: none;
         color: $primary-color;
         gap: .2rem;
     }
 }
 
-/* FOOTER */
-.footer-container{
-    @include flex-center(column);
+
+
+footer {
+    @include flex-center(column, space-between);
     gap: 1rem;
     width: 100%;
     background-color: $secondary-color;
 
     position: relative;
     top: 6rem;
+
+    img {
+        width: 20vw;
+    }
+
     
+    .footer-item-container{
+        @include flex-center(row, flex-start);
+        gap: .5rem;
+        text-decoration: none;
+        color: $tertiary-color;
+
+        .icon-container img {
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+        }
+    }
+
     
-}
+    .footer-top-container{
+        @include flex-center(row, space-between);
+        padding: 2rem 10rem;
+        width: 100%;
+    }
 
-.footer-top-container{
-    @include flex-center(row);
-    justify-content: space-between;
-    padding: 2rem 10rem;
-    width: 100%;
-}
-
-.footer-bottom-container{
-    border-top: $primary-color .2rem solid;
-    padding: 2rem;
-    width: 100%;
-    text-align: center;
-    color: $primary-color;
-    font-weight: bold;
-}
-
-.footer-info-container{
-    h3 {
+    
+    .footer-bottom-container{
+        border-top: $primary-color .2rem solid;
+        padding: 2rem;
+        width: 100%;
         text-align: center;
+        color: $primary-color;
+        font-weight: bold;
     }
 }
 
-.footer-item-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: .5rem;
-    text-decoration: none;
-    color: $tertiary-color;
-
-    .icon-container img {
-        width: 25px;
-        height: 25px;
-        cursor: pointer;
-    }
+/* CONTACT */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    height: auto;
+    width: 100%;
 }
+
+
+
 
 
 /* AUXILIARES */
@@ -485,6 +431,7 @@ form {
 
 .active {
     color: $primary-color;
+    background-color: $secondary-color;
     font-weight: bold;
 }
 
@@ -532,52 +479,130 @@ form {
 }
 
 .column {
-    @include flex-center(column);
+    @include flex-center(column, center);
     gap: 2rem;
     text-align: justify;
 }
 
-/* KEYFRAMES */
-@keyframes moveInBottom {
-    0% {
-      opacity: 0;
-      transform: translateY(30px); }
-    100% {
-      opacity: 1;
-      transform: translateY(0); 
-    } 
-}
 
 /* MEDIA QUERIES */
 
-// Pantallas grandes
-@media screen and (min-width: 768px) {
-    .header-logo {
-        width: 25rem;
-    }
 
-    .sections-container {
-        
-        flex-direction: row;
-    }
-  }
-  
 
 @media screen and (max-width: 768px) {
-    .info-area {
-        background-color: $secondary-color;
+    .sections-container{
+        @include flex-center(column, center);
+        gap: 2rem;
     }
 
-    .header-logo {
-        width: 20rem;
+    .info-text-container{
+        text-align: center;
+        padding: 2rem;
+        
+        h1 {
+            color: $primary-color;
+        }
+    }
+
+    .map-container {
+        width: 100%;
+        height: 100%;
+        border: none
+    }
+
+    /* CONTACT */
+    .contact-container {
+        @include flex-center(column, center );
+        width: 100%;
+        height: 80rem;
+    
+        .form-container {
+            width: 100%;
+        }
+    }
+
+    header {
+        
+        img {
+            width: 60%;
+        }
+    }
+
+    button {
+        img {
+            width: 4vw;
+        }
     }
 
     nav {
-        display: none;
-    }
+        z-index: 2;
+        position: fixed;
+        right: 0;
+        background-color: $primary-color;
+        @include flex-center(column, center); 
+        width: 20%;
+        font-size: 1em;
 
-    .sections-container{
-        flex-direction: column;
+        a {
+            text-align: center;
+            padding: 1rem;
+            text-decoration: none;
+            color: $secondary-color;
+            width: 100%;
+    
+            &:active, &:hover{
+                color: $primary-color;
+                background-color: $secondary-color;
+            }
+        }
     }
+    
 }
 
+@media screen and (min-width: 769px) {
+    
+    .map-container {
+        width: 100%;
+        height: 100%;
+        border: none
+    }
+
+    /* CONTACT */
+    .contact-container {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        height: auto;
+        width: 100%;
+    }
+
+    header {
+        
+        img {
+            width: 30%;
+        }
+    }
+
+    button {
+        img {
+            width: 4vw;
+        }
+    }
+
+    nav {
+        @include flex-center(row, center); 
+        gap: 2rem;
+        
+        a {
+            font-size: 1em;
+            text-decoration: none;
+            color: $tertiary-color;
+    
+            &:active, &:hover{
+                color: $primary-color;
+            }
+        }
+    }
+    
+
+ }
+  
