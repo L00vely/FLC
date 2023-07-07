@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
     return (
-        <footer className="footer-container">
+      <footer className="footer-container">
         <div className="footer-top-container">
           <Link to="/">
             <img className="header-logo" src="/logos/logo_letras.png" alt="Fiscal Legum Corporatum Logo" />
           </Link>
       
           <div className="footer-info-container">
-   
+  
             <a href="https://goo.gl/maps/XZurWR7Yz2sjzdGa8" className="footer-item-container" target="_blank">
               <div className="icon-container">
                 <img src="/icons/icono-mapa.png" alt="Icono de Google Maps" />

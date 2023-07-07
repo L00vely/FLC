@@ -6,7 +6,6 @@ import { MovilButton } from './MovilButton';
 
 export const Header =  () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
-  console.log(isMobile)
     return(
       <header>
         <Link to="/" title="Fiscal Legum Corporatum">

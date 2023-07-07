@@ -19,10 +19,29 @@ $tertiary-color: #414042;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Libre Baskerville', serif;
-  }
+}
 
-body{
+body {
     background-color: $secondary-color;
+    overflow-x: hidden;
+}
+
+section, body, main {
+    @include flex-center(column, center );
+    gap: 2rem;
+    width: 100%;
+}
+
+nav {
+    @include flex-center(row, center );
+    gap: 2rem;
+
+    a {
+        text-decoration: none;
+        color: $tertiary-color;
+        font-size: 1em;
+    }
+
 }
 
 header {
@@ -35,170 +54,35 @@ header {
     padding: 2rem;
 }
 
-main {
-    position: relative;
-    top: 10rem;
-}
-
-main, section {
-    @include flex-center(column,center);
-    gap: 3rem 0rem;
-   
-    
-    h1, h2 {
-        color: $primary-color;
-    }
-}
-
-
-nav {
-   
-    a {
-        font-size: 1em;
-        color: $tertiary-color;
-        &:active, &:hover{
-            color: $primary-color;
-        }
-    }
-}
-
-p {
-    line-height: 2em;
-}
 
 
 /* BUTTON */
 button {
+    @include flex-center( column, center );
     background-color: $secondary-color;
     padding: 1rem;
     border-radius: 1rem;
     border: none;
     overflow: hidden;
-  
+    width: fit-content;
+
     &:hover{
         background-color: $secondary-color;
         color: $primary-color;
     }
-}
 
-/* INFO */
-.info-container, .info-area, .form-container {
-    @include flex-center(column, center);
-    gap: 2rem;
-}   
-
-
-    
-.sections-container{
-    @include flex-center(row, center);
-    gap: 2rem;
-}
-
-// Nombre de la informacion (QUIENES SOMOS, VISIÓN, MISIÓN)
-.section-name{
-    color: $secondary-color;
-    @include flex-center(row, center);
-
-    width: 100%;
-    height: 4rem;
-    cursor: pointer;
-    border-radius: 1rem;
-    padding: 1rem;
-    transition: background-color 0.3s;
-
-    h2 {
-        user-select: none;
-        pointer-events: none;
-        font-size: 1.25em;
-        text-align: center;
-        color: $secondary-color;
+    img {
+        width: 6vw;
+        height: auto;
     }
 }
 
-
-// CONTENEDOR DEL TEXTO DE LA INFORMACIÓN
-.info-text-container{
-    padding: 2rem;
-    @include flex-center(column, center);
-
-    background-color: $secondary-color;
-    gap: 1rem;
-
-    h1{
-
-        font-size: 3em;
-        border-bottom: $primary-color .2rem solid;
-        color: $primary-color;
-        text-align: center;
-
-    }
-
-    p {
-        color: $tertiary-color;
-        font-size: 1em;
-        text-align: justify;
-        padding: 2rem;
-        line-height: 2.5rem;
-        
-    }
-}
-
-// AREA DONDE ESTÁ LA IMAGEN Y EL TEXTO
-.info-container{
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    height: auto;
-    border-radius: 1rem;
-
-    .info-image-container{
-        background-color: #414042;
-        height:  fit-content;
-        overflow: hidden;
-        width: fit-content;
-
-        img {
-            width: 100%;
-            height: auto;
-            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.123) 0%, rgba(0,0,0,1) 10%);
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.459) 0%,rgba(0,0,0,0.65) 100%);
-            
-        }
-    }
-
-}
-
-
-
-/* SERVICE */
-.service-top-container{
-    @include flex-center(column, center);
-    gap: 2rem;
-    
-    h1 {
-        color: $primary-color;
-    }
-
-    .icon-container {
-        background-color: $primary-color;
-        @include flex-center(column,center);
-        padding: 3rem;
-        border-radius: 20rem;
-        width:  fit-content;
-
-        img {
-            width: 100px;
-            height: 100px;
-           
-        }
-    }
-}
 
 /* SERVICIOS */
 .services-container{
     @include flex-center(column, center);
     gap: 2rem;
-    width: 100%;
-    padding: 0 8rem;
+ 
 
     h2 {
         color: $primary-color;
@@ -249,14 +133,23 @@ button {
     strong {
         color: $primary-color;
     }
-
-
 }
 
+
+
+
 /* FORM */
+
+
+.map-container {
+    width: 100%;
+    height: 100%;
+    border: none
+}
+
+
 .form-container{
     @include flex-center(column,center);
-
     padding: 4rem 2rem;
     gap: 2rem;
     background-color: $primary-color;
@@ -269,14 +162,14 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    height: 100%;
-    width: 20rem;
+    
+    width: 20em;
     padding: 4rem 0;
     
     input::placeholder {
         color: $primary-color;
         opacity: 0.75;
-        font-size: .75rem;
+        font-size: .75em;
     }
 
     input[type="text"], [type="email"]{
@@ -302,7 +195,7 @@ form {
 
     input[type="submit"] {
         background-color: $secondary-color;
-        padding: .625rem 1.25rem;
+        padding: .625em 1.25em;
         border: none;
         cursor: pointer;
         transition: background-color 0.5s ease;
@@ -331,8 +224,8 @@ form {
         border-bottom: $secondary-color .15em solid;
 
         img {
-            width: 35px;
-            height: 35px;
+            width: 2em;
+            height: 2em;
             padding: .2rem;
         }
     }
@@ -340,86 +233,74 @@ form {
 
 
 .contact-buttons-container {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    padding: .75rem 2rem ;
-
+    @include flex-center(row, space-around);
+    gap: 1em;
+    padding: .75em 2em ;
+    width: 80%;
     border-radius: 1rem;
     background-color: $secondary-color;
 
-    .icon-container img {
-        width: 35px;
-        height: 35px;
-        cursor: pointer;
-    }
+ 
 
     .contact-nav-link-container{
         @include flex-center(column, center);
-
-  
+        width: 20%;
+        font-size: .6em;
         text-decoration: none;
         color: $primary-color;
-        gap: .2rem;
-    }
-}
-
-
-
-footer {
-    @include flex-center(column, space-between);
-    gap: 1rem;
-    width: 100%;
-    background-color: $secondary-color;
-
-    position: relative;
-    top: 6rem;
-
-    img {
-        width: 20vw;
-    }
-
-    
-    .footer-item-container{
-        @include flex-center(row, flex-start);
-        gap: .5rem;
-        text-decoration: none;
-        color: $tertiary-color;
+        gap: .2em;
 
         .icon-container img {
-            width: 25px;
-            height: 25px;
+            width: 100%;
+     
             cursor: pointer;
         }
     }
-
-    
-    .footer-top-container{
-        @include flex-center(row, space-between);
-        padding: 2rem 10rem;
-        width: 100%;
-    }
-
-    
-    .footer-bottom-container{
-        border-top: $primary-color .2rem solid;
-        padding: 2rem;
-        width: 100%;
-        text-align: center;
-        color: $primary-color;
-        font-weight: bold;
-    }
 }
 
-/* CONTACT */
-.contact-container {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    height: auto;
+
+/* FOOTER */
+
+footer{
+    @include flex-center( column, center );
+    font-size: .75em;
     width: 100%;
+
 }
 
+.footer-top-container {
+    @include flex-center( row , space-between);
+    gap: 2rem;
+    width: 100%;
+    padding: 2rem;
+}
 
+.footer-bottom-container {
+    @include flex-center( column, center);
+    text-align: center;
+    width: 100%;
+    padding: 2rem;
+    border-top: $primary-color .1rem solid;
+}
+
+.footer-item-container{
+    @include flex-center( row,  flex-start);
+    gap: 1rem;
+    text-decoration: none;
+    
+    .icon-container {
+
+
+        img {
+            width: 3em;
+        }
+    }
+
+    p {
+        text-decoration: none;
+        color: $tertiary-color;
+    }
+}
 
 
 
@@ -497,48 +378,8 @@ footer {
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 768px) {
-    .sections-container{
-        @include flex-center(column, center);
-        gap: 2rem;
-    }
-
-    .info-text-container{
-        text-align: center;
-        padding: 2rem;
-        
-        h1 {
-            color: $primary-color;
-        }
-    }
-
-    .map-container {
-        width: 100%;
-        height: 100%;
-        border: none
-    }
-
-    /* CONTACT */
-    .contact-container {
-        @include flex-center(column, center );
-        width: 100%;
-        height: 80rem;
-    
-        .form-container {
-            width: 100%;
-        }
-    }
-
-    header {
-        
-        img {
-            width: 60%;
-        }
-    }
-
-    button {
-        img {
-            width: 4vw;
-        }
+    .header-logo {
+        width: 80%;
     }
 
     nav {
@@ -547,7 +388,7 @@ footer {
         right: 0;
         background-color: $primary-color;
         @include flex-center(column, center); 
-        width: 20%;
+        width: auto;
         font-size: 1em;
 
         a {
@@ -556,6 +397,7 @@ footer {
             text-decoration: none;
             color: $secondary-color;
             width: 100%;
+            font-size: .8em;
     
             &:active, &:hover{
                 color: $primary-color;
@@ -563,53 +405,39 @@ footer {
             }
         }
     }
-    
+
+    .footer-top-container {
+        @include flex-center( column, center);
+    }
+
+    .footer-info-container{
+        display: none;
+    }
+
+    .contact-container {
+        @include flex-center(column, center );
+        gap: 0;
+        height: 80rem;
+
+        .form-container {
+            width: 100%;
+        }
+
+        
+    }
 }
 
 @media screen and (min-width: 769px) {
-    
-    .map-container {
-        width: 100%;
-        height: 100%;
-        border: none
+    .header-logo {
+        width: 30%;
     }
-
-    /* CONTACT */
+ 
     .contact-container {
         display: grid;
         grid-template-columns: 1.5fr 1fr;
+        gap: 0;
         height: auto;
         width: 100%;
     }
-
-    header {
-        
-        img {
-            width: 30%;
-        }
-    }
-
-    button {
-        img {
-            width: 4vw;
-        }
-    }
-
-    nav {
-        @include flex-center(row, center); 
-        gap: 2rem;
-        
-        a {
-            font-size: 1em;
-            text-decoration: none;
-            color: $tertiary-color;
-    
-            &:active, &:hover{
-                color: $primary-color;
-            }
-        }
-    }
-    
-
  }
   
