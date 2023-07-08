@@ -6,7 +6,7 @@ export const HomePage = () => {
 
     return (
         <main className="animate__animated animate__fadeIn">
-            {/* <InfoArea /> */}
+            <InfoArea />
 
             <h2>SERVICIOS</h2>
             <Services />
