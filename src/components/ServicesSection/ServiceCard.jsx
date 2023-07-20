@@ -6,7 +6,9 @@ export const ServiceCard = ( { title, imgSrc, description}) => {
     const serviceUrl = title.toLowerCase().replace(/ /g, "_");
 
     return (
-        <div className='service-card-container'>
+        
+        <Link to={`/servicios/${serviceUrl}`} className='service-card-container link' >
+            
             <div className='icon-container'>
                 <img src={ imgUrl } alt={`Icono del servicio de ${title}`} />
             </div>
@@ -14,13 +16,13 @@ export const ServiceCard = ( { title, imgSrc, description}) => {
             <h3> { title }</h3>
             <p>{ description }</p>
 
-            <Link to={`/servicios/${serviceUrl}`} className="link view-more-container">
+            {/* <Link to={`/servicios/${serviceUrl}`} className="link view-more-container">
                 Leer más
                 <div className='icon-container'>
                     <img src='/icons/icons8-derecha-50.png' alt="Icono de ver más"/>
                 </div>
-            </Link>
-        </div>
+            </Link> */}
+        </Link>
     )
 }
 

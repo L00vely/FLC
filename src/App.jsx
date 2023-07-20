@@ -6,8 +6,8 @@ import { ServicesPage } from "./components/Pages/ServicesPage";
 import { ContactPage } from "./components/Pages/ContactPage";
 import { ServicePage } from "./components/Pages/ServicePage";
 import { Footer } from "./components/Footer";
-import './styles.scss';
 import { CircularesPage } from "./components/Pages/CircularesPage";
+import './styles.scss';
 
 
 export const App = () => {

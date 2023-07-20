@@ -26,7 +26,7 @@ export const Navbar = () => {
         <nav className={`${isSticky ? 'sticky' : ''}`}>
             <NavLink to="/" title="Inicio" >Inicio</NavLink> 
             <NavLink to="/servicios" title="Nuestros Servicios">Servicios</NavLink>
-            {/* <NavLink to="/circulares" title="Ir a la página de circulares">Circulares</NavLink> */}
+            <NavLink to="/circulares" title="Ir a la página de circulares">Circulares</NavLink>
             <NavLink to="/contacto" title="Ir a la página de contacto">Contáctanos</NavLink>
        
         </nav>
