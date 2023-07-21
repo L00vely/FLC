@@ -5,7 +5,7 @@ import { Navbar } from "./Navbar";
 import { MovilButton } from './MovilButton';
 
 export const Header =  () => {
-  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
     return(
       <header>
         <Link to="/" title="Fiscal Legum Corporatum">

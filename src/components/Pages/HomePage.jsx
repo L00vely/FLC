@@ -6,8 +6,8 @@ import { CircularSection } from "../Circulares/CircularSection";
 export const HomePage = () => {
 
     return (
-        <main className="animate__animated animate__fadeIn">
-            <InfoArea />
+        <>
+            {/* <InfoArea />
 
             <h2>SERVICIOS</h2>
             <Services />
@@ -16,8 +16,8 @@ export const HomePage = () => {
             <CircularSection />
 
         
-            <Contact />
-        </main>
+            <Contact /> */}
+        </>
 
         
     )

@@ -5,7 +5,7 @@ export const Footer = () => {
       <footer className="footer-container">
         <div className="footer-top-container">
           <Link to="/">
-            <img className="header-logo" src="/logos/logo_letras.png" alt="Fiscal Legum Corporatum Logo" />
+            <img className="footer-logo" src="/logos/logo_letras.png" alt="Fiscal Legum Corporatum Logo" />
           </Link>
       
           <div className="footer-info-container">

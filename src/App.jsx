@@ -19,7 +19,7 @@ export const App = () => {
   
   
   return (
-      <>
+      <main className="animate__animated animate__fadeIn">
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -30,8 +30,8 @@ export const App = () => {
           <Route path="/*" element={<Navigate to="/" />}/>
           <Route path="/servicios/*" element={<Navigate to="/servicios" />}/>
         </Routes>
-        <Footer />
-      </>
+        {/* <Footer /> */}
+      </main>
   
   )
 }
