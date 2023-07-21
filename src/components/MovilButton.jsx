@@ -10,7 +10,7 @@ export const MovilButton = () => {
 
     return (
       <div>
-        <button onClick={toggleMenu}>
+        <button onClick={toggleMenu} className="mobile-button">
             <img src="/icons/icons8-menú-50.png" alt="" />
         </button>
         {menuVisible && (

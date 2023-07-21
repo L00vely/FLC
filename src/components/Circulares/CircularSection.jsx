@@ -32,9 +32,9 @@ export const CircularSection = () => {
             {circulares.length > 2 && (
                 <div>
                     {showMore ? (
-                        <button onClick={toggleShowMore}>Mostrar menos</button>
+                        <button className="red-button" onClick={toggleShowMore}>Mostrar menos</button>
                     ) : (
-                        <button onClick={toggleShowMore}>Mostrar más</button>
+                        <button className="red-button" onClick={toggleShowMore}>Mostrar más</button>
                     )}
                 </div>
             )}

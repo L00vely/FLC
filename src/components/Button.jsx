@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 export const Button = ({ text, title, ariaLabel }) => {
 
     return (
-        <button  title={title} aria-label={ariaLabel}>{text}</button>
+        <button className='mobile-button' title={title} aria-label={ariaLabel}>{text}</button>
     )
 }
 
