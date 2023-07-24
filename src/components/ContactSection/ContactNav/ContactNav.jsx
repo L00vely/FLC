@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import './contactNav.scss'
 
 export const ContactNav = () => {
     return (

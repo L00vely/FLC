@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'; 
-import { MovilElement } from "./MovilElement";
+import { MovilElement } from '../MovilElement/MovilElement';
 
 export const InfoMovil = ({ sections }) => {
     return (

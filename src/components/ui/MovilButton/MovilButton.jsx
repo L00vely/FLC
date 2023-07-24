@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { Navbar } from "./Navbar";
+import { Navbar } from "../Navbar/Navbar";
+import './movilButton.scss';
 
 export const MovilButton = () => {
     const [menuVisible, setMenuVisible] = useState(false);

@@ -4,13 +4,14 @@ import { getService } from "../../helpers/getService";
 import { Contabilidad } from "./services/Contabilidad";
 import { ConsultoriaFiscal } from "./services/ConsultoriaFiscal";
 import { AsesoriaLegal } from "./services/AsesoriaLegal";
-import { Contact } from "../ContactSection/Contact";
 import { LitigioFiscal } from "./services/LitigioFiscal";
 import { Remuneracion } from "./services/Remuneracion";
 import { AsesoriaCorporativa } from "./services/AsesoriaCorporativa";
 import { RelacionesInstitucionales } from "./services/RelacionesInstitucionales";
 import { Devolucion } from "./services/Devolucion";
+import { Contact } from "../ContactSection/Contact/Contact";
 
+import './services/services.scss'
 
 export const ServicePage = ( ) => {
     const [ imgUrl, setImgUrl ] = useState('');
@@ -32,7 +33,7 @@ export const ServicePage = ( ) => {
     
 
     return (
-        <main className="animate__animated animate__fadeIn">
+        <div className="service-container animate__animated animate__fadeIn">
             <div className="service-top-container">
                
                 <div className='icon-container'>
@@ -73,6 +74,6 @@ export const ServicePage = ( ) => {
             )}
 
             <Contact />
-        </main>
+        </div>
     )
 }

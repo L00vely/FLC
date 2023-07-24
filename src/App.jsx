@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { Routes, Route, Navigate, useLocation} from "react-router-dom";
-import { Header } from "./components/Header";
+import { Header } from "./components/ui/Header/Header";
+import { Footer } from "./components/ui/Footer/Footer";
 import { HomePage } from "./components/Pages/HomePage";
 import { ServicesPage } from "./components/Pages/ServicesPage";
 import { ContactPage } from "./components/Pages/ContactPage";
 import { ServicePage } from "./components/Pages/ServicePage";
-import { Footer } from "./components/Footer";
 import { CircularesPage } from "./components/Pages/CircularesPage";
 import './styles.scss';
 
@@ -30,7 +30,7 @@ export const App = () => {
           <Route path="/*" element={<Navigate to="/" />}/>
           <Route path="/servicios/*" element={<Navigate to="/servicios" />}/>
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </main>
   
   )

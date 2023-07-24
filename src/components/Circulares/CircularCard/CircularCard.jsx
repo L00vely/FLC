@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'; 
+import './circularCard.scss'
 
 export const CircularCard = ( { pdf, img, date, title }) => {
   

@@ -1,0 +1,38 @@
+/*VARIABLES*/
+$primary-color: #A80000;
+$secondary-color: #F3F3F3;
+$tertiary-color: #414042;
+
+/*MIXINS*/
+@mixin flex-center($direction, $justify){
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: $justify;
+}
+
+.info-area{
+    width: 100%;
+  
+    display: grid;
+    grid-template-areas: "nosotros nosotros"
+        "vision mision";
+
+  
+}
+
+.about-us-container{
+    grid-area: nosotros;
+    
+}
+
+
+.mision-container{
+    grid-area: mision;
+   
+}
+
+.vision-container{
+    grid-area: vision;
+  
+}

@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { CircularCard } from './CircularCard'
-import { circulares } from '../../util/circulares'
+import { CircularCard } from '../CircularCard/CircularCard'
+import { circulares } from '../../../util/circulares'
+import './circularSection.scss';
+
 
 export const CircularSection = () => {  
     const [showMore, setShowMore] = useState(false);
@@ -14,6 +16,7 @@ export const CircularSection = () => {
 
     return (
         <section className="circular-container animate__animated animate__fadeIn">
+            <h2>CIRCULARES</h2>
             <p>Avisos importantes</p>
             <div className='circular-grid-container animate__animated animate__fadeIn'>
                 {

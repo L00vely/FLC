@@ -1,0 +1,44 @@
+/*VARIABLES*/
+$primary-color: #A80000;
+$secondary-color: #F3F3F3;
+$tertiary-color: #414042;
+
+/*MIXINS*/
+@mixin flex-center($direction, $justify){
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: $justify;
+}
+
+
+/* MEDIA QUERIES */
+
+/*PANTALLAS CHICAS-MEDIANAS*/
+@media screen and (max-width: 767px) {
+    .contact-container {
+        @include flex-center(column, center );
+        
+        gap: 0;
+        height: 80rem;
+
+        .form-container {
+          
+            @include flex-center(column, center );
+            padding: 2rem;
+        } 
+    }
+}
+
+// Pantallas grandes
+@media screen and (min-width: 768px) {
+    .contact-container {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 0;
+        height: auto;
+        width: 100%;
+    }
+}
+
+

@@ -1,0 +1,32 @@
+/*VARIABLES*/
+$primary-color: #A80000;
+$secondary-color: #F3F3F3;
+$tertiary-color: #414042;
+
+/*MIXINS*/
+@mixin flex-center($direction, $justify){
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: $justify;
+}
+
+.mobile-button {
+    @include flex-center( column, center );
+    background-color: $secondary-color;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: none;
+    overflow: hidden;
+    width: fit-content;
+
+    &:hover{
+        background-color: $secondary-color;
+        color: $primary-color;
+    }
+
+    img {
+        width: 5vw;
+        height: auto;
+    }
+}

@@ -1,9 +1,10 @@
 import { useRef } from 'react';
-import { useForm } from '../../hooks/useForm';
-import { ContactNav } from './ContactNav';
+import { useForm } from '../../../hooks/useForm';
+import { ContactNav } from '../ContactNav/ContactNav';
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
+import './form.scss'
 
 export const Form= () => {
 
@@ -32,7 +33,7 @@ export const Form= () => {
 
     return (
       <div className="form-container">
-        <h2>Contáctanos</h2>
+        <h2>CONTÁCTANOS</h2>
       
         <ContactNav />
       
@@ -68,6 +69,7 @@ export const Form= () => {
           </div>
       
           <input
+            className='message-input'
             type="text"
             placeholder="Mensaje"
             name="message"

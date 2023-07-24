@@ -1,5 +1,6 @@
 import { NavLink,Link } from "react-router-dom";
-import { Button } from "./Button";
+import { Button } from '../Button/Button';
+
 import { useState, useEffect } from "react";
 
 export const Navbar = () => {

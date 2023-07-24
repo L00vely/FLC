@@ -1,8 +1,8 @@
 import { useMediaQuery } from 'react-responsive';
 import { Link } from "react-router-dom";
-
-import { Navbar } from "./Navbar";
-import { MovilButton } from './MovilButton';
+import { Navbar } from '../Navbar/Navbar';
+import { MovilButton } from '../MovilButton/MovilButton';
+import './header.scss'
 
 export const Header =  () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });

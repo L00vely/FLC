@@ -1,0 +1,207 @@
+/*VARIABLES*/
+$primary-color: #A80000;
+$secondary-color: #F3F3F3;
+$tertiary-color: #414042;
+
+/*MIXINS*/
+@mixin flex-center($direction, $justify){
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: $justify;
+}
+
+.form-container{
+    @include flex-center(column,center);
+    width: 100%;
+    padding: 4rem;
+    gap: 2rem;
+    background-color: $primary-color;
+    
+    h2 {
+        color: $secondary-color;
+    }
+
+    
+    form {
+        @include flex-center(column, center);
+        gap: 1rem;
+        width: 100%;
+      
+        
+        .input-container{
+            display: grid;
+            grid-template-columns: auto 1fr;
+            width: 100%;
+            height: auto;
+           
+            .icon-container {
+                @include flex-center(column,center);    
+                padding: .5rem;
+                border-top: $secondary-color .15em solid;
+                border-left: $secondary-color .15em solid;
+                border-bottom: $secondary-color .15em solid;
+            }
+        }
+
+
+        input::placeholder {
+            color: $primary-color;
+            opacity: 0.75;
+        }
+
+
+
+
+        input[type="text"], [type="email"]{     
+            width: 100%;
+            padding: .5rem;
+            border: $secondary-color .15em solid;
+            background-color: $secondary-color;
+            transition: background-color 0.5s ease;
+
+            &:focus {
+                outline: none;
+                color: $secondary-color;
+                background-color: $primary-color;
+                transition: background-color 0.5s ease;
+
+                &::placeholder {
+                    color: $secondary-color;   
+                    
+                }
+            }
+        }   
+
+        input[type="submit"] {
+            width: 100%;
+            height: 4rem;
+            background-color: $secondary-color;
+            padding: .625em 1.25em;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.5s ease;
+            font-weight: bold;
+    
+            &:hover {
+                background-color: #A80000;
+                border: $secondary-color .15rem solid;
+                color: $secondary-color;
+            }
+        }
+    
+        .message-input{
+            height: 5rem;
+        }
+    }
+}
+
+/* MEDIA QUERIES */
+
+/*PANTALLAS CHICAS-MEDIANAS*/
+@media screen and (max-width: 767px) {  
+    .form-container{
+        .contact-buttons-container {
+            .contact-nav-link-container{    
+                font-size: 2vw;  // MEDIA
+
+                .icon-container img {
+                    width: 10vw; // MEDIA
+                }
+            }
+        }
+
+        form {
+            input::placeholder {
+                font-size: 2vw; // MEDIA QUERY
+            } 
+        }
+
+        .input-container{
+
+            width: 100%;
+
+            .icon-container {
+                img {
+                    width: 8vw; // MEDIA QUERY
+                }
+            }
+        }
+    }
+
+}
+
+// Pantallas grandes
+@media screen and (min-width: 768px) {
+    .form-container{
+        .contact-buttons-container {
+            .contact-nav-link-container{    
+                font-size: 1.5vw;  // MEDIA
+
+                .icon-container img {
+                    width: 4vw; // MEDIA
+                }
+            }
+        }
+
+        form {
+            input::placeholder {
+                font-size: 2vw; // MEDIA QUERY
+            }
+        }
+
+        .input-container{   
+            .icon-container {
+                img {
+                    width: 4vw; // MEDIA QUERY
+                }
+            }
+        }
+        
+        input[type="submit"] {
+            font-size: 1.4rem;
+        }
+      
+    }
+}
+
+// Pantallas muy grandes
+@media screen and (min-width: 1024px) {
+    .form-container{
+        .contact-buttons-container {
+      
+
+            .contact-nav-link-container{    
+                font-size: .5vw;  // MEDIA
+
+                .icon-container img {
+                    width: 3vw; // MEDIA
+                }
+            }
+        }
+
+        
+        form {
+            input::placeholder {
+                font-size: .7vw; // MEDIA QUERY
+            }
+        }
+        
+
+        .input-container{
+            .icon-container {
+                img {
+                    width: 2vw; // MEDIA QUERY
+                }
+            }
+        }
+
+        input[type="submit"] {
+            font-size: 1.4rem;
+        }
+
+    }
+}
+
+
+

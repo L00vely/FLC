@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'; 
+import './serviceCard.scss'
 
 export const ServiceCard = ( { title, imgSrc, description}) => {
     const imgUrl = `/icons/icons8-${imgSrc}-50.png`;
@@ -13,8 +14,8 @@ export const ServiceCard = ( { title, imgSrc, description}) => {
                 <img src={ imgUrl } alt={`Icono del servicio de ${title}`} />
             </div>
 
-            <h3> { title }</h3>
-            <p>{ description }</p>
+            <h3 className="card-title"> { title }</h3>
+            <p className="card-description">{ description }</p>
 
             {/* <Link to={`/servicios/${serviceUrl}`} className="link view-more-container">
                 Leer más

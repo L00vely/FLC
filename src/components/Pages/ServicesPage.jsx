@@ -1,10 +1,10 @@
-import { Services } from "../ServicesSection/Services"
-
+import { Contact } from "../ContactSection/Contact/Contact"
+import { Services } from "../ServicesSection/Services/Services"
 export const ServicesPage = () => {
     return (
-        <main>
-            <h1>SERVICIOS</h1>
+        <>
             <Services />
-        </main>
+            <Contact />
+        </>
     )
 }

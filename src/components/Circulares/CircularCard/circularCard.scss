@@ -1,0 +1,43 @@
+/*VARIABLES*/
+$primary-color: #A80000;
+$secondary-color: #F3F3F3;
+$tertiary-color: #414042;
+
+/*MIXINS*/
+@mixin flex-center($direction, $justify){
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: $justify;
+}
+
+
+.circular-card-container{
+    @include flex-center(column, center);
+    width: 35em;
+    gap: 1rem;
+    transition: .5s;
+    cursor: pointer;
+    padding: 2rem;
+
+    strong{
+        color: $primary-color;
+        font-size: 1.2rem;
+    }
+
+    span{
+        font-size: 1.2rem;
+    }
+
+    img{
+        width: 100%;
+        height: auto;
+    }
+
+    &:hover{  
+        background-color: $primary-color;
+        span, strong{
+            color: $secondary-color
+        }
+    }
+}

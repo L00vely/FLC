@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 
+import './footer.scss'
+
 export const Footer = () => {
     return (
-      <footer className="footer-container">
+      <footer>
         <div className="footer-top-container">
           <Link to="/">
             <img className="footer-logo" src="/logos/logo_letras.png" alt="Fiscal Legum Corporatum Logo" />
@@ -40,7 +42,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="footer-bottom-container">
-          <p>2023 FISCAL, LEGUM, CORPORATUM, Todos los derechos reservados ©</p>
+          <span>2023 FISCAL, LEGUM, CORPORATUM, Todos los derechos reservados ©</span>
         </div>
       </footer>      
     )
