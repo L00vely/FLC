@@ -1,7 +1,6 @@
-import { NavLink,Link } from "react-router-dom";
-import { Button } from '../Button/Button';
-
+import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
+import './navbar.scss';
 
 export const Navbar = () => {
   

@@ -16,7 +16,7 @@ $tertiary-color: #414042;
     .info-text-container{
         padding: 2rem;
         @include flex-center(column, center);
-        height: 25rem;
+        height: 30rem;
         
         h1{
             border-bottom: $primary-color .2rem solid;
@@ -30,11 +30,7 @@ $tertiary-color: #414042;
             padding: 2rem;
             line-height: 2.5rem;
         }
-
-      
-    }
-
-    
+    } 
 }
 
 
@@ -44,15 +40,14 @@ $tertiary-color: #414042;
 /*PANTALLAS CHICAS-MEDIANAS*/
 @media screen and (max-width: 767px) {
 
-
     // CONTENEDOR DEL TEXTO DE LA INFORMACIÓN
     .info-text-container{
         h1{
-            font-size: 5vw;
+            font-size: 8vw;
         }
         
         p {  
-            font-size: 1vw;  
+            font-size: 3vw;  
         }
     }
 
@@ -69,7 +64,7 @@ $tertiary-color: #414042;
         }
         
         p {  
-            font-size: 1.25vw;  
+            font-size: 2vw;  
         }
     }
 
@@ -81,17 +76,16 @@ $tertiary-color: #414042;
 @media screen and (min-width: 1024px) {
 
     
-    // CONTENEDOR DEL TEXTO DE LA INFORMACIÓN
+   // CONTENEDOR DEL TEXTO DE LA INFORMACIÓN
     .info-text-container{
         h1{
             font-size: 2vw;
         }
         
         p {  
-            font-size: .75vw;  
+            font-size: 1vw;  
         }
     }
-
 
 }
 

@@ -20,9 +20,6 @@ $tertiary-color: #414042;
 
     .icon-container{
         @include flex-center(column,center );
-        img{
-            width: 4rem;
-        }
     }
      
     .card-title {
@@ -53,15 +50,22 @@ $tertiary-color: #414042;
 @media screen and (max-width: 767px) {
     .service-card-container{
         
-        width: 40vw;
+        width: 70vw;
+
+        .icon-container{
+         
+            img{
+                width: 3rem;
+            }
+        }
 
         .card-title {
             color: $primary-color;
-            font-size: 3vw;
+            font-size: 4vw;
         }
 
         .card-description {
-            font-size: 2vw;
+            font-size: 3vw;
         }
 
     }

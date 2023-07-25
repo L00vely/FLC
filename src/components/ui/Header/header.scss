@@ -63,19 +63,6 @@ header {
         .header-logo {
             width: 35vw;
         }
-        nav {
-            position:relative;
-            @include flex-center(row, center );
-            gap: 2rem;
-            background-color: $secondary-color;
-
-            a {
-                text-decoration: none;
-                color: $tertiary-color;
-                font-size: 1vw;
-                padding: 0;
-            }
-        }
     }
 }
 
@@ -85,19 +72,7 @@ header {
         .header-logo {
             width: 20vw;
         }
-        nav {
-            position:relative;
-            @include flex-center(row, center );
-            gap: 2rem;
-            background-color: $secondary-color;
-
-            a {
-                text-decoration: none;
-                color: $tertiary-color;
-                font-size: .8vw;
-                padding: 0;
-            }
-        }
+        
     }
 }
 

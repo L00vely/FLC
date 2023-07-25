@@ -14,7 +14,7 @@ $tertiary-color: #414042;
 
 .circular-card-container{
     @include flex-center(column, center);
-    width: 35em;
+    width: 30em;
     gap: 1rem;
     transition: .5s;
     cursor: pointer;

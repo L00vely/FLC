@@ -13,10 +13,7 @@ $tertiary-color: #414042;
 
 .service-container{
     @include flex-center(column,center );
-    position: relative;
-    top: 10rem;
 
-    
     .service-top-container{
         @include flex-center(column,center );
         gap: 2rem;

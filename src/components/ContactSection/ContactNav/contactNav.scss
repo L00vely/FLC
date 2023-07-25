@@ -30,7 +30,6 @@ $tertiary-color: #414042;
         
         .icon-container img {
             cursor: pointer;
-           
         }
 
     }
@@ -42,7 +41,6 @@ $tertiary-color: #414042;
 /*PANTALLAS CHICAS-MEDIANAS*/
 @media screen and (max-width: 767px) {  
     .contact-buttons-container {
-    
 
         .contact-nav-link-container{    
             font-size: 2vw;  // MEDIA
@@ -70,6 +68,7 @@ $tertiary-color: #414042;
 // Pantallas muy grandes
 @media screen and (min-width: 1024px) { 
     .contact-buttons-container {
+       
         .contact-nav-link-container{    
             font-size: .5vw;  // MEDIA
 

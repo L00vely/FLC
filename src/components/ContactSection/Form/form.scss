@@ -13,13 +13,14 @@ $tertiary-color: #414042;
 
 .form-container{
     @include flex-center(column,center);
-    width: 100%;
+    height: 100%;
     padding: 4rem;
     gap: 2rem;
     background-color: $primary-color;
-    
+    width: 100%;
     h2 {
         color: $secondary-color;
+        font-size: 2rem
     }
 
     
@@ -27,12 +28,14 @@ $tertiary-color: #414042;
         @include flex-center(column, center);
         gap: 1rem;
         width: 100%;
-      
+        height: 100%;
         
+            
         .input-container{
+            width: 100%;
             display: grid;
             grid-template-columns: auto 1fr;
-            width: 100%;
+            
             height: auto;
            
             .icon-container {
@@ -75,7 +78,7 @@ $tertiary-color: #414042;
 
         input[type="submit"] {
             width: 100%;
-            height: 4rem;
+            height: 3rem;
             background-color: $secondary-color;
             padding: .625em 1.25em;
             border: none;
@@ -113,14 +116,15 @@ $tertiary-color: #414042;
 
         form {
             input::placeholder {
-                font-size: 2vw; // MEDIA QUERY
+                font-size: 3vw; // MEDIA QUERY
             } 
+
+            input[type="submit"] {
+                font-size: 3vw;
+            }
         }
 
         .input-container{
-
-            width: 100%;
-
             .icon-container {
                 img {
                     width: 8vw; // MEDIA QUERY
@@ -146,7 +150,7 @@ $tertiary-color: #414042;
 
         form {
             input::placeholder {
-                font-size: 2vw; // MEDIA QUERY
+                font-size: 1.6vw; // MEDIA QUERY
             }
         }
 
@@ -159,7 +163,7 @@ $tertiary-color: #414042;
         }
         
         input[type="submit"] {
-            font-size: 1.4rem;
+            font-size: .8rem;
         }
       
     }
@@ -169,25 +173,21 @@ $tertiary-color: #414042;
 @media screen and (min-width: 1024px) {
     .form-container{
         .contact-buttons-container {
-      
-
             .contact-nav-link-container{    
                 font-size: .5vw;  // MEDIA
 
                 .icon-container img {
-                    width: 3vw; // MEDIA
+                    width: 2vw; // MEDIA
                 }
             }
         }
 
-        
         form {
             input::placeholder {
                 font-size: .7vw; // MEDIA QUERY
             }
         }
-        
-
+    
         .input-container{
             .icon-container {
                 img {
@@ -197,7 +197,7 @@ $tertiary-color: #414042;
         }
 
         input[type="submit"] {
-            font-size: 1.4rem;
+            font-size: 1rem;
         }
 
     }

@@ -33,47 +33,50 @@ export const ServicePage = ( ) => {
     
 
     return (
-        <div className="service-container animate__animated animate__fadeIn">
-            <div className="service-top-container">
-               
-                <div className='icon-container'>
-                    <img src={ `/icons/icons8-${imgUrl}-100.png` } alt={`Icono del servicio de ${ servicio }`} />
+        <>
+            <section className="service-container animate__animated animate__fadeIn">
+                <div className="service-top-container">
+                
+                    <div className='icon-container'>
+                        <img src={ `/icons/icons8-${imgUrl}-100.png` } alt={`Icono del servicio de ${ servicio }`} />
+                    </div>
+                    <h1>{ serviceTitle }</h1>
                 </div>
-                <h1>{ serviceTitle }</h1>
-            </div>
-            
-            
-            {   serviceTitle === "CONTABILIDAD" ? (
-                <Contabilidad />
-            ) : (
-                    serviceTitle === "ASESORIA Y CONSULTORIA FISCAL" ? (
-                        <ConsultoriaFiscal />
-                    ) : (
-                        serviceTitle === "ASESORIA LEGAL" ? (
-                            <AsesoriaLegal />
+                
+                
+                {   serviceTitle === "CONTABILIDAD" ? (
+                    <Contabilidad />
+                ) : (
+                        serviceTitle === "ASESORIA Y CONSULTORIA FISCAL" ? (
+                            <ConsultoriaFiscal />
                         ) : (
                             serviceTitle === "ASESORIA LEGAL" ? (
-                                <LitigioFiscal />
+                                <AsesoriaLegal />
                             ) : (
-                                serviceTitle === "ESQUEMAS DE REMUNERACIÓN PARA EJECUTIVOS" ? (
-                                    <Remuneracion />
-                                ) :  (
-                                    serviceTitle === "ASESORIA CORPORATIVA" ? (
-                                        <AsesoriaCorporativa />
+                                serviceTitle === "ASESORIA LEGAL" ? (
+                                    <LitigioFiscal />
+                                ) : (
+                                    serviceTitle === "ESQUEMAS DE REMUNERACIÓN PARA EJECUTIVOS" ? (
+                                        <Remuneracion />
                                     ) :  (
-                                        serviceTitle === "RELACIONES INSTITUCIONALES" ? (
-                                            <RelacionesInstitucionales />
+                                        serviceTitle === "ASESORIA CORPORATIVA" ? (
+                                            <AsesoriaCorporativa />
                                         ) :  (
-                                            <Devolucion />
+                                            serviceTitle === "RELACIONES INSTITUCIONALES" ? (
+                                                <RelacionesInstitucionales />
+                                            ) :  (
+                                                <Devolucion />
+                                        )
                                     )
                                 )
                             )
                         )
                     )
-                )
-            )}
+                )}
+            </section>
 
             <Contact />
-        </div>
+        </>
+        
     )
 }
