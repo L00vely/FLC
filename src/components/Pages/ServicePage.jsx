@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getService } from "../../helpers/getService";
+import { ServiceCard } from "../ServicesSection/ServiceCard/ServiceCard";
 import { Contabilidad } from "./services/Contabilidad";
 import { ConsultoriaFiscal } from "./services/ConsultoriaFiscal";
 import { AsesoriaLegal } from "./services/AsesoriaLegal";
@@ -10,18 +10,24 @@ import { AsesoriaCorporativa } from "./services/AsesoriaCorporativa";
 import { RelacionesInstitucionales } from "./services/RelacionesInstitucionales";
 import { Devolucion } from "./services/Devolucion";
 import { Contact } from "../ContactSection/Contact/Contact";
-
+import { getService } from "../../helpers/getService";
+import { services } from "../../util/services";
 import './services/services.scss'
+
 
 export const ServicePage = ( ) => {
     const [ imgUrl, setImgUrl ] = useState('');
     const { servicio } = useParams();
     
-    
     const navigate = useNavigate();
 
+    const newServices = services.filter(service => service.title.toLowerCase().replace(/ /g, "-") !== servicio.replace(/_/g, "-"));
+    
     let serviceTitle = servicio.toUpperCase();
+
     serviceTitle = serviceTitle.replace(/_/g, " ");
+
+    
 
     useEffect(() => {
         const findService = getService(serviceTitle)[0];
@@ -74,6 +80,26 @@ export const ServicePage = ( ) => {
                     )
                 )}
             </section>
+
+            <section className="services-container animate__animated animate__fadeIn">
+            
+                <h2>Otras áreas</h2>
+               
+                <div className="services-grid-container">   
+                
+                    {
+                        newServices.map( service => (
+                            <ServiceCard key={service.title} { ...service }/>
+                        ))
+                    }
+                </div>
+           
+                
+
+            </section>
+                                            
+            
+          
 
             <Contact />
         </>

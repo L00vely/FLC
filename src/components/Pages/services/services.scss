@@ -27,15 +27,20 @@ $tertiary-color: #414042;
 
     .service-body-container{
         padding: 5rem;
-
-        font-size: 1.2rem;
+        
         @include flex-center(column,center );
         gap: 2rem;
         line-height: 3rem;
 
         strong {
-            color: $primary-color
+            color: $primary-color;
+            font-size: 1.6rem;
         }
+
+        p, ul{
+            font-size: 1.5rem;
+        }
+
     }
 
 
