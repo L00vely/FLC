@@ -31,14 +31,6 @@ export const ContactNav = () => {
                 name={"email"}
             />
 
-
-            <Link to="mailto:fiscallegumcorporatum@gmail.com" title="Contacto por Email" className="contact-nav-link-container">
-                <div className="icon-container">
-                    <img src="/icons/icono-gmail.png" alt="Icono de Gmail" />
-                </div>
-                <span>Email</span>
-            </Link>
         </div>
-
     )
 }
