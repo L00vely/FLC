@@ -35,7 +35,7 @@ export const Footer = () => {
       
             <a href="mailto:fiscallegumcorporatum@gmail.com" className="footer-item-container">
               <div className="icon-container">
-                <img src="/icons/icono-gmail.png" alt="Icono de Gmail" />
+                <img src="/icons/icono-email.png" alt="Icono de Gmail" />
               </div>
               <p>fiscallegumcorporatum@gmail.com</p>
             </a>
