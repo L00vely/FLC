@@ -4,6 +4,7 @@ import './serviceCard.scss'
 
 export const ServiceCard = ( { title, imgSrc, description}) => {
     const imgUrl = `/icons/icons8-${imgSrc}-50.png`;
+    
     const serviceUrl = title.toLowerCase().replace(/ /g, "_");
 
     return (

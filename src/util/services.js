@@ -35,9 +35,9 @@ export const services = [
         description: "Atendemos las necesidades de la empresa cuando requieren apoyo de las autoridades estatales o municipales, así como de la Ciudad de México y otras entidades de la república."  
     },
     {
-        imgSrc: 'reembolso',
-        title: "Devolución de contribuciones o saldo a favor ante autoridades fiscales",
-        description: "Apoyamos a las empresas en la obtención de devoluciones de contribuciones, compensaciones, o cualquier trámite que necesite realizar la empresa con motivo de sus operaciones."  
+        imgSrc: 'desarrollo',
+        title: "Desarrollo web y asistencia técnica",
+        description: "Ofrecemos diseño y desarrollo web, creación de identidad de marca y asistencia técnica en tecnología de la información."  
     },
   
   ]

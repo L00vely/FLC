@@ -1,5 +1,4 @@
 
-
 export const Remuneracion = () => {
     return (
         <div className="service-body-container">

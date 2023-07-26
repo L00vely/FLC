@@ -1,18 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { ServiceCard } from "../ServicesSection/ServiceCard/ServiceCard";
-import { Contabilidad } from "./services/Contabilidad";
-import { ConsultoriaFiscal } from "./services/ConsultoriaFiscal";
-import { AsesoriaLegal } from "./services/AsesoriaLegal";
-import { LitigioFiscal } from "./services/LitigioFiscal";
-import { Remuneracion } from "./services/Remuneracion";
-import { AsesoriaCorporativa } from "./services/AsesoriaCorporativa";
-import { RelacionesInstitucionales } from "./services/RelacionesInstitucionales";
-import { Devolucion } from "./services/Devolucion";
+import { DesarrolloWeb, Contabilidad, Remuneracion, ConsultoriaFiscal, AsesoriaCorporativa, AsesoriaLegal } from "./services";
+import { ServiceCard } from '../ServicesSection/ServiceCard/ServiceCard';
 import { Contact } from "../ContactSection/Contact/Contact";
 import { getService } from "../../helpers/getService";
 import { services } from "../../util/services";
 import './services/services.scss'
+
 
 
 export const ServicePage = ( ) => {
@@ -71,7 +65,7 @@ export const ServicePage = ( ) => {
                                             serviceTitle === "RELACIONES INSTITUCIONALES" ? (
                                                 <RelacionesInstitucionales />
                                             ) :  (
-                                                <Devolucion />
+                                                <DesarrolloWeb />
                                         )
                                     )
                                 )
