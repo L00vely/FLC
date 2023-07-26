@@ -22,7 +22,7 @@ export const services = [
     {
         imgSrc: 'conseguir-dinero-en-efectivo',
         title: "Esquemas de remuneración para ejecutivos",
-        description: "Brindamos esquemas de remuneración para personal y ejecutivos, poniendo especial atención en el debido cumplimiento de las disposiciones fiscales y legales. Estamos ofreciendo el servicio de REPSE."  
+        description: "Brindamos esquemas de remuneración para personal y ejecutivos, poniendo especial atención en el debido cumplimiento de las disposiciones fiscales y legales."  
     },
     {
         imgSrc: 'corporativo',

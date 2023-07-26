@@ -3,7 +3,7 @@ import './info.scss'
 
 export const Info = ({ imgSrc, description, title }) => {
     const containerStyle = {
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url(${imgSrc})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)), url(${imgSrc})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         justifyContent: 'center',

@@ -11,7 +11,7 @@ export const CircularSection = () => {
       setShowMore(!showMore);
     };
 
-    const visibleImages = showMore ? circulares : circulares.slice(0, 2);
+    const visibleImages = showMore ? circulares : circulares.slice(0, 6);
 
 
     return (
@@ -32,7 +32,7 @@ export const CircularSection = () => {
             </div>
 
             
-            {circulares.length > 2 && (
+            {circulares.length > 6 && (
                 <div>
                     {showMore ? (
                         <button className="red-button" onClick={toggleShowMore}>Mostrar menos</button>

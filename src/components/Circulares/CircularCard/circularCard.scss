@@ -15,16 +15,9 @@ $tertiary-color: #414042;
 .circular-card-container{
     @include flex-center(column, center);
     width: 30em;
-    gap: 1rem;
     transition: .5s;
     cursor: pointer;
-    padding: 2rem;
-
-    strong{
-        color: $primary-color;
-        font-size: 1.2rem;
-    }
-
+    
     span{
         font-size: 1.2rem;
     }
@@ -34,10 +27,52 @@ $tertiary-color: #414042;
         height: auto;
     }
 
-    &:hover{  
+    &:hover{
+        
+        box-shadow: 0px 0px 12px $primary-color;
+       
+
+        strong{
+            transition: .2s;
+            border-bottom: $secondary-color .3rem solid;
+        }
+    }
+
+    .circular-card-body{
         background-color: $primary-color;
-        span, strong{
-            color: $secondary-color
+        @include flex-center(column, center);
+        
+        width: 100%;
+        padding: 2rem;
+        gap: 1rem;
+
+        strong{
+            font-size: 1.2rem;
+        }
+
+        strong, span{
+           color: $secondary-color
+        }
+
+        .circular-icon{
+            @include flex-center(column, center);
+            gap: .5rem;
+            transition: .2s;
+            padding: 1rem;
+            border-radius: 2rem;
+            .icon-container{
+               
+                img{
+                    width: 3rem;
+                }
+            }
+
+            &:hover{  
+                background-color: $secondary-color;
+                span {
+                    color: $primary-color;
+                }
+            }
         }
     }
 }
