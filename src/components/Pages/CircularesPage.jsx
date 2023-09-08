@@ -5,7 +5,7 @@ import { Contact } from "../ContactSection/Contact/Contact"
 export const CircularesPage = () => {
     return (
         <>
-            <CircularSection />
+            <CircularSection limit={9}/>
             <Contact />
         </>
     )
