@@ -1,17 +1,31 @@
 export const circulares = [
     {
+        pdf: '/circulares/38-23.pdf',
+        img: '/circulares/38-23.png',
+        date: '08 de septiembre del 2023',
+        title: 'CIRCULAR 38/23',
+        link: ''
+    },
+    {
+        pdf: '/circulares/37-23.pdf',
+        img: '/circulares/37-23.png',
+        date: '30 de agosto del 2023',
+        title: 'CIRCULAR 37/23',
+        link: ''
+    },
+    {
         pdf: '/circulares/36-23.pdf',
         img: '/circulares/36-23.png',
         date: '18 de agosto del 2023',
         title: 'CIRCULAR 36/23',
-        link: ''
+        link: 'https://www.linkedin.com/posts/lic-jos%C3%A9-carlos-gonzalez-araiza-3024871a5_embargo-por-buzon-tributario-activity-7101964575054385152-A5Ul?utm_source=share&utm_medium=member_desktop'
     },
     {
         pdf: '/circulares/35-23.pdf',
         img: '/circulares/35-23.png',
         date: '10 de agosto del 2023',
         title: 'CIRCULAR 35/23',
-        link: ''
+        link: 'https://www.linkedin.com/posts/lic-jos%C3%A9-carlos-gonzalez-araiza-3024871a5_multa-el-sat-por-subcontratar-personal-activity-7097993438813401089-hjvz?utm_source=share&utm_medium=member_desktop'
     },
     {
         pdf: '/circulares/34-23.pdf',

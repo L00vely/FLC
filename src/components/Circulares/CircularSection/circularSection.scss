@@ -30,6 +30,12 @@ $tertiary-color: #414042;
     padding: 0 10rem;
 }
 
+.pagination-buttons{
+    @include flex-center( row , center );
+    width: 100%;
+    gap: 4rem;
+}
+
 .red-button {
     @include flex-center( column, center );
     background-color: $primary-color;
@@ -37,7 +43,7 @@ $tertiary-color: #414042;
     border-radius: 1rem;
     border: none;
     
-    width: 30em;
+    width: 10em;
     font-size: 1em;
     color: $secondary-color;
     height: auto;

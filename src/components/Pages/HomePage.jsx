@@ -11,7 +11,7 @@ export const HomePage = () => {
 
             <Services />
 
-            <CircularSection />
+            <CircularSection limit={3}/>
 
             <Contact />
         </>
