@@ -1,5 +1,12 @@
 export const circulares = [
     {
+        pdf: '/circulares/40-23.pdf',
+        img: '/circulares/40-23.png',
+        date: '18 de septiembre del 2023',
+        title: 'CIRCULAR 40/23',
+        link: ''
+    },
+    {
         pdf: '/circulares/38-23.pdf',
         img: '/circulares/38-23.png',
         date: '08 de septiembre del 2023',
