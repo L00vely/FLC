@@ -3,7 +3,6 @@ import { sections } from "../../../util/sections";
 import './infoArea.scss';
 
 export const InfoArea = () => {
-  console.log(sections);
   return (
     <section className="info-area">
       <div className="about-us-container">
