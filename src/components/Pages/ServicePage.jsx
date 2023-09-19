@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { DesarrolloWeb, Contabilidad, Remuneracion, ConsultoriaFiscal, AsesoriaCorporativa, AsesoriaLegal, LitigioFiscal } from "./services";
+import { DesarrolloWeb, Contabilidad, Remuneracion, ConsultoriaFiscal, AsesoriaCorporativa, AsesoriaLegal, LitigioFiscal, RelacionesInstitucionales } from "./services";
 import { ServiceCard } from '../ServicesSection/ServiceCard/ServiceCard';
 import { Contact } from "../ContactSection/Contact/Contact";
 import { getService } from "../../helpers/getService";
