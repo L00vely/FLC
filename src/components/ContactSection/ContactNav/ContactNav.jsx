@@ -11,20 +11,20 @@ export const ContactNav = () => {
             />
 
             <ContactItem 
-                link={"/"}
+                link={"https://www.linkedin.com/company/fiscallegumcorporatum/"}
                 name={"linkedin"}
             />
 
             <ContactItem 
-                link={"/"}
+                link={"https://www.facebook.com/Cga132526"}
                 name={"facebook"}
             />
             
 
-            <ContactItem 
+            {/* <ContactItem 
                 link={"/"}
                 name={"tiktok"}
-            />
+            /> */}
            
            <ContactItem 
                 link={"mailto:fiscallegumcorporatum@gmail.com"}
