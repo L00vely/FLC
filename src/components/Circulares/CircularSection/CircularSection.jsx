@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { CircularCard } from '../CircularCard/CircularCard'
 import { circulares } from '../../../util/circulares'
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai'
-import './circularSection.scss';
+import { Box, Flex, Grid, Text } from '@chakra-ui/react';
 
 
 export const CircularSection = ({ limit }) => {  
@@ -43,11 +43,26 @@ export const CircularSection = ({ limit }) => {
     const visibleImages = circulares.slice(offset*3, offset*3 + limit);
 
     return (
-        <section className="circular-container animate__animated animate__fadeIn">
-            <h2>CIRCULARES</h2>
-            <p>Avisos importantes</p>
+        <Flex
+            as='section'
+            className="animate__animated animate__fadeIn"
+            direction='column'
+            align='center'
+            justify='center'
+            w='100%'
+            gap='2rem 4rem'
+        >
+            <Text as='h2'>CIRCULARES</Text>
+            <Text as='p'>Avisos importantes</Text>
 
-            <div className='circular-grid-container animate__animated animate__fadeIn'>
+            <Grid
+                gridTemplateColumns={['repeat(1, 1fr)', 'repeat(2, .4fr)', 'repeat(2, .4fr)',  'repeat(3, .25fr)']}
+                gap='4rem'
+                w='100%'
+                justifyContent='center'
+                alignItems='center'
+                className='animate__animated animate__fadeIn'
+            >
                 {
                     visibleImages.map( circular => {
                         return(
@@ -58,7 +73,7 @@ export const CircularSection = ({ limit }) => {
                         )
                     })
                 }
-            </div>
+            </Grid>
 
             {
                 limit !== 9 ? (
@@ -76,6 +91,6 @@ export const CircularSection = ({ limit }) => {
 
             
 
-        </section>
+        </Flex>
     )
 }

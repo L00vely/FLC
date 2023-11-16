@@ -23,7 +23,6 @@ export const App = () => {
         p="0"
         boxSizing="border-box"
         className="animate__animated animate__fadeIn"
-        fontFamily="Libre Baskerville, serif"
         minH="100vh"
         minW="100vw"
         bg="white.100"

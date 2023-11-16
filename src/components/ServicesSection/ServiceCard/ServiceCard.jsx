@@ -1,10 +1,13 @@
 import { Link  } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 import PropTypes from 'prop-types'; 
 import { Text, Card, Box, Image } from "@chakra-ui/react";
 
 export const ServiceCard = ( { title, imgSrc, description}) => {
     const imgUrl = `/icons/icons8-${imgSrc}-50.png`;
-    
+
+    const isMobile = useMediaQuery({ maxWidth: 1023 });
+
     const serviceUrl = title.toLowerCase().replace(/ /g, "_");
     
     const cardStyles = {
@@ -14,7 +17,7 @@ export const ServiceCard = ( { title, imgSrc, description}) => {
         p: '2rem',
         gap: '1.5rem',
         transition: '.4s', 
-        align: "center",
+        
         width: "100%",
 
         _hover: {
@@ -29,6 +32,10 @@ export const ServiceCard = ( { title, imgSrc, description}) => {
         
         <Card 
             as={Link} 
+            height="100%"
+            align= {["center"]}
+            justify= {["center", "flex-start"]}
+
             { ...cardStyles }
         >
             <Box 
@@ -44,8 +51,14 @@ export const ServiceCard = ( { title, imgSrc, description}) => {
 
          
 
-            <Text as='h3'> { title }</Text>
-            <Text as='p'>{ description }</Text>
+            <Text as='h3' textAlign="center"> { title }</Text>
+
+            <Text 
+                as='p'
+                hidden={isMobile}
+            >
+                { description }
+            </Text>
 
             {/* <Link to={`/servicios/${serviceUrl}`} className="link view-more-container">
                 Leer más

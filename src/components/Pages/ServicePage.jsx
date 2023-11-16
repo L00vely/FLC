@@ -5,8 +5,7 @@ import { ServiceCard } from '../ServicesSection/ServiceCard/ServiceCard';
 import { Contact } from "../ContactSection/Contact/Contact";
 import { getService } from "../../helpers/getService";
 import { services } from "../../util/services";
-import './services/services.scss'
-import { Box, VStack, Image, useBreakpointValue, Text, Flex } from "@chakra-ui/react";
+import { Box, VStack, Image, Text, Flex } from "@chakra-ui/react";
 
 
 
