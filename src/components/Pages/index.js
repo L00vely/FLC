@@ -1,0 +1,5 @@
+export * from './CircularesPage'
+export * from './ContactPage'
+export * from './HomePage'
+export * from './ServicePage'
+export * from './ServicesPage'

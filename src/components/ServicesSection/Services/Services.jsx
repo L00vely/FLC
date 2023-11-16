@@ -1,23 +1,38 @@
 
+import { Box, Grid, Text, Flex } from '@chakra-ui/react';
 import { services } from '../../../util/services';
 import { ServiceCard } from '../ServiceCard/ServiceCard';
 import './services.scss';
 
 export const Services = () => {    
     return (
-        <section className="services-container animate__animated animate__fadeIn">
+        <Flex 
+            as='section' 
+            className="animate__animated animate__fadeIn"
+            direction='column'
+            align='center'
+            justify='center'
+            w='100%'
+            gap='2rem 4rem'
+        >
             
-            <h2>SERVICIOS</h2>
-            <p>Nuestras áreas son las siguientes</p>
-            <div className="services-grid-container">
+            <Text as='h2'>SERVICIOS</Text>
+            <Text as='p'>Nuestras áreas son las siguientes</Text>
+            <Grid
+                gridTemplateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, .25fr)']}
+                gap='4rem'
+                w='100%'
+                justifyContent='center'
+                alignItems='center'
+            >
                 {
                     services.map( service => (
                         <ServiceCard key={service.title} { ...service }/>
                     ))
                 }
-            </div>
+            </Grid>
             
 
-        </section>
+        </Flex>
     )
 }

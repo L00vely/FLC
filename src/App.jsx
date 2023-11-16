@@ -1,14 +1,11 @@
 import { useEffect } from "react";
+import { VStack } from "@chakra-ui/react";
+import '@material/web/button/filled-button.js';
+import '@material/web/button/outlined-button.js';
+import '@material/web/checkbox/checkbox.js';
 import { Routes, Route, Navigate, useLocation} from "react-router-dom";
-import { Header } from "./components/ui/Header/Header";
-import { Footer } from "./components/ui/Footer/Footer";
-import { HomePage } from "./components/Pages/HomePage";
-import { ServicesPage } from "./components/Pages/ServicesPage";
-import { ContactPage } from "./components/Pages/ContactPage";
-import { ServicePage } from "./components/Pages/ServicePage";
-import { CircularesPage } from "./components/Pages/CircularesPage";
-import './styles.scss';
-
+import { Header, Footer } from "./components/ui";
+import { HomePage, ServicePage, ServicesPage, CircularesPage, ContactPage } from "./components/pages";
 
 export const App = () => {
   const location = useLocation();
@@ -19,7 +16,19 @@ export const App = () => {
   
   
   return (
-      <main className="animate__animated animate__fadeIn">
+      <VStack 
+        spacing="2rem"
+        as="main"
+        m="0"
+        p="0"
+        boxSizing="border-box"
+        className="animate__animated animate__fadeIn"
+        fontFamily="Libre Baskerville, serif"
+        minH="100vh"
+        minW="100vw"
+        bg="white.100"
+        overflowX="hidden"
+      >
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -31,7 +40,7 @@ export const App = () => {
           <Route path="/servicios/*" element={<Navigate to="/servicios" />}/>
         </Routes>
         <Footer />
-      </main>
+      </VStack>
   
   )
 }

@@ -6,6 +6,7 @@ import { Contact } from "../ContactSection/Contact/Contact";
 import { getService } from "../../helpers/getService";
 import { services } from "../../util/services";
 import './services/services.scss'
+import { Box, VStack, Image, useBreakpointValue, Text, Flex } from "@chakra-ui/react";
 
 
 
@@ -21,7 +22,7 @@ export const ServicePage = ( ) => {
 
     serviceTitle = serviceTitle.replace(/_/g, " ");
 
-    
+   
 
     useEffect(() => {
         const findService = getService(serviceTitle)[0];
@@ -31,78 +32,107 @@ export const ServicePage = ( ) => {
         setImgUrl(findService.imgSrc);
      },[ servicio ]);
     
-
+    
     return (
         <>
-            <section className="service-container animate__animated animate__fadeIn">
-                <div className="service-top-container">
+            <Box 
+                as="section"
+                className="animate__animated animate__fadeIn"
                 
-                    <div className='icon-container'>
-                        <img src={ `/icons/icons8-${imgUrl}-100.png` } alt={`Icono del servicio de ${ servicio }`} />
-                    </div>
-                    <h1>{ serviceTitle }</h1>
-                </div>
-                
-                
-                {   serviceTitle === "CONTABILIDAD" ? (
-                    <Contabilidad />
-                ) : (
-                        serviceTitle === "ASESORIA Y CONSULTORIA FISCAL" ? (
-                            <ConsultoriaFiscal />
+            >
+                <VStack
+                    spacing="2rem"
+                >
+                    <Box 
+                        bg="red.100"
+                        p="2rem"
+                        borderRadius="10rem"
+                        w={["7rem", "10rem"]}
+                        h="auto"
+                    >
+                        <Image  
+                            src={ `/icons/icons8-${imgUrl}-100.png` } 
+                            alt={`Icono del servicio de ${ servicio }`} 
+                        />
+                    </Box>
+                   
+                    <Text
+                        as="h1"
+                        textAlign="center"
+                    >
+                        { serviceTitle }
+                    </Text>
+
+                    <Box
+                        display="flex"
+                        flexDirection="column"
+                        gap="2rem"
+                        p="2rem"
+                    >
+                        {   serviceTitle === "CONTABILIDAD" ? (
+                            <Contabilidad />
                         ) : (
-                            serviceTitle === "ASESORIA LEGAL" ? (
-                                <AsesoriaLegal />
-                            ) : (
-                                serviceTitle === "ASESORIA LEGAL" ? (
-                                    <LitigioFiscal />
+                                serviceTitle === "ASESORIA Y CONSULTORIA FISCAL" ? (
+                                    <ConsultoriaFiscal />
                                 ) : (
-                                    serviceTitle === "ESQUEMAS DE REMUNERACIÓN PARA EJECUTIVOS" ? (
-                                        <Remuneracion />
-                                    ) :  (
-                                        serviceTitle === "ASESORIA CORPORATIVA" ? (
-                                            <AsesoriaCorporativa />
-                                        ) :  (
-                                            serviceTitle === "RELACIONES INSTITUCIONALES" ? (
-                                                <RelacionesInstitucionales />
+                                    serviceTitle === "ASESORIA LEGAL" ? (
+                                        <AsesoriaLegal />
+                                    ) : (
+                                        serviceTitle === "ASESORIA LEGAL" ? (
+                                            <LitigioFiscal />
+                                        ) : (
+                                            serviceTitle === "ESQUEMAS DE REMUNERACIÓN PARA EJECUTIVOS" ? (
+                                                <Remuneracion />
                                             ) :  (
-                                                serviceTitle === "LITIGIO FISCAL" ? (
-                                                    <LitigioFiscal />
-                                                ) 
-                                            :
-                                            (
-                                                <DesarrolloWeb />
+                                                serviceTitle === "ASESORIA CORPORATIVA" ? (
+                                                    <AsesoriaCorporativa />
+                                                ) :  (
+                                                    serviceTitle === "RELACIONES INSTITUCIONALES" ? (
+                                                        <RelacionesInstitucionales />
+                                                    ) :  (
+                                                        serviceTitle === "LITIGIO FISCAL" ? (
+                                                            <LitigioFiscal />
+                                                        ) 
+                                                    :
+                                                    (
+                                                        <DesarrolloWeb />
+                                                    )
+                                                )
                                             )
                                         )
                                     )
                                 )
                             )
-                        )
-                    )
-                )}
-            </section>
+                        )}
+                    </Box>
 
-            <section className="services-container animate__animated animate__fadeIn">
-            
-                <h2>Otras áreas</h2>
-               
-                <div className="services-grid-container">   
+
+                </VStack>
+
+
+                <VStack 
+                    as="section"                   
+                    className="animate__animated animate__fadeIn"
+                >
+                    <Text 
+                        as="h2"
+                        color="red.100"
+                    >
+                        Otras áreas
+                    </Text>
                 
-                    {
-                        newServices.map( service => (
-                            <ServiceCard key={service.title} { ...service }/>
-                        ))
-                    }
-                </div>
-           
-                
-
-            </section>
-                                            
-            
-          
-
+                    <Flex 
+                        flexWrap="wrap"
+                    >   
+                        {
+                            newServices.map( service => (
+                                <ServiceCard key={service.title} { ...service }/>
+                            ))
+                        }
+                    </Flex>
+                </VStack>
+            </Box>
             <Contact />
-        </>
-        
+        </> 
     )
 }
