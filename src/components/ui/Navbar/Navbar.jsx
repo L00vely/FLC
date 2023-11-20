@@ -1,9 +1,12 @@
+import { useMediaQuery } from 'react-responsive';
 import { NavLink } from "react-router-dom";
-import { Stack, Link } from "@chakra-ui/react";
+import { Stack, Link, Button, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
+import { HamburgerIcon} from '@chakra-ui/icons';
 import { useBreakpointValue } from "@chakra-ui/react";
 
 export const Navbar = () => {
- 
+    const isMobile = useMediaQuery({ maxWidth: 1023 });
+
 
     const linkStyles = {
         p: "1rem",
@@ -111,29 +114,55 @@ export const Navbar = () => {
     return (
         <Stack 
             as='nav' 
-            top={['0', '8rem', '8rem', '1rem', '1rem']}
-            right={['0', '0', '0', '1rem', '1rem']}
+            right="1rem"
             textAlign="center"
             spacing={['2rem', '0rem']}
             zIndex="4"
-            position={['fixed', 'fixed', 'fixed', 'static', 'static']}
+            // position={['fixed', 'fixed', 'fixed', 'static', 'static']}
             direction={['column', 'column', 'column', 'row', 'row']}            
             bg='white.100'
         >
-            {links.map((link, index) => (
-                <Link
-                
+            
+            {!isMobile ? (
+                links.map((link, index) => (
+                    <Link
                     key={index}
                     as={NavLink}
                     to={link.to}
                     title={`Ir a la página de ${link.title.toLowerCase()}`}
                     {...responsiveLinkStyles}
-                >
+                    >
                     {link.title}
-                </Link>
-            ))}
-       
+                    </Link>
+                ))
+                ) : (
+                <Menu>
+                    <MenuButton 
+                        as={Button} 
+                        rightIcon={<HamburgerIcon />} 
+                        bg="white.100"
+                    />
+
+                    <MenuList p="0rem">
+                        {links.map((link, index) => (
+                            <MenuItem
+                                key={index}
+                                as={NavLink}
+                                to={link.to}
+                                title={`Ir a la página de ${link.title.toLowerCase()}`}
+                                {...responsiveLinkStyles}
+                            >
+                                {link.title}
+                            </MenuItem>
+                        ))}
+                    </MenuList>
+                </Menu>
+                )}
+
+          
+                    
+             
+                    
         </Stack>
-    
     )
 }

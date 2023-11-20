@@ -11,7 +11,7 @@ export const RootLayout = () => {
     <Grid 
       className="animate__animated animate__fadeIn"
       gridTemplateRows=".25fr 4fr .25fr"
-      gap="0rem"
+      gap="0"
       gridTemplateColumns="1fr 1fr"
       templateAreas={`"header header"
       "main main"

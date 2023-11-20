@@ -1,26 +1,24 @@
-import { useMediaQuery } from 'react-responsive';
 import { Link } from "react-router-dom";
+import { useMediaQuery } from 'react-responsive';
 import { Navbar } from '../Navbar/Navbar';
-import { MovilButton } from '../MovilButton/MovilButton';
-import { Box, GridItem, Image } from '@chakra-ui/react';
+import { Box, HStack, Image } from '@chakra-ui/react';
 
 export const Header =  () => {
   const isMobile = useMediaQuery({ maxWidth: 1023 });
 
 
   return(
-    <GridItem
-      area='header' 
+    <HStack 
       as='header'
       bg="white.100"
       p="2rem"
       h="auto"
-      width="100vw"  
+      w="100vw"
       top="0"
       zIndex="1"
       display="flex"
-      justifyContent="space-between"
-      alignItems="center"
+      align="center"
+      justify="space-between"
     >
       <Box 
         as={Link} 
@@ -35,8 +33,8 @@ export const Header =  () => {
         />
       </Box>
 
-      { isMobile ?  (<MovilButton />) : (<Navbar />)}
+      <Navbar />
       
-    </GridItem>
+    </HStack>
   );
 }

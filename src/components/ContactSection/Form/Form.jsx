@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Text } from '@chakra-ui/react';
 import { useForm } from '../../../hooks/useForm';
 import { ContactNav } from '../ContactNav/ContactNav';
 import emailjs from '@emailjs/browser';
@@ -33,7 +34,7 @@ export const Form= () => {
 
     return (
       <div className="form-container">
-        <h2>CONTÁCTANOS</h2>
+        <Text as="h2">CONTÁCTANOS</Text>
       
         <ContactNav />
       

@@ -26,13 +26,13 @@ const globalStyles = {
 
       h1: {
         color: "red.100",
-        fontSize: ["sm", "lg", "2xl"],
+        fontSize: ["sm", "lg", "3xl"],
         fontWeight: "bold"
       },
 
       h2: {
         color: "red.100",
-        fontSize: ["sm", "lg", "3xl"],
+        fontSize: ["sm", "lg", "2xl"],
         fontWeight: "bold"
       },
 

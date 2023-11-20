@@ -1,18 +1,25 @@
 // import { Link } from "react-router-dom";
 import { GridItem, Box, Link, HStack, VStack, Image, Text, Divider } from '@chakra-ui/react';
 import { useMediaQuery } from 'react-responsive';
-import './footer.scss'
 
 const FooterItem = ({ href, target, iconSrc, alt, text }) => ( 
-  <Link href={href} className="footer-item-container" target={target} rel="noopener noreferrer" isExternal>
+  <HStack 
+    gap="1rem"
+    as="a"
+    href={href}
+    target={target}
+    w="100%"
+      
+  >
     
     <Image  
       src={iconSrc} 
       alt={alt}
+      width="2rem"
     />
    
     <Text as='p'>{text}</Text>
-  </Link>
+  </HStack>
 );
 
 
@@ -61,6 +68,7 @@ export const Footer = () => {
         display="flex"         
         justifyContent="space-between"
         alignItems="center"
+        gap="2rem"
       >
         
         <HStack
@@ -95,7 +103,7 @@ export const Footer = () => {
             </VStack>
         </HStack>
   
-        <Divider orientation='horizontal' style={ { borderWidth: "2px", borderColor: "#A80000"}}/>
+        <Divider width="100vw" orientation='horizontal' style={ { borderWidth: "2px", borderColor: "#A80000"}}/>
      
         <Text as="p">Todos los derechos reservados ©</Text>
         
