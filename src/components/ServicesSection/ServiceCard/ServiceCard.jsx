@@ -1,4 +1,4 @@
-import { Link  } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import PropTypes from 'prop-types'; 
 import { Text, Card, Box, Image } from "@chakra-ui/react";
@@ -6,8 +6,13 @@ import { Text, Card, Box, Image } from "@chakra-ui/react";
 
 
 export const ServiceCard = ( { title, slug, icon }) => {
+    const navigate = useNavigate();
 
     const isMobile = useMediaQuery({ maxWidth: 1023 });
+
+    const handleClick = () => {
+        navigate(`/servicios/${slug}`);
+    }
     
     const cardStyles = {
         display: 'flex',
@@ -28,8 +33,7 @@ export const ServiceCard = ( { title, slug, icon }) => {
     return (
         
         <Card 
-            as={Link} 
-            to={`/servicios/${slug}`}  
+            onClick={handleClick}
             height="100%"
             align= {["center"]}
             justify= {["center", "flex-start"]}

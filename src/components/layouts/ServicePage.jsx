@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { ServicesGrid } from "../ServicesSection";
 import { Contact } from "../ContactSection/Contact/Contact";
-import { Box, VStack, Image, Text } from "@chakra-ui/react";
+import { Box, VStack, Image, Text, HStack } from "@chakra-ui/react";
 import { useGetServiceBySlug, useGetServices } from "../../hooks";
 
 
@@ -10,16 +9,15 @@ import { useGetServiceBySlug, useGetServices } from "../../hooks";
 
 export const ServicePage = () => {
     const { servicio } = useParams();
-    const navigate = useNavigate();
 
-    const { memorizedService} = useGetServiceBySlug( servicio );
+    const { service} = useGetServiceBySlug( servicio );
 
     const { memorizedServices, isLoading  } = useGetServices( servicio);
     
     
-    const serviceTitle = memorizedService.title || '';
+    const serviceTitle = service.title || '';
 
-    const whiteIcon = memorizedService.whiteIcon || {};
+    const whiteIcon = service.whiteIcon || {};
 
     const whiteIconUrl = whiteIcon.url || '';
    
@@ -74,7 +72,6 @@ export const ServicePage = () => {
                 </VStack>
             </Box>
 
-            <Contact />
         </> 
     )
 }

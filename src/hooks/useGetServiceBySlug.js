@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { getServiceBySlug } from '../../contentful';
 
 export const useGetServiceBySlug = (slug) => {
@@ -14,11 +14,9 @@ export const useGetServiceBySlug = (slug) => {
         }
         };
         fetchService();
-    }, []);
-
-    const memorizedService = useMemo(() => service, [service]);
+    }, [ slug ]);
 
     return {
-        memorizedService
+        service
     }
 }
