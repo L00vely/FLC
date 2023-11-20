@@ -3,12 +3,11 @@ import { useMediaQuery } from "react-responsive";
 import PropTypes from 'prop-types'; 
 import { Text, Card, Box, Image } from "@chakra-ui/react";
 
-export const ServiceCard = ( { title, imgSrc, description}) => {
-    const imgUrl = `/icons/icons8-${imgSrc}-50.png`;
+
+
+export const ServiceCard = ( { title, slug, icon }) => {
 
     const isMobile = useMediaQuery({ maxWidth: 1023 });
-
-    const serviceUrl = title.toLowerCase().replace(/ /g, "_");
     
     const cardStyles = {
         display: 'flex',
@@ -26,25 +25,23 @@ export const ServiceCard = ( { title, imgSrc, description}) => {
         },
     };
 
-
-
     return (
         
         <Card 
             as={Link} 
+            to={`/servicios/${slug}`}  
             height="100%"
             align= {["center"]}
             justify= {["center", "flex-start"]}
-
+            
             { ...cardStyles }
         >
             <Box 
-                as={Link} 
-                to={`/servicios/${serviceUrl}`} 
-                title="Fiscal Legum Corporatum"
+                
+                title={`Icono del servicio de ${title}`}        
             >
                 <Image  
-                    src={ imgUrl } 
+                    src={ icon.url  } 
                     alt={`Icono del servicio de ${title}`}                
                 />
             </Box>
@@ -53,12 +50,12 @@ export const ServiceCard = ( { title, imgSrc, description}) => {
 
             <Text as='h3' textAlign="center"> { title }</Text>
 
-            <Text 
+            {/* <Text 
                 as='p'
                 hidden={isMobile}
             >
                 { description }
-            </Text>
+            </Text> */}
 
             {/* <Link to={`/servicios/${serviceUrl}`} className="link view-more-container">
                 Leer más
@@ -72,7 +69,7 @@ export const ServiceCard = ( { title, imgSrc, description}) => {
 
 ServiceCard.propTypes = {
     title: PropTypes.string.isRequired,
-    imgSrc: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    icon: PropTypes.object.isRequired
 }
 

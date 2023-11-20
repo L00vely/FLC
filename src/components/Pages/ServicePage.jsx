@@ -1,36 +1,30 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { DesarrolloWeb, Contabilidad, Remuneracion, ConsultoriaFiscal, AsesoriaCorporativa, AsesoriaLegal, LitigioFiscal, RelacionesInstitucionales } from "./services";
-import { ServiceCard } from '../ServicesSection/ServiceCard/ServiceCard';
+import { ServicesGrid } from "../ServicesSection";
 import { Contact } from "../ContactSection/Contact/Contact";
-import { getService } from "../../helpers/getService";
-import { services } from "../../util/services";
-import { Box, VStack, Image, Text, Flex } from "@chakra-ui/react";
+import { Box, VStack, Image, Text } from "@chakra-ui/react";
+import { useGetServiceBySlug, useGetServices } from "../../hooks";
 
 
 
-export const ServicePage = ( ) => {
-    const [ imgUrl, setImgUrl ] = useState('');
+
+export const ServicePage = () => {
     const { servicio } = useParams();
-    
     const navigate = useNavigate();
 
-    const newServices = services.filter(service => service.title.toLowerCase().replace(/ /g, "-") !== servicio.replace(/_/g, "-"));
+    const { memorizedService} = useGetServiceBySlug( servicio );
+
+    const { memorizedServices, isLoading  } = useGetServices( servicio);
     
-    let serviceTitle = servicio.toUpperCase();
+    
+    const serviceTitle = memorizedService.title || '';
 
-    serviceTitle = serviceTitle.replace(/_/g, " ");
+    const whiteIcon = memorizedService.whiteIcon || {};
 
+    const whiteIconUrl = whiteIcon.url || '';
    
 
-    useEffect(() => {
-        const findService = getService(serviceTitle)[0];
-        if (findService === null){
-           return navigate("/servicios");
-        }
-        setImgUrl(findService.imgSrc);
-     },[ servicio ]);
-    
+    const newServices = memorizedServices.filter( service => service.title !== serviceTitle );
     
     return (
         <>
@@ -50,8 +44,8 @@ export const ServicePage = ( ) => {
                         h="auto"
                     >
                         <Image  
-                            src={ `/icons/icons8-${imgUrl}-100.png` } 
-                            alt={`Icono del servicio de ${ servicio }`} 
+                            src={ whiteIconUrl  } 
+                            alt={`Icono del servicio de ${ serviceTitle }`} 
                         />
                     </Box>
                    
@@ -61,51 +55,6 @@ export const ServicePage = ( ) => {
                     >
                         { serviceTitle }
                     </Text>
-
-                    <Box
-                        display="flex"
-                        flexDirection="column"
-                        gap="2rem"
-                        p="2rem"
-                    >
-                        {   serviceTitle === "CONTABILIDAD" ? (
-                            <Contabilidad />
-                        ) : (
-                                serviceTitle === "ASESORIA Y CONSULTORIA FISCAL" ? (
-                                    <ConsultoriaFiscal />
-                                ) : (
-                                    serviceTitle === "ASESORIA LEGAL" ? (
-                                        <AsesoriaLegal />
-                                    ) : (
-                                        serviceTitle === "ASESORIA LEGAL" ? (
-                                            <LitigioFiscal />
-                                        ) : (
-                                            serviceTitle === "ESQUEMAS DE REMUNERACIÓN PARA EJECUTIVOS" ? (
-                                                <Remuneracion />
-                                            ) :  (
-                                                serviceTitle === "ASESORIA CORPORATIVA" ? (
-                                                    <AsesoriaCorporativa />
-                                                ) :  (
-                                                    serviceTitle === "RELACIONES INSTITUCIONALES" ? (
-                                                        <RelacionesInstitucionales />
-                                                    ) :  (
-                                                        serviceTitle === "LITIGIO FISCAL" ? (
-                                                            <LitigioFiscal />
-                                                        ) 
-                                                    :
-                                                    (
-                                                        <DesarrolloWeb />
-                                                    )
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        )}
-                    </Box>
-
-
                 </VStack>
 
 
@@ -119,18 +68,12 @@ export const ServicePage = ( ) => {
                     >
                         Otras áreas
                     </Text>
-                
-                    <Flex 
-                        flexWrap="wrap"
-                    >   
-                        {
-                            newServices.map( service => (
-                                <ServiceCard key={service.title} { ...service }/>
-                            ))
-                        }
-                    </Flex>
+
+                    <ServicesGrid services={ newServices } isLoading= { isLoading } />
+                    
                 </VStack>
             </Box>
+
             <Contact />
         </> 
     )

@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
+import { GridItem } from '@chakra-ui/react';
 
 import './footer.scss'
 
 export const Footer = () => {
     return (
-      <footer>
+      <GridItem
+        as="footer" 
+        bg="white.100" 
+        area={'footer'} 
+        padding="2rem" 
+        display="flex" 
+        justifyContent="center" 
+        alignItems="center" 
+        p={"2rem"}
+      >
         <div className="footer-top-container">
           <Link to="/">
             <img className="footer-logo" src="/logos/logo_letras.png" alt="Fiscal Legum Corporatum Logo" />
@@ -44,6 +54,6 @@ export const Footer = () => {
         <div className="footer-bottom-container">
           <span>2023 FISCAL, LEGUM, CORPORATUM, Todos los derechos reservados ©</span>
         </div>
-      </footer>      
+      </GridItem>      
     )
 }

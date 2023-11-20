@@ -1,9 +1,14 @@
 
-import { Grid, Text, Flex } from '@chakra-ui/react';
-import { services } from '../../../util/services';
-import { ServiceCard } from '../ServiceCard/ServiceCard';
+import { Text, Flex, Skeleton } from '@chakra-ui/react';
+import { ServicesGrid } from '../ServicesGrid';
+import { useGetServices } from '../../../hooks';
 
 export const Services = () => {    
+
+    const { memorizedServices, isLoading } = useGetServices();
+
+    console.log(memorizedServices)
+    
     return (
         <Flex 
             as='section' 
@@ -17,22 +22,13 @@ export const Services = () => {
             
             <Text as='h2'>SERVICIOS</Text>
             <Text as='p'>Nuestras áreas son las siguientes</Text>
-            <Grid
-                gridTemplateColumns={['repeat(1, 1fr)', 'repeat(2, .4fr)', 'repeat(2, .4fr)',  'repeat(3, .25fr)']}
-                gap='4rem'
-                w='100%'
-                justifyContent='center'
-                alignItems='center'
-                className='animate__animated animate__fadeIn'
-            >
-                {
-                    services.map( service => (
-                        <ServiceCard key={service.title} { ...service }/>
-                    ))
-                }
-            </Grid>
-            
 
+            <Skeleton 
+                w='100%'
+                isLoaded={!isLoading} 
+            > 
+                <ServicesGrid services={ memorizedServices } isLoading={isLoading}/>
+            </Skeleton>
         </Flex>
     )
 }

@@ -3,6 +3,8 @@ import "@fontsource/raleway";
 
 
 const colors = {
+  
+
     red: {
       100: '#A80000'
     },
@@ -12,6 +14,7 @@ const colors = {
     gray: {
       100: '#414042'
     }
+
 };
   
 const globalStyles = {
