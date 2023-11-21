@@ -21,7 +21,7 @@ export const ServiceCard = ( { title, slug, icon }) => {
         p: '2rem',
         gap: '1.5rem',
         transition: '.4s', 
-        
+        bg: 'white.200',
         width: "100%",
 
         _hover: {
@@ -33,11 +33,12 @@ export const ServiceCard = ( { title, slug, icon }) => {
     return (
         
         <Card 
+            cursor="pointer"
             onClick={handleClick}
             height="100%"
             align= {["center"]}
             justify= {["center", "flex-start"]}
-            
+        
             { ...cardStyles }
         >
             <Box 

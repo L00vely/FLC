@@ -6,8 +6,6 @@ import { useGetServices } from '../../../hooks';
 export const Services = () => {    
 
     const { memorizedServices, isLoading } = useGetServices();
-
-    console.log(memorizedServices)
     
     return (
         <Flex 

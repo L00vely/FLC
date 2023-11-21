@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { CircularCard } from '../CircularCard/CircularCard'
 import { circulares } from '../../../util/circulares'
-import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai'
-import { Box, Flex, Grid, Text } from '@chakra-ui/react';
+import { ArrowForwardIcon, ArrowBackIcon } from '@chakra-ui/icons';
+import { HStack, Flex, Grid, Text, Button } from '@chakra-ui/react';
 
 
 export const CircularSection = ({ limit }) => {  
@@ -51,6 +51,7 @@ export const CircularSection = ({ limit }) => {
             justify='center'
             w='100%'
             gap='2rem 4rem'
+            m="2rem 0rem"
         >
             <Text as='h2'>CIRCULARES</Text>
             <Text as='p'>Avisos importantes</Text>
@@ -74,23 +75,13 @@ export const CircularSection = ({ limit }) => {
                     })
                 }
             </Grid>
+                <HStack spacing="2rem">
+                    <Button bg="red.100" onClick={ decrementOffset } _hover={{ backgroundColor: "white.100" }}> <ArrowBackIcon /> </Button>
 
-            {
-                limit !== 9 ? (
-         
-                    <div className='pagination-buttons'>
-                        <button className="red-button" onClick={ decrementOffset }> <AiFillCaretLeft /> </button>
-
-                        <span>{ offset + 1 } / { totalPages } </span>
-                
-                        <button className="red-button" onClick={ incrementOffset }> <AiFillCaretRight /> </button>
-                    </div>
-                    
-                ): null
-            }
-
+                    <Text as="span">{ offset + 1 } / { totalPages } </Text>
             
-
+                    <Button bg="red.100" onClick={ incrementOffset } _hover={{ backgroundColor: "white.100" }}> <ArrowForwardIcon/> </Button>
+                </HStack>
         </Flex>
     )
 }

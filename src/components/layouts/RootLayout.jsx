@@ -24,7 +24,7 @@ export const RootLayout = () => {
       {/* Header */}
       <Header />
 
-      <GridItem as="main" area={'main'}>
+      <GridItem as="main" area={'main'} bg="white.100">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/servicios" element={<ServicesPage />} />
