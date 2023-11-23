@@ -1,0 +1,60 @@
+/*VARIABLES*/
+$primary-color: #A80000;
+$secondary-color: #F3F3F3;
+$tertiary-color: #414042;
+
+/*MIXINS*/
+@mixin flex-center($direction, $justify){
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: $justify;
+}
+
+.two-columns{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    
+}
+
+.column {
+    @include flex-center(column, center);
+    gap: 2rem;
+    text-align: justify;
+}
+
+.service-container{
+    @include flex-center(column,center );
+
+    .service-top-container{
+        @include flex-center(column,center );
+        gap: 2rem;
+        .icon-container{
+            background-color: $primary-color;
+            padding: 2rem;
+            border-radius: 10rem;
+        }
+
+    }
+
+    .service-body-container{
+        padding: 5rem;
+        
+        @include flex-center(column,center );
+        gap: 2rem;
+        line-height: 3rem;
+
+        strong {
+            color: $primary-color;
+            font-size: 1.6rem;
+        }
+
+        p, ul{
+            font-size: 1.5rem;
+        }
+
+    }
+
+
+}

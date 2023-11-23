@@ -5,7 +5,7 @@ import { Text, Card, Box, Image } from "@chakra-ui/react";
 
 
 
-export const ServiceCard = ( { title, slug, icon }) => {
+export const ServiceCard = ( { title, slug, icon, description }) => {
     const navigate = useNavigate();
 
     const isMobile = useMediaQuery({ maxWidth: 1023 });
@@ -17,11 +17,10 @@ export const ServiceCard = ( { title, slug, icon }) => {
     const cardStyles = {
         display: 'flex',
         flexDirection: 'column',
-        bg: 'white.100',
         p: '2rem',
         gap: '1.5rem',
         transition: '.4s', 
-        bg: 'white.200',
+        bg: 'white.200  ',
         width: "100%",
 
         _hover: {
@@ -55,12 +54,12 @@ export const ServiceCard = ( { title, slug, icon }) => {
 
             <Text as='h3' textAlign="center"> { title }</Text>
 
-            {/* <Text 
+            <Text 
                 as='p'
                 hidden={isMobile}
             >
                 { description }
-            </Text> */}
+            </Text>
 
             {/* <Link to={`/servicios/${serviceUrl}`} className="link view-more-container">
                 Leer más
@@ -75,6 +74,7 @@ export const ServiceCard = ( { title, slug, icon }) => {
 ServiceCard.propTypes = {
     title: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
-    icon: PropTypes.object.isRequired
+    icon: PropTypes.object.isRequired,
+    description: PropTypes.string.isRequired,
 }
 

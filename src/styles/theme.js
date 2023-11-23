@@ -27,27 +27,32 @@ const globalStyles = {
 
       h1: {
         color: "red.100",
-        fontSize: ["sm", "lg", "3xl"],
+        fontSize: ["sm", "lg", "lg", "2xl", "4xl"],
         fontWeight: "bold"
       },
 
       h2: {
         color: "red.100",
-        fontSize: ["sm", "lg", "2xl"],
+        fontSize: ["sm", "lg", "lg", "lg", "xl"],
         fontWeight: "bold"
       },
 
       h3: {
         color: "red.100",
-        fontSize: ["sm", "md", "lg", "md", "xl"],
+        fontSize: ["sm", "md", "lg", "lg", "lg"],
         fontWeight: "bold"
       },
       
       
       p:{
-          fontSize: ["sm", "md", "md", "md", "xl"],
+          fontSize: ["sm", "md", "md", "md", "lg"],
+          color: "gray.100"
+      },
+
+      li:{
+        fontSize: ["sm", "md", "md", "md", "lg"],
           color: "gray.100",
-          textAlign: "justify",
+          margin: "1rem 0"
       },
 
       strong: {

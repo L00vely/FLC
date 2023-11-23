@@ -1,11 +1,9 @@
 import { useParams } from "react-router-dom";
 import { ServicesGrid } from "../ServicesSection";
-import { Contact } from "../ContactSection/Contact/Contact";
-import { Box, VStack, Image, Text, HStack } from "@chakra-ui/react";
+import { Box, VStack, Image, Text } from "@chakra-ui/react";
 import { useGetServiceBySlug, useGetServices } from "../../hooks";
-
-
-
+import { DesarrolloWeb, Contabilidad, AsesoriaCorporativa, AsesoriaLegal, LitigioFiscal, RelacionesInstitucionales, Remuneracion, ConsultoriaFiscal } from "./services";
+import './services/services.scss'
 
 export const ServicePage = () => {
     const { servicio } = useParams();
@@ -17,6 +15,8 @@ export const ServicePage = () => {
     
     const serviceTitle = service.title || '';
 
+    const serviceSlug = service.slug || '';
+
     const whiteIcon = service.whiteIcon || {};
 
     const whiteIconUrl = whiteIcon.url || '';
@@ -26,10 +26,10 @@ export const ServicePage = () => {
     
     return (
         <>
-            <Box 
+            <VStack
                 as="section"
                 className="animate__animated animate__fadeIn"
-                
+                spacing="2rem"
             >
                 <VStack
                     spacing="2rem"
@@ -55,6 +55,42 @@ export const ServicePage = () => {
                     </Text>
                 </VStack>
 
+                {   serviceSlug  === "contabilidad" ? (
+                    <Contabilidad />
+                ) : (
+                        serviceSlug  === "asesoria-y-consultoria-fiscal" ? (
+                            <ConsultoriaFiscal />
+                        ) : (
+                            serviceSlug  === "asesoria-legal" ? (
+                                <AsesoriaLegal />
+                            ) : (
+                                serviceSlug  === "litigio-fiscal" ? (
+                                    <LitigioFiscal />
+                                ) : (
+                                    serviceSlug  === "esquemas-de-remuneracion-para-ejecutivos" ? (
+                                        <Remuneracion />
+                                    ) :  (
+                                        serviceSlug  === "asesoria-corporativa" ? (
+                                            <AsesoriaCorporativa />
+                                        ) :  (
+                                            serviceSlug  === "relaciones-institucionales" ? (
+                                                <RelacionesInstitucionales />
+                                            ) :  (
+                                                serviceSlug  === "litigio-fiscal" ? (
+                                                    <LitigioFiscal />
+                                                ) 
+                                            :
+                                            (
+                                                <DesarrolloWeb />
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )}
+
 
                 <VStack 
                     as="section"                   
@@ -70,7 +106,7 @@ export const ServicePage = () => {
                     <ServicesGrid services={ newServices } isLoading= { isLoading } />
                     
                 </VStack>
-            </Box>
+            </VStack>
 
         </> 
     )

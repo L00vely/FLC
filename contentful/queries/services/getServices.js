@@ -14,6 +14,7 @@ const getServices = async () => {
             url
             title
           }
+          description
         }
       }
     }`;
@@ -22,6 +23,7 @@ const getServices = async () => {
       const data = await client.request(servicesQuery);
       const { servicesCollection } = data;
       const { items } = servicesCollection;
+      console.log(items);
       return items;
     } catch (error) {
       console.error(error);

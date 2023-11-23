@@ -1,44 +1,47 @@
 import { Info } from "../Info/Info";
+import { Grid, GridItem } from "@chakra-ui/react";
 import { sections } from "../../../util/sections";
 import './infoArea.scss';
 
 export const InfoArea = () => {
   return (
-    <section className="info-area">
-      <div className="about-us-container">
-        {
+    <Grid
+      as='section'
+      h="60vw"
+      w='100vw'
+      m="2rem 0rem"
+      gridTemplateRows="4fr 4fr"
+      gridTemplateColumns="1fr 1fr" 
+      templateAreas={`"quienes-somos quienes-somos"
+        "vision mission"`}  
+      b="red.100"
+    >
+    
+      <GridItem area={"quienes-somos"}>
+        
           <Info 
             {...sections[0]}
           />
-        }
-      </div>
+        
+      </GridItem>
       
-      <div className="mision-container">
-        {
+      <GridItem area={"vision"} >
+        
           <Info 
             {...sections[1]}
           />
-        }
-      </div>
+        
+      </GridItem>
 
-      <div className="vision-container">
-        {
+      <GridItem area={"mission"}>
+        
           <Info 
             {...sections[2]}
           />
-        }
-      </div>
-      {/* {
-        sections.map(section => {
-          return(
-            <Info 
-              key={section.title}
-              {...section}
-            />
-          )
-        })
-      } */}
-    </section>
+        
+      </GridItem>
+      
+    </Grid>
    
   )
 }

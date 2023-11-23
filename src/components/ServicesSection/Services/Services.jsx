@@ -16,10 +16,11 @@ export const Services = () => {
             justify='center'
             w='100%'
             gap='2rem 4rem'
+            m="2rem 0"
         >
             
             <Text as='h2'>SERVICIOS</Text>
-            <Text as='p'>Nuestras áreas son las siguientes</Text>
+            <Text as='p' color="gray.100">Nuestras áreas son las siguientes</Text>
 
             <Skeleton 
                 w='100%'
