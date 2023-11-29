@@ -3,7 +3,7 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Header, Footer } from "../";
 
-import { HomePage, ServicePage, ServicesPage, CircularesPage, ContactPage } from "./";
+import { HomePage, ServicePage, ServicesPage, CircularesPage, ContactPage, ScrollToTop } from "./";
 
 export const RootLayout = () => {
   
@@ -19,12 +19,14 @@ export const RootLayout = () => {
       height="100vh"
       padding="0"
       margin="0"
+      width="100vw"
       overflowX="hidden"
     >
       {/* Header */}
       <Header />
 
       <GridItem as="main" area={'main'} bg="white.100">
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/servicios" element={<ServicesPage />} />

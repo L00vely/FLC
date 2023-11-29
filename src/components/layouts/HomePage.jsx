@@ -7,7 +7,7 @@ import { VStack } from "@chakra-ui/react";
 export const HomePage = () => {
 
     return (
-        <VStack>
+        <VStack spacing="0rem" w="100vw">
             <InfoArea />
 
             <Services />

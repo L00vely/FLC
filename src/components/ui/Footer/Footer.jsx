@@ -93,14 +93,14 @@ export const Footer = () => {
           </Box>
 
           
-            <VStack
-              display={ isMobile ? "none" : "flex" }
-            >
-              {items.map((item, index) => (
-                <FooterItem key={index} {...item} />
-              ))}
-              
-            </VStack>
+          <VStack
+            display={ isMobile ? "none" : "flex" }
+          >
+            {items.map((item, index) => (
+              <FooterItem key={index} {...item} />
+            ))}
+            
+          </VStack>
         </HStack>
   
         <Divider width="100vw" orientation='horizontal' style={ { borderWidth: "2px", borderColor: "#A80000"}}/>

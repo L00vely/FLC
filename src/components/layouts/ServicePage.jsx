@@ -30,6 +30,7 @@ export const ServicePage = () => {
                 as="section"
                 className="animate__animated animate__fadeIn"
                 spacing="2rem"
+                width="100vw"
             >
                 <VStack
                     spacing="2rem"

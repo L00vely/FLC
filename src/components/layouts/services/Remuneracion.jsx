@@ -1,4 +1,4 @@
-import { Flex, Text } from "@chakra-ui/react"
+import { Flex, Text, VStack } from "@chakra-ui/react"
 
 export const Remuneracion = () => {
 

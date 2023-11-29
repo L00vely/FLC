@@ -13,7 +13,7 @@ export const AsesoriaCorporativa = () => {
 
     return (
         <VStack p="2rem">
-            <Text as="h2" style={{color: 'black'}}>Este servicio consiste en:</Text>
+            <Text as="p" style={{color: 'black'}}>Este servicio consiste en:</Text>
 
             <List  p="2rem" display="flex" flexDir="row" gap="1rem" flexWrap="wrap"  justifyContent="center">
                 {

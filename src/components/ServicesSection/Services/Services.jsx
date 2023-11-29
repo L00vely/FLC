@@ -14,13 +14,12 @@ export const Services = () => {
             direction='column'
             align='center'
             justify='center'
-            w='100%'
-            gap='2rem 4rem'
-            m="2rem 0"
+            p="2rem"
+            width="100vw"
         >
             
-            <Text as='h2'>SERVICIOS</Text>
-            <Text as='p' color="gray.100">Nuestras áreas son las siguientes</Text>
+            <Text as='h2' color="red.100" mb="1rem" >SERVICIOS</Text>
+            <Text as='p' >Nuestras áreas son las siguientes</Text>
 
             <Skeleton 
                 w='100%'

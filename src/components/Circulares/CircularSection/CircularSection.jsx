@@ -9,8 +9,6 @@ import { useGetCirculars } from '../../../hooks';
 export const CircularSection = ({ limit }) => {  
     const { memorizedCirculars } = useGetCirculars();
 
-    console.log(memorizedCirculars)
-
     // const [ currentPage, setCurrentPage ] = useState(0)
     // const [ offset, setOffset ] = useState(0);
     // const [ totalPosts, setTotalPosts ] = useState(0);
@@ -54,18 +52,16 @@ export const CircularSection = ({ limit }) => {
             direction='column'
             align='center'
             justify='center'
-            w='100vw'
-            gap='2rem 4rem'
-            m="0rem"
-            p="2rem"
+            w="100vw"
         >
             <Text as='h2'>CIRCULARES</Text>
             <Text as='p' color="gray.100">Avisos importantes</Text>
 
             <Grid
-                gridTemplateColumns={['repeat(1, 1fr)', 'repeat(1, .4fr)', 'repeat(2, .4fr)',  'repeat(3, .25fr)']}
-                gap='4rem'
-                w='100%'
+                gridTemplateColumns={['repeat(2, .4fr)', 'repeat(2, .4fr)', 'repeat(2, 20rem)', 'repeat(2, 20rem)','repeat(3, 25rem)']}
+                gap='2rem'
+                p="2rem"
+                width="100%"
                 justifyContent='center'
                 alignItems='center'
                 className='animate__animated animate__fadeIn'

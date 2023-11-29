@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Text } from '@chakra-ui/react';
+import { HStack, Text, VStack, Image, FormControl, FormLabel, Input, Button } from '@chakra-ui/react';
 import { useForm } from '../../../hooks/useForm';
 import { ContactNav } from '../ContactNav/ContactNav';
 import emailjs from '@emailjs/browser';
@@ -20,7 +20,7 @@ export const Form= () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        emailjs.sendForm('service_h8ch5l3', 'template_ou3y0c9', form.current, 'erUHIAK9bggdXcghE')
+        emailjs.sendForm('service_wqmuu7b', 'template_ou3y0c9', form.current, 'erUHIAK9bggdXcghE')
         .then((result) => {
             console.log(result.text);
         }, (error) => {
@@ -33,55 +33,64 @@ export const Form= () => {
 
 
     return (
-      <div className="form-container">
-        <Text as="h2">CONTÁCTANOS</Text>
-      
-        <ContactNav />
-      
-        <form onSubmit={handleSubmit} name="contact" ref={form}>
-          <div className="input-container">
-            <div className="icon-container">
-              <img src="/icons/icono-usuario.png" alt="Icono de usuario" />
-            </div>
-      
-            <input
-              type="text"
-              placeholder="Nombre"
+      <VStack gridArea="form" h="100%" spacing="2rem" p="2rem" w="100%">
+        <VStack spacing="2rem" w="100%" p="2rem" as="form" onSubmit={handleSubmit} name="contact" ref={form} bg="white.100">
+          <Text as="h3" color="red.100" textAlign="center" w="100%">CONTÁCTANOS</Text>
+          <FormControl isRequired>
+          <FormLabel color="gray.100" >
+              <Text as="span">Nombre completo</Text>
+            </FormLabel>
+            <Input 
+              borderColor="red.100" 
+              placeholder='Nombre completo' 
               name="user_name"
               value={user_name}
               onChange={onInputChange}
-              required
             />
-          </div>
-      
-          <div className="input-container">
-            <div className="icon-container">
-              <img src="/icons/icono-correo.png" alt="Icono de correo" />
-            </div>
-      
-            <input
-              type="email"
-              placeholder="Correo"
+          </FormControl>
+          <FormControl isRequired>
+            <FormLabel color="gray.100" >
+              <Text as="span">Correo electrónico</Text>
+            </FormLabel>
+            <Input 
+              borderColor="red.100" 
+              placeholder='Correo electrónico' 
               name="user_email"
               value={user_email}
               onChange={onInputChange}
-              required
             />
-          </div>
+          </FormControl>
+          <FormControl isRequired >
+            <FormLabel color="gray.100" >
+              <Text as="span">Mensaje</Text>
+            </FormLabel>
+            <Input 
+              borderColor="red.100" 
+              placeholder='Mensaje' 
+              name="message"
+              value={message}
+              onChange={onInputChange}
+            />
+          </FormControl>
+           
       
-          <input
-            className='message-input'
-            type="text"
-            placeholder="Mensaje"
-            name="message"
-            value={message}
-            onChange={onInputChange}
-            required
-          />
-      
-          <input type="submit" value="Enviar" />
-        </form>
-      </div>
+          <Button 
+            type="submit" 
+            value="Enviar"
+            bg="red.100"
+            color="white.100"
+            w="100%"
+          >
+            Enviar
+          </Button>
+        </VStack>
+
+        <VStack w="100%" spacing="1rem" display={["none", "none", "none", "flex", "box" ]}>
+          <Text as="h3" color="red.100" textAlign="center" w="100%">Visita nuestras redes</Text>
+
+          <ContactNav />
+        </VStack>
+      </VStack>
       
     )
 }

@@ -6,7 +6,7 @@ export const Contabilidad = () => {
             <Text as="p">Disponer de información contable, fiscal, y financiera de manera veraz y oportuna para la toma de decisiones, es una necesidad que los clientes de nuestra firma satisfacen 
                 ampliamente a través de servicios de procesamiento de información, compliance fiscal y supervisión de la contabilidad.</Text>
 
-            <Text as="h2">Los servicios que ofrecemos son:</Text>
+            <Text as="p">Los servicios que ofrecemos son:</Text>
             
             <HStack>
                 <VStack bg="red.100" p="2rem" >

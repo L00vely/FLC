@@ -1,8 +1,8 @@
 import { Link, useNavigate  } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import PropTypes from 'prop-types'; 
-import { Text, Card, Box, Image } from "@chakra-ui/react";
-
+import { Text, Card, Box, Image, HStack, Tooltip, VStack, Divider, Flex, Button } from "@chakra-ui/react";
+import { ChatIcon  } from '@chakra-ui/icons';
 
 
 export const ServiceCard = ( { title, slug, icon, description }) => {
@@ -15,58 +15,69 @@ export const ServiceCard = ( { title, slug, icon, description }) => {
     }
     
     const cardStyles = {
-        display: 'flex',
-        flexDirection: 'column',
-        p: '2rem',
         gap: '1.5rem',
-        transition: '.4s', 
         bg: 'white.200  ',
         width: "100%",
-
-        _hover: {
-            transform: 'scale(1.05)',
-            boxShadow: '0 0 1rem #A80000',
-        },
+        alignSelf: "flex-start",
+       
     };
 
     return (
         
         <Card 
-            cursor="pointer"
-            onClick={handleClick}
-            height="100%"
-            align= {["center"]}
-            justify= {["center", "flex-start"]}
-        
+            p="2rem"
             { ...cardStyles }
-        >
-            <Box 
-                
-                title={`Icono del servicio de ${title}`}        
-            >
-                <Image  
-                    src={ icon.url  } 
-                    alt={`Icono del servicio de ${title}`}                
-                />
-            </Box>
+        >   
+            <VStack >
+                <Box 
+                    title={`Icono del servicio de ${title}`}        
+                >
+                    <Image  
+                        src={ icon.url  } 
+                        alt={`Icono del servicio de ${title}`}                
+                    />
+                </Box>
 
-         
+                <Text as='h3' textAlign="center"> { title }</Text>
 
-            <Text as='h3' textAlign="center"> { title }</Text>
+                <Text 
+                    as='p'
+                    hidden={isMobile}
+                >
+                    { description }
+                </Text>
 
-            <Text 
-                as='p'
-                hidden={isMobile}
-            >
-                { description }
-            </Text>
+                <Divider borderWidth=".1rem"/>
 
-            {/* <Link to={`/servicios/${serviceUrl}`} className="link view-more-container">
-                Leer más
-                <div className='icon-container'>
-                    <img src='/icons/icons8-derecha-50.png' alt="Icono de ver más"/>
-                </div>
-            </Link> */}
+
+                <HStack w="100%">
+                    <Button 
+                        color="red.100" 
+                        size="sm"
+                        variant='link'
+                        p=".5rem"
+                        // _hover={{
+                        //     variant: 'solid',
+                        //     bg: 'red.100',
+                        // }}
+                        onClick={handleClick}
+                    >
+                        Leer más
+                    </Button>
+
+                    {/* <Tooltip label="Abrir en otra pestaña" aria-label="Abrir en otra pestaña">
+                        <ChatIcon mr=".5rem" />              
+                    </Tooltip> */}
+                </HStack>
+
+                {/* <Link to={`/servicios/${serviceUrl}`} className="link view-more-container">
+                    Leer más
+                    <div className='icon-container'>
+                        <img src='/icons/icons8-derecha-50.png' alt="Icono de ver más"/>
+                    </div>
+                </Link> */}
+            </VStack>
+            
         </Card>
     )
 }

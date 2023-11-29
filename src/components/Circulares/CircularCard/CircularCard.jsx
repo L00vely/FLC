@@ -2,28 +2,40 @@ import PropTypes from 'prop-types';
 import { Card, Box, Image, Link, Text, HStack, VStack, Divider, Flex, Tooltip } from '@chakra-ui/react';
 import { CalendarIcon, DownloadIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 
-export const CircularCard = ( { pdf, thumbnail, date, title, description }) => {
+export const CircularCard = ( { pdf, thumbnail, date, title, description, slug }) => {
 
-  const cambiarAColorRojo = () => {
-    setMouseEncima(true);
+  const openExternalLink = () => {
+    window.open(pdf.url, '_blank');
   };
 
-  const cambiarAColorBlanco = () => {
-    setMouseEncima(false);
-  };
+  
+  const downloadPDF = async () => {
+    const urlDelPDF = pdf.url;
 
-  const handleImageClick = () => {
-    window.open(pdf, '_blank');
+    try {
+      const respuesta = await fetch(urlDelPDF);
+      const datosPDF = await respuesta.blob();
+
+      // Crea un objeto Blob y crea una URL para el archivo
+      const blob = new Blob([datosPDF], { type: 'application/pdf' });
+      const urlBlob = URL.createObjectURL(blob);
+
+      // Crea un elemento 'a' dinámicamente y simula un clic para descargar el PDF
+      const link = document.createElement('a');
+      link.href = urlBlob;
+      link.download = pdf.title;
+      link.click();
+
+      // Limpia la URL del Blob después de la descarga
+      URL.revokeObjectURL(urlBlob);
+    } catch (error) {
+      console.error('Error al descargar el PDF', error);
+    }
   };
 
   const cardStyles = {
     bg: 'white.100',
-    transition: '.4s', 
-    _hover: {
-      boxShadow: '0 0 1rem #A80000',
-      textDecoration: 'none',
-    },
-};
+  };
 
   let formattedDate = new Date(date);
   const day = formattedDate.getDate();
@@ -34,12 +46,8 @@ export const CircularCard = ( { pdf, thumbnail, date, title, description }) => {
   return (
       <Card 
         className='animate__animated animate__fadeIn'
-        as={Link} 
         alignSelf="flex-start"
-        { ...cardStyles }
-        onMouseEnter={cambiarAColorRojo} 
-        onMouseLeave={cambiarAColorBlanco}
-      
+        { ...cardStyles }  
       > 
         <VStack >   
           <Text as="h3" color="white.100" bg="red.100" w="100%" textAlign="center">{ title }</Text>
@@ -56,25 +64,29 @@ export const CircularCard = ( { pdf, thumbnail, date, title, description }) => {
          
           <Divider borderWidth=".1rem"/>
 
-          <Flex w="100%" direction="row" justify="space-between" align="center">
-            <Text 
-              as="span" 
-              fontWeight="500" 
-              color="gray.100"
-              p=".5rem"
-              
-            >
-              <CalendarIcon mr=".5rem"/> { formattedDate }
-            </Text>
+          <Flex gap="1rem" w="100%" p="1rem" direction={["column", "row"]} justify="space-between" align="center">
+            <HStack >
+              <CalendarIcon/>
+              <Text 
+                as="span" 
+                fontWeight="500" 
+                color="gray.100"                
+              >
+                 { formattedDate }
+              </Text>
+            </HStack>
+            
+            <Divider borderWidth=".1rem" display={["block", "none"]}/>
+
 
             <HStack>
               <Tooltip label="Abrir en otra pestaña" aria-label="Abrir en otra pestaña">
-                <ExternalLinkIcon mr=".5rem"/>              
+                <ExternalLinkIcon mr=".5rem" onClick={openExternalLink} cursor="pointer"/>              
               </Tooltip>
               
 
-              <Tooltip label="Descargar" aria-label="Descargar">
-                <DownloadIcon mr=".5rem"/>  
+              <Tooltip label="Descargar" aria-label="Descargar" >
+                <DownloadIcon mr=".5rem" onClick={downloadPDF} cursor="pointer"/>  
               </Tooltip>
               
             </HStack>
