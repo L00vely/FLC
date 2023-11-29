@@ -33,35 +33,35 @@ const globalStyles = {
 
       h2: {
         color: "red.100",
-        fontSize: ["xs", "sm", "md", "2xl", "3xl"],
+        fontSize: ["md", "md", "lg", "xl", "2xl"],
         fontWeight: "bold"
       },
 
       h3: {
         color: "red.100",
-        fontSize: ["sm", "md", "lg", "xl", "2xl"],
+        fontSize: ["sm", "sm", "md", "lg", "xl"],
         fontWeight: "bold"
       },
       
       
       p:{
-          fontSize: ["xs", "md", "md", "lg", "xl"],
+          fontSize: ["xs", "md", "md", "lg", "lg"],
           color: "gray.100"
       },
 
       li:{
-        fontSize: ["xs", "md", "md", "lg", "xl"],
+        fontSize: ["xs", "md", "md", "lg", "lg"],
           color: "gray.100",
           margin: "1rem 0"
       },
 
       strong: {
-        fontSize: ["sm", "sm", "sm", "sm", "sm"],
+        fontSize: ["xs", "md", "md", "lg", "lg"],
         fontWeight: "bold",
       },
 
       span: {
-        fontSize: ["sm", "sm", "sm", "sm", "sm"]
+        fontSize: ["xs", "md", "md", "lg", "lg"],
       }
   }
 }
