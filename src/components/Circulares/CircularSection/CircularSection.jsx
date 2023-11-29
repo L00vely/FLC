@@ -1,55 +1,72 @@
 import { useState, useEffect } from 'react';
 import { CircularCard } from '../CircularCard/CircularCard'
-import { circulares } from '../../../util/circulares'
-import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai'
-import './circularSection.scss';
+import { ArrowForwardIcon, ArrowBackIcon } from '@chakra-ui/icons';
+import { HStack, Flex, Grid, Text, Button } from '@chakra-ui/react';
+import { useGetCirculars } from '../../../hooks';
 
 
 export const CircularSection = ({ limit }) => {  
-    const [ currentPage, setCurrentPage ] = useState(0)
-    const [ offset, setOffset ] = useState(0);
-    const [ totalPosts, setTotalPosts ] = useState(0);
-    const [ totalPages, setTotalPages ] = useState(1);
+    const { memorizedCirculars } = useGetCirculars();
 
-     // Obtenemos el número total de circulares
-    useEffect(() => {    
-        const totalPosts = circulares.length;
-        setTotalPosts(totalPosts);
+    // const [ currentPage, setCurrentPage ] = useState(0)
+    // const [ offset, setOffset ] = useState(0);
+    // const [ totalPosts, setTotalPosts ] = useState(0);
+    // const [ totalPages, setTotalPages ] = useState(1);
+
+    //  // Obtenemos el número total de circulares
+    // useEffect(() => {    
+    //     const totalPosts = circulares.length;
+    //     setTotalPosts(totalPosts);
         
-        const totalPages = Math.ceil(totalPosts / limit);
-        setTotalPages(totalPages);
-    }, []);
+    //     const totalPages = Math.ceil(totalPosts / limit);
+    //     setTotalPages(totalPages);
+    // }, []);
 
-    // Decrementamos el offset
-    const decrementOffset = () => {
-        if (offset > 0) {
-            setOffset((current) => current - 1);
-            setCurrentPage((current) => current - 1)
-        }else if(offset === 0){
-            setOffset(totalPages - 1);
-        }
-    };
+    // // Decrementamos el offset
+    // const decrementOffset = () => {
+    //     if (offset > 0) {
+    //         setOffset((current) => current - 2);
+    //         setCurrentPage((current) => current - 1)
+    //     }else if(offset === 0){
+    //         setOffset(totalPages - 1);
+    //     }
+    // };
     
-    // Incrementamos el offset
-    const incrementOffset = () => {
-        if (offset < totalPages - 1) {
-            setOffset((current) => current + 1);
-            setCurrentPage((current) => current + 1)
-        } else if(offset === totalPages - 1){
-            setOffset(0);
-        }
-    };
+    // // Incrementamos el offset
+    // const incrementOffset = () => {
+    //     if (offset < totalPages - 1) {
+    //         setOffset((current) => current + 2);
+    //         setCurrentPage((current) => current + 1)
+    //     } else if(offset === totalPages - 1){
+    //         setOffset(0);
+    //     }
+    // };
 
-    const visibleImages = circulares.slice(offset*3, offset*3 + limit);
+    // const visibleImages = circulares.slice(offset*4, offset*4 + limit);
 
     return (
-        <section className="circular-container animate__animated animate__fadeIn">
-            <h2>CIRCULARES</h2>
-            <p>Avisos importantes</p>
+        <Flex
+            as='section'
+            className="animate__animated animate__fadeIn"
+            direction='column'
+            align='center'
+            justify='center'
+            w="100vw"
+        >
+            <Text as='h2'>CIRCULARES</Text>
+            <Text as='p' color="gray.100">Avisos importantes</Text>
 
-            <div className='circular-grid-container animate__animated animate__fadeIn'>
+            <Grid
+                gridTemplateColumns={['repeat(2, .4fr)', 'repeat(2, .4fr)', 'repeat(2, 20rem)', 'repeat(2, 20rem)','repeat(3, 25rem)']}
+                gap='2rem'
+                p="2rem"
+                width="100%"
+                justifyContent='center'
+                alignItems='center'
+                className='animate__animated animate__fadeIn'
+            >
                 {
-                    visibleImages.map( circular => {
+                    memorizedCirculars.map( circular => {
                         return(
                             <CircularCard 
                                 {...circular}
@@ -58,24 +75,14 @@ export const CircularSection = ({ limit }) => {
                         )
                     })
                 }
-            </div>
+            </Grid>
+                {/* <HStack spacing="2rem">
+                    <Button bg="red.100" onClick={ decrementOffset } _hover={{ backgroundColor: "white.100" }}> <ArrowBackIcon /> </Button>
 
-            {
-                limit !== 9 ? (
-         
-                    <div className='pagination-buttons'>
-                        <button className="red-button" onClick={ decrementOffset }> <AiFillCaretLeft /> </button>
-
-                        <span>{ offset + 1 } / { totalPages } </span>
-                
-                        <button className="red-button" onClick={ incrementOffset }> <AiFillCaretRight /> </button>
-                    </div>
-                    
-                ): null
-            }
-
+                    <Text as="span">{ offset + 1 } / { totalPages } </Text>
             
-
-        </section>
+                    <Button bg="red.100" onClick={ incrementOffset } _hover={{ backgroundColor: "white.100" }}> <ArrowForwardIcon/> </Button>
+                </HStack> */}
+        </Flex>
     )
 }
