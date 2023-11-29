@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { CircularCard } from '../CircularCard/CircularCard'
-import { circulares } from '../../../util/circulares'
 import { ArrowForwardIcon, ArrowBackIcon } from '@chakra-ui/icons';
 import { HStack, Flex, Grid, Text, Button } from '@chakra-ui/react';
 import { useGetCirculars } from '../../../hooks';
