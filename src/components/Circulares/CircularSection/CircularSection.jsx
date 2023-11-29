@@ -3,9 +3,14 @@ import { CircularCard } from '../CircularCard/CircularCard'
 import { circulares } from '../../../util/circulares'
 import { ArrowForwardIcon, ArrowBackIcon } from '@chakra-ui/icons';
 import { HStack, Flex, Grid, Text, Button } from '@chakra-ui/react';
+import { useGetCirculars } from '../../../hooks';
 
 
 export const CircularSection = ({ limit }) => {  
+    const { memorizedCirculars } = useGetCirculars();
+
+    console.log(memorizedCirculars)
+
     // const [ currentPage, setCurrentPage ] = useState(0)
     // const [ offset, setOffset ] = useState(0);
     // const [ totalPosts, setTotalPosts ] = useState(0);
@@ -66,7 +71,7 @@ export const CircularSection = ({ limit }) => {
                 className='animate__animated animate__fadeIn'
             >
                 {
-                    circulares.map( circular => {
+                    memorizedCirculars.map( circular => {
                         return(
                             <CircularCard 
                                 {...circular}

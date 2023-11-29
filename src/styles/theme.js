@@ -39,13 +39,13 @@ const globalStyles = {
 
       h3: {
         color: "red.100",
-        fontSize: ["sm", "md", "lg", "lg", "lg"],
+        fontSize: ["xs", "md", "md", "md", "lg"],
         fontWeight: "bold"
       },
       
       
       p:{
-          fontSize: ["sm", "md", "md", "md", "lg"],
+          fontSize: ["xs", "sm", "sm", "sm", "md"],
           color: "gray.100"
       },
 

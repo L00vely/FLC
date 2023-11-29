@@ -1,28 +1,29 @@
 import { client } from "../../client";
 
-const getServices = async () => {
-    const servicesQuery = `query {
-      servicesCollection {
+const getCirculars = async () => {
+    const circularsQuery = `query {
+      circularCollection {
         items{
           title
           slug
-          whiteIcon {
+          pdf {
             url
             title
           }
-          icon{
+          thumbnail {
             url
             title
           }
+          date
           description
         }
       }
     }`;
     
     try {
-      const data = await client.request(servicesQuery);
-      const { servicesCollection } = data;
-      const { items } = servicesCollection;
+      const data = await client.request(circularsQuery);
+      const { circularCollection } = data;
+      const { items } = circularCollection;
       return items;
     } catch (error) {
       console.error(error);
@@ -31,5 +32,5 @@ const getServices = async () => {
   };
   
   export {
-      getServices
+      getCirculars
   };

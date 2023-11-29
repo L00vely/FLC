@@ -1,10 +1,8 @@
-import { useState } from 'react'; 
 import PropTypes from 'prop-types';
-import { Card, Box, Image, Link, Text, HStack, VStack } from '@chakra-ui/react';
+import { Card, Box, Image, Link, Text, HStack, VStack, Divider, Flex, Tooltip } from '@chakra-ui/react';
+import { CalendarIcon, DownloadIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 
-export const CircularCard = ( { pdf, img, date, title, link }) => {
-  const [mouseEncima, setMouseEncima] = useState(false);
-
+export const CircularCard = ( { pdf, thumbnail, date, title, description }) => {
 
   const cambiarAColorRojo = () => {
     setMouseEncima(true);
@@ -19,95 +17,79 @@ export const CircularCard = ( { pdf, img, date, title, link }) => {
   };
 
   const cardStyles = {
-    display: 'flex',
-    flexDirection: 'column',
     bg: 'white.100',
-    gap: '1.5rem',
     transition: '.4s', 
-    width: "100%",
-    heigh: "100%",
     _hover: {
-      transform: 'scale(1.05)',
-
-        bg: 'red.100',
-        color: 'white.100',
-        boxShadow: '0 0 1rem #A80000',
-        textDecoration: 'none',
+      boxShadow: '0 0 1rem #A80000',
+      textDecoration: 'none',
     },
 };
 
+  let formattedDate = new Date(date);
+  const day = formattedDate.getDate();
+  const month = formattedDate.getMonth() + 1;
+  const year = formattedDate.getFullYear();
+  formattedDate = `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year}`;
 
   return (
       <Card 
         className='animate__animated animate__fadeIn'
         as={Link} 
-    
+        alignSelf="flex-start"
         { ...cardStyles }
         onMouseEnter={cambiarAColorRojo} 
         onMouseLeave={cambiarAColorBlanco}
       
       > 
-       
-      <HStack>
-        <Box height="100%">
-            <Image  
-                src={ img }
-                alt={`Miniatura del ${ title }`} 
-                onClick={handleImageClick}        
-                w="20rem"
-                height="100%"
-            />
-        </Box>
+        <VStack >   
+          <Text as="h3" color="white.100" bg="red.100" w="100%" textAlign="center">{ title }</Text>
+          <Text as="p"  p="1rem" textAlign="center">{ description }</Text>
+            {/* <Box height="100%">
+                <Image  
+                    src={ thumbnail.url }
+                    alt={`Miniatura del ${ thumbnail.title }`} 
+                    onClick={handleImageClick}        
+                    w="100%"
+                    height="100%"
+                />
+            </Box> */}
+         
+          <Divider borderWidth=".1rem"/>
 
-    
+          <Flex w="100%" direction="row" justify="space-between" align="center">
+            <Text 
+              as="span" 
+              fontWeight="500" 
+              color="gray.100"
+              p=".5rem"
+              
+            >
+              <CalendarIcon mr=".5rem"/> { formattedDate }
+            </Text>
 
-    
-        <VStack
-          align= {["center"]}
-          justify= {["center", "flex-start"]}
-          p="1rem"
-        >
-          <VStack
-            align="flex-start"
-            justify="flex-start"
-            w="100%"
-          >
-            <Text as="strong">{ title }</Text>
-            <Text as="span">{ date }</Text>
-          </VStack>
-{/* 
-          <Link as="a"  
-            href={link} 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            <Box>
-              <Image
-                src={!mouseEncima ? '/icons/linkedin-rojo.png' : "/icons/linkedin-blanco.png" }
-                alt="LinkedIn icon"
-              />
-            </Box>
-           
-          </Link> */}
-        </VStack>
+            <HStack>
+              <Tooltip label="Abrir en otra pestaña" aria-label="Abrir en otra pestaña">
+                <ExternalLinkIcon mr=".5rem"/>              
+              </Tooltip>
+              
 
-            
-            
-
-      </HStack>
-      
-          
-    
-
-        
+              <Tooltip label="Descargar" aria-label="Descargar">
+                <DownloadIcon mr=".5rem"/>  
+              </Tooltip>
+              
+            </HStack>
+          </Flex>
+              
+      </VStack> 
     </Card>
   )
 }
 
 CircularCard.propTypes = {
-    pdf: PropTypes.string.isRequired,
-    img: PropTypes.string.isRequired,
+    pdf: PropTypes.object.isRequired,
+    thumbnail: PropTypes.object.isRequired,
     date: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string
 }
 

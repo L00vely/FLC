@@ -1,8 +1,8 @@
 import { client } from "../../client";
 
-const getServices = async () => {
-    const servicesQuery = `query {
-      servicesCollection {
+const getServiceBySlug = async (slug) => {
+    const serviceQuery = `query {
+      servicesCollection(limit: 1, where: { slug: "${slug}" } ) {
         items{
           title
           slug
@@ -14,16 +14,14 @@ const getServices = async () => {
             url
             title
           }
-          description
         }
       }
     }`;
     
     try {
-      const data = await client.request(servicesQuery);
-      const { servicesCollection } = data;
-      const { items } = servicesCollection;
-      return items;
+      const data = await client.request(serviceQuery);
+      const { servicesCollection: { items }  } = data;
+      return items[0];
     } catch (error) {
       console.error(error);
       throw error;
@@ -31,5 +29,5 @@ const getServices = async () => {
   };
   
   export {
-      getServices
+    getServiceBySlug 
   };
