@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'; 
-import { Box, Text, VStack } from "@chakra-ui/react";
-import './info.scss'
+import { Text, VStack } from "@chakra-ui/react";
 
 export const Info = ({ imgSrc, description, title }) => {
     const containerStyle = {

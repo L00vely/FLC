@@ -6,8 +6,10 @@ export const ServicesGrid = (props) => {
 
     return (
         <Grid
-            gridTemplateColumns={['repeat(1, 1fr)', 'repeat(2, .4fr)', 'repeat(3, .4fr)',  'repeat(4, .2fr)']}
-            gap='4rem'
+            gridTemplateColumns={['repeat(1, 1fr)', 'repeat(2, .4fr)', 'repeat(3, .4fr)',  'repeat(4, .5fr)']}
+            gap='1rem'
+            p="2rem"
+
             w='100%'
             justifyContent='center'
             alignItems='center'

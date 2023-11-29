@@ -1,4 +1,4 @@
-import {  Text, HStack, Flex, VStack, List, ListItem } from "@chakra-ui/react"
+import {  Text, VStack, List, ListItem } from "@chakra-ui/react"
 
 export const AsesoriaCorporativa = () => {
     const servicios = [
@@ -15,11 +15,27 @@ export const AsesoriaCorporativa = () => {
         <VStack p="2rem">
             <Text as="h2" style={{color: 'black'}}>Este servicio consiste en:</Text>
 
-            <List  p="2rem" display="flex" flexDir="row" gap="1rem">
+            <List  p="2rem" display="flex" flexDir="row" gap="1rem" flexWrap="wrap"  justifyContent="center">
                 {
-                    servicios.map( servicio => {
+                    servicios.map( (servicio, index) => {
                         return (
-                            <ListItem bg="red.100" color="white.100" p="2rem">{ servicio }</ListItem>
+                            <ListItem 
+                                display="flex" 
+                                flexDirection="row" 
+                                bg="red.100" p="2rem" 
+                                textAlign="center" 
+                                alignItems="center" 
+                                justifyContent="flex-start"
+                                w={["100%", "100%", "20%"]}
+                                gap="1rem"
+                                key={index}
+                            >
+                                
+                                <Text as="p" color="red.100" h="100%" bg="white.100" >.</Text>
+                        
+                                <Text as="p" color="white.100" textAlign="start">{ servicio }</Text>
+
+                            </ListItem>
                         )
                     })
                 }

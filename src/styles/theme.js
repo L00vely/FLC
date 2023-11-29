@@ -60,8 +60,7 @@ const globalStyles = {
       },
 
       span: {
-        fontSize: ["sm", "sm", "sm", "sm", "sm"],
-        textAlign: "justify",
+        fontSize: ["sm", "sm", "sm", "sm", "sm"]
       }
   }
 }

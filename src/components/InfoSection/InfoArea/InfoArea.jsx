@@ -1,16 +1,15 @@
 import { Info } from "../Info/Info";
 import { Grid, GridItem } from "@chakra-ui/react";
 import { sections } from "../../../util/sections";
-import './infoArea.scss';
 
 export const InfoArea = () => {
   return (
     <Grid
       as='section'
-      h="60vw"
       w='100vw'
       m="2rem 0rem"
-      gridTemplateRows="4fr 4fr"
+      h="100%"
+      gridTemplateRows="40rem 40rem"
       gridTemplateColumns="1fr 1fr" 
       templateAreas={`"quienes-somos quienes-somos"
         "vision mission"`}  
