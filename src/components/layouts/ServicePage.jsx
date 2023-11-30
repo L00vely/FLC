@@ -55,6 +55,17 @@ export const ServicePage = () => {
                     >
                         { serviceTitle }
                     </Text>
+
+                    <Text as="strong">
+                        ¿Te interesa este servicio? 
+
+                    </Text>
+
+                    <WhatsAppButton 
+                        service={ service.title }
+                    />
+
+
                 </VStack>
 
                 {   serviceSlug  === "contabilidad" ? (
@@ -93,10 +104,7 @@ export const ServicePage = () => {
                     )
                 )}
 
-                <WhatsAppButton 
-                    service={ service.title }
-                />
-
+                
                 <VStack 
                     as="section"                   
                     className="animate__animated animate__fadeIn"
