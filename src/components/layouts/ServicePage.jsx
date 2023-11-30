@@ -4,6 +4,7 @@ import { Box, VStack, Image, Text } from "@chakra-ui/react";
 import { useGetServiceBySlug, useGetServices } from "../../hooks";
 import { DesarrolloWeb, Contabilidad, AsesoriaCorporativa, AsesoriaLegal, LitigioFiscal, RelacionesInstitucionales, Remuneracion, ConsultoriaFiscal } from "./services";
 import './services/services.scss'
+import { WhatsAppButton } from "../ui";
 
 export const ServicePage = () => {
     const { servicio } = useParams();
@@ -92,6 +93,9 @@ export const ServicePage = () => {
                     )
                 )}
 
+                <WhatsAppButton 
+                    service={ service.title }
+                />
 
                 <VStack 
                     as="section"                   
