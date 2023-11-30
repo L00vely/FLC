@@ -1,10 +1,12 @@
 import { Info } from "../Info/Info";
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Box, Grid, GridItem } from "@chakra-ui/react";
 import { sections } from "../../../util/sections";
 
 export const InfoArea = () => {
   return (
-    <Grid
+    <Box
+      display={["flex", "flex", "grid", "grid"]}
+      flexDirection="column"
       as='section'
       w='100vw'
       m="2rem 0rem"
@@ -40,7 +42,7 @@ export const InfoArea = () => {
         
       </GridItem>
       
-    </Grid>
+    </Box>
    
   )
 }
