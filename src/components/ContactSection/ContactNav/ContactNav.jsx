@@ -8,9 +8,9 @@ export const ContactNav = () => {
         <ButtonGroup
             gap="2rem"
             
-            display="flex"
-            flexWrap="wrap"
-            h="100%"
+            display="grid"
+            gridTemplateColumns={["repeat(4,1fr)", "repeat(2,1fr)", "repeat(4,1fr)", "repeat(4,1fr)"]}
+
         >
             <ContactItem 
                 link={"https://wa.me/525514178078"}
