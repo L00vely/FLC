@@ -18,17 +18,11 @@ export const WhatsAppButton = ( { service } ) => {
         <Button 
             colorScheme="green"
             onClick={handleButtonClick}
-            p="2rem"
-            display="flex"
-            flexDirection="row"
-            gap="1rem"
+            p="1rem"
+            
         > 
-          <PhoneIcon />
-          
           <Text as="span">
-            Contacta a nuestro equipo de forma directa
-
-
+            Contáctanos
           </Text>
 
         </Button>
