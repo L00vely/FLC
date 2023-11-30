@@ -7,9 +7,10 @@ export const ContactNav = () => {
     return (
         <ButtonGroup
             gap="2rem"
-            w="100%"
+            
             display="grid"
-            gridTemplateColumns={['repeat(2, .4fr)', 'repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(2, 1fr)','repeat(2, 1fr)']}
+            gridTemplateColumns={["repeat(4,1fr)", "repeat(2,1fr)", "repeat(4,1fr)", "repeat(4,1fr)"]}
+
         >
             <ContactItem 
                 link={"https://wa.me/525514178078"}

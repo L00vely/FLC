@@ -9,7 +9,7 @@ export const ContactItem = ({ link, name }) => {
             to={link} 
             title={`Contacto por ${ name }`} 
             bg="white.100"
-
+            
         >
        
             <Image 
