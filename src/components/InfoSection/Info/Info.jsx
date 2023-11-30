@@ -15,7 +15,7 @@ export const Info = ({ imgSrc, description, title }) => {
     return (
        
         <VStack 
-            h="100%"
+            h="40rem"
             w="100%"
             style={containerStyle}
         >
