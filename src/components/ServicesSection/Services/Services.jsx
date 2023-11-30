@@ -1,23 +1,32 @@
 
-import { services } from '../../../util/services';
-import { ServiceCard } from '../ServiceCard/ServiceCard';
-import './services.scss';
+import { Text, Flex, Skeleton } from '@chakra-ui/react';
+import { ServicesGrid } from '../ServicesGrid';
+import { useGetServices } from '../../../hooks';
 
 export const Services = () => {    
-    return (
-        <section className="services-container animate__animated animate__fadeIn">
-            
-            <h2>SERVICIOS</h2>
-            <p>Nuestras áreas son las siguientes</p>
-            <div className="services-grid-container">
-                {
-                    services.map( service => (
-                        <ServiceCard key={service.title} { ...service }/>
-                    ))
-                }
-            </div>
-            
 
-        </section>
+    const { memorizedServices, isLoading } = useGetServices();
+    
+    return (
+        <Flex 
+            as='section' 
+            className="animate__animated animate__fadeIn"
+            direction='column'
+            align='center'
+            justify='center'
+            p="2rem"
+            width="100vw"
+        >
+            
+            <Text as='h2' color="red.100" mb="1rem" >SERVICIOS</Text>
+            <Text as='p' >Nuestras áreas son las siguientes</Text>
+
+            <Skeleton 
+                w='100%'
+                isLoaded={!isLoading} 
+            > 
+                <ServicesGrid services={ memorizedServices } isLoading={isLoading}/>
+            </Skeleton>
+        </Flex>
     )
 }
