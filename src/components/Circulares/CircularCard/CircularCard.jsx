@@ -64,7 +64,7 @@ export const CircularCard = ( { pdf, thumbnail, date, title, description, slug }
          
           <Divider borderWidth=".1rem"/>
 
-          <Flex gap="1rem" w="100%" p="1rem" direction={["column", "row"]} justify="space-between" align="center">
+          <Flex gap="1rem" w="100%" p="1rem" direction={["column", "column", "row", "row"]} justify="space-between" align="center">
             <HStack >
               <CalendarIcon/>
               <Text 
@@ -79,7 +79,7 @@ export const CircularCard = ( { pdf, thumbnail, date, title, description, slug }
             <Divider borderWidth=".1rem" display={["block", "none"]}/>
 
 
-            <HStack>
+            <HStack  >
               <Tooltip label="Abrir en otra pestaña" aria-label="Abrir en otra pestaña">
                 <ExternalLinkIcon mr=".5rem" onClick={openExternalLink} cursor="pointer"/>              
               </Tooltip>
