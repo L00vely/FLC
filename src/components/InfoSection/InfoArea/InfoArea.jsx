@@ -1,21 +1,45 @@
 import { Info } from "../Info/Info";
-import { Box, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Grid, GridItem, useBreakpointValue } from "@chakra-ui/react";
 import { sections } from "../../../util/sections";
 
 export const InfoArea = () => {
+  const gridTemplateAreas = useBreakpointValue({
+    base: `
+    "quienes-somos"
+    "vision"
+    "mission"
+  `,
+    sm: `
+      "quienes-somos"
+      "vision"
+      "mission"
+    `,
+    md: `
+      "quienes-somos"
+      "vision"
+      "mission"
+      
+    `,
+    lg: `
+      "quienes-somos quienes-somos"
+      "vision mission"
+    `,
+    xl: `
+      "quienes-somos quienes-somos"
+      "vision mission"
+    `,
+});
+
+
+
+
   return (
-    <Box
-      display={["flex", "flex", "grid", "grid"]}
-      flexDirection="column"
+    <Grid
       as='section'
       w='100vw'
-      m="2rem 0rem"
-      h="100%"
-      gridTemplateRows="40rem 40rem"
-      gridTemplateColumns="1fr 1fr" 
-      templateAreas={`"quienes-somos quienes-somos"
-        "vision mission"`}  
-      b="red.100"
+      gridTemplateRows={["repeat(3, 1fr)", "repeat(3, 1fr)", "repeat(3, 1fr)", "repeat(3, 1fr)", "repeat(2, 1fr)", "repeat(2, 1fr)"]}
+      gridTemplateColumns={["100vw", "100vw", "100vw", "100vw", "1fr 1fr", "1fr 1fr"]} 
+      templateAreas={gridTemplateAreas}
     >
     
       <GridItem area={"quienes-somos"}>
@@ -42,7 +66,7 @@ export const InfoArea = () => {
         
       </GridItem>
       
-    </Box>
+    </Grid>
    
   )
 }

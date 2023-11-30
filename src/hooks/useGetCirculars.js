@@ -9,7 +9,6 @@ export const useGetCirculars = () => {
         const fetchCirculars = async () => {
         try {
             const circulars= await getCirculars();
-            console.log(circulars);
 
             setCirculars(circulars);
             setIsLoading(false);
