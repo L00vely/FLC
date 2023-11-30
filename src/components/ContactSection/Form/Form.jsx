@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { HStack, Text, VStack, Image, FormControl, FormLabel, Input, Button } from '@chakra-ui/react';
+import { HStack, Text, VStack, Image, FormControl, FormLabel, Input, Button, Flex } from '@chakra-ui/react';
 import { useForm } from '../../../hooks/useForm';
 import { ContactNav } from '../ContactNav/ContactNav';
 import emailjs from '@emailjs/browser';
@@ -33,9 +33,21 @@ export const Form= () => {
 
 
     return (
-      <VStack gridArea="form" h="100%" spacing="2rem" p="2rem" w="100%">
-        <VStack spacing="2rem" w="100%" p="2rem" as="form" onSubmit={handleSubmit} name="contact" ref={form} bg="white.100">
+
+        <VStack
+     
+          spacing="3rem"
+          h="100%" 
+          p="2rem" 
+          as="form" 
+          onSubmit={handleSubmit} 
+          name="contact" 
+          ref={form} 
+           bg="white.100"
+        >
           <Text as="h3" color="red.100" textAlign="center" w="100%">CONTÁCTANOS</Text>
+          <ContactNav />
+
           <FormControl isRequired>
           <FormLabel color="gray.100" >
               <Text as="span">Nombre completo</Text>
@@ -85,12 +97,6 @@ export const Form= () => {
           </Button>
         </VStack>
 
-        <VStack w="100%" spacing="1rem" display={["none", "none", "none", "flex", "box" ]}>
-          <Text as="h3" color="red.100" textAlign="center" w="100%">Visita nuestras redes</Text>
-
-          <ContactNav />
-        </VStack>
-      </VStack>
       
     )
 }
