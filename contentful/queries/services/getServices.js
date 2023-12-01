@@ -2,7 +2,7 @@ import { client } from "../../client";
 
 const getServices = async () => {
     const servicesQuery = `query {
-      servicesCollection {
+      servicesCollection(order: [title_ASC]) {
         items{
           title
           slug
