@@ -10,10 +10,6 @@ const getCirculars = async () => {
             url
             title
           }
-          thumbnail {
-            url
-            title
-          }
           date
           description
         }
