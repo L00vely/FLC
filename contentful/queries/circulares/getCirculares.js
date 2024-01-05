@@ -2,7 +2,7 @@ import { client } from "../../client";
 
 const getCirculars = async () => {
     const circularsQuery = `query {
-      circularCollection(order: [date_ASC]) {
+      circularCollection(order: [date_DESC]) {
         items{
           title
           slug
